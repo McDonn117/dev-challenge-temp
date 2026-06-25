@@ -70,10 +70,19 @@ This uploads each image, creates all 22 posts, and fills the ACF fields. Idempot
 
 ## Phase E — Templates & homepage
 
-See `templates/` + the template section of this guide *(being built now)*: import the
-Elementor page + Theme Builder header/footer/CTA, select the loop-item templates for
-the dynamic sections, set Theme Builder display conditions, paste `stm-global.css`
-into **Site Settings → Custom CSS**, and set the page as the homepage.
+Full step-by-step in **`templates/ELEMENTOR-RECIPE.md`**. In short:
+1. Paste `stm-global.css` into **Site Settings → Custom CSS**.
+2. Import `stm-homepage-elementor.json` for the pixel-perfect baseline, set it as the homepage.
+3. Build the reusable **Theme Builder** header, footer and CTA strip (define once, used site-wide).
+4. Replace the Services / Industries / Testimonials sections with **Loop Carousel/Grid**
+   widgets bound to the CPTs, and add a dynamic **Team** section — so content is pulled
+   live from the posts you seeded.
+5. Swap the static contact form for an **Elementor Pro Form** with email routing.
+
+> Why the recipe (not pure JSON import): Elementor templates and their ACF dynamic
+> bindings have no REST/CLI endpoint — they're created in wp-admin. Wiring the Loop
+> fields in the Elementor UI also lets them bind against your real ACF field keys,
+> which is more reliable than importing untested binding JSON.
 
 ---
 
