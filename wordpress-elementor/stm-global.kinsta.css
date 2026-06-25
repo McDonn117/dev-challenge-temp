@@ -801,3 +801,36 @@ textarea.form-input { resize: vertical; min-height: 88px; }
 .tst-google { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: var(--space-10); }
 @media (max-width:760px){ .tst-arrow { display: none; } .tst-slide { padding: var(--space-12) var(--space-6) var(--space-8); } }
 
+
+/* =====================================================================
+   LOOP GRID ADAPTATION  (added for dynamic Loop layer — Services)
+   Maps the static design-system classes onto Elementor's Loop Grid DOM.
+   Elementor puts our BEM classes on widget *wrappers* (.elementor-element),
+   so these rules forward the styling to the real inner nodes.
+   ===================================================================== */
+
+/* Loop Grid container -> reuse the .svc-grid layout */
+.svc-grid .elementor-loop-container{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-5);
+}
+@media (max-width:1080px){ .svc-grid .elementor-loop-container{ grid-template-columns:1fr 1fr; } }
+@media (max-width:720px){  .svc-grid .elementor-loop-container{ grid-template-columns:1fr; } }
+
+/* The loop item root container carries .svc-tile — force block over Elementor flex */
+.elementor-element.svc-tile{ display:block; padding:0; }
+.svc-tile > .elementor-widget{ position:static; }
+
+/* Dynamic background image (Image widget wrapper carries .svc-tile__bg) */
+.svc-tile__bg{ position:absolute; inset:0; z-index:0; margin:0; }
+.svc-tile__bg .elementor-widget-container,
+.svc-tile__bg img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; margin:0; border-radius:0;
+}
+
+/* Title (Heading widget wrapper carries .svc-tile__title) -> forward to <h3> */
+.svc-tile__title .elementor-heading-title{
+  font:inherit; color:inherit; margin:0;
+  text-transform:inherit; letter-spacing:inherit;
+  text-shadow:inherit; text-align:inherit; line-height:inherit;
+}

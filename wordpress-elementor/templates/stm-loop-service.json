@@ -1,0 +1,68 @@
+{
+  "version": "0.4",
+  "title": "STM Loop \u2014 Service Tile",
+  "type": "loop-item",
+  "content": [
+    {
+      "id": "svtile01",
+      "elType": "container",
+      "settings": {
+        "_css_classes": "svc-tile",
+        "content_width": "full",
+        "flex_gap": {
+          "size": 0,
+          "unit": "px"
+        },
+        "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": ""
+        },
+        "__dynamic__": {
+          "link": "[elementor-tag id=\"pu\" name=\"post-url\" settings=\"%7B%7D\"]"
+        }
+      },
+      "elements": [
+        {
+          "id": "svbg0001",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "_css_classes": "svc-tile__bg",
+            "__dynamic__": {
+              "image": "[elementor-tag id=\"im\" name=\"acf-image\" settings=\"%7B%22key%22%3A%20%22field_service_image%22%7D\"]"
+            }
+          }
+        },
+        {
+          "id": "svlogo01",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<span class=\"svc-tile__logo\"><img src=\"https://stg-mcdonntest-devstg.kinsta.cloud/wp-content/uploads/2026/06/stm-mark.png\" alt=\"\"></span>"
+          }
+        },
+        {
+          "id": "svtit001",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_css_classes": "svc-tile__title",
+            "header_size": "h3",
+            "__dynamic__": {
+              "title": "[elementor-tag id=\"pt\" name=\"post-title\" settings=\"%7B%7D\"]"
+            }
+          }
+        },
+        {
+          "id": "svplus01",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<span class=\"svc-tile__plus\"><i data-lucide=\"plus\"></i></span>"
+          }
+        }
+      ]
+    }
+  ]
+}
