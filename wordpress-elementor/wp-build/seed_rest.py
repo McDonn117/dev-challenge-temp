@@ -31,7 +31,13 @@ if not DRY and not (SITE and USER and PW):
 AUTH = "Basic " + base64.b64encode(f"{USER}:{PW}".encode()).decode()
 
 def api(method, path, data=None, raw=None, ctype=None, filename=None):
-    url = path if path.startswith("http") else f"{SITE}{path}"
+    # Use the ?rest_route= form: the site's trailing-slash redirect on /wp-json/
+    # paths drops auth + breaks REST routing.
+    if path.startswith("http"):
+        url = path
+    else:
+        route, _, qs = path.partition("?")
+        url = f"{SITE}/?rest_route={route}" + (f"&{qs}" if qs else "")
     headers = {"Authorization": AUTH}
     body = None
     if raw is not None:
@@ -63,7 +69,7 @@ def upload_media(asset_url):
     if DRY:
         print(f"   would upload {rel}"); _media_cache[rel] = 0; return 0
     ctype = mimetypes.guess_type(fname)[0] or "application/octet-stream"
-    res = api("POST", "/wp-json/wp/v2/media", raw=local.read_bytes(),
+    res = api("POST", "/wp/v2/media", raw=local.read_bytes(),
               ctype=ctype, filename=fname)
     _media_cache[rel] = res["id"]
     print(f"   uploaded {rel} -> media #{res['id']}")
@@ -71,7 +77,7 @@ def upload_media(asset_url):
 
 def find_by_slug(rest_base, slug):
     if DRY: return None
-    res = api("GET", f"/wp-json/wp/v2/{rest_base}?slug={slug}&status=publish,draft")
+    res = api("GET", f"/wp/v2/{rest_base}?slug={slug}&status=publish,draft")
     return res[0] if res else None
 
 def slugify(s):
@@ -97,10 +103,10 @@ def seed():
                 continue
             existing = find_by_slug(base, slug)
             if existing:
-                api("POST", f"/wp-json/wp/v2/{base}/{existing['id']}", data=payload)
+                api("POST", f"/wp/v2/{base}/{existing['id']}", data=payload)
                 print(f"   updated  {slug} (#{existing['id']})")
             else:
-                res = api("POST", f"/wp-json/wp/v2/{base}", data=payload)
+                res = api("POST", f"/wp/v2/{base}", data=payload)
                 print(f"   created  {slug} (#{res['id']})")
 
 if __name__ == "__main__":
