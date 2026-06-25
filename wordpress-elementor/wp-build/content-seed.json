@@ -1,0 +1,228 @@
+{
+ "service": [
+  {
+   "title": "Traffic Control Personnel",
+   "acf": {
+    "icon": "traffic-cone",
+    "image": "STM_ASSETS/photos/traffic-controller-slow-bat.webp",
+    "excerpt": "Screened, ticketed traffic controllers and implementers, inducted and ready to deploy across live road environments.",
+    "link": "",
+    "order": 0
+   }
+  },
+  {
+   "title": "Temporary Traffic Management",
+   "acf": {
+    "icon": "traffic-cone",
+    "image": "STM_ASSETS/photos/hero-traffic-management-banner.webp",
+    "excerpt": "Implementation, operation and removal of compliant temporary traffic management to MUTCD QLD and TMR standards.",
+    "link": "",
+    "order": 1
+   }
+  },
+  {
+   "title": "Lane & Shoulder Closures",
+   "acf": {
+    "icon": "construction",
+    "image": "STM_ASSETS/photos/iStock-1308371370.jpg",
+    "excerpt": "Safe, compliant lane and shoulder closures for roadworks, maintenance and infrastructure delivery.",
+    "link": "",
+    "order": 2
+   }
+  },
+  {
+   "title": "Pedestrian & Cyclist Management",
+   "acf": {
+    "icon": "footprints",
+    "image": "STM_ASSETS/photos/iStock-1038532394.jpg",
+    "excerpt": "Protected routes and managed crossings that guide pedestrians and cyclists safely around active works.",
+    "link": "",
+    "order": 3
+   }
+  },
+  {
+   "title": "Emergency Response",
+   "acf": {
+    "icon": "siren",
+    "image": "STM_ASSETS/photos/iStock-1321417982.jpg",
+    "excerpt": "24/7 reactive crews and supervisors mobilised fast for incidents and unplanned works.",
+    "link": "",
+    "order": 4
+   }
+  },
+  {
+   "title": "Night Works",
+   "acf": {
+    "icon": "moon",
+    "image": "STM_ASSETS/photos/traffic-controllers-team-YRbcKPuVvSRiApanBtP4uT.webp",
+    "excerpt": "Supervised, well-lit night and after-hours traffic management for low-impact delivery.",
+    "link": "",
+    "order": 5
+   }
+  },
+  {
+   "title": "Site Monitoring & Compliance Reporting",
+   "acf": {
+    "icon": "clipboard-check",
+    "image": "STM_ASSETS/photos/iStock-1415387571.jpg",
+    "excerpt": "GPS-verified inspections and end-of-shift digital reports that keep every shift audit-ready.",
+    "link": "",
+    "order": 6
+   }
+  },
+  {
+   "title": "VMS Board Hire",
+   "acf": {
+    "icon": "monitor-play",
+    "image": "STM_ASSETS/photos/iStock-1038532394.jpg",
+    "excerpt": "Variable message signs, boards and devices supplied, delivered and maintained.",
+    "link": "",
+    "order": 7
+   }
+  },
+  {
+   "title": "Permits & Road Occupancy",
+   "acf": {
+    "icon": "file-check-2",
+    "image": "STM_ASSETS/photos/iStock-1308371370.jpg",
+    "excerpt": "Coordination of permits and road occupancy approvals so works proceed lawfully and on schedule.",
+    "link": "",
+    "order": 8
+   }
+  }
+ ],
+ "industry": [
+  {
+   "title": "Civil Construction",
+   "acf": {
+    "icon": "building-2",
+    "excerpt": "Traffic control for roadworks, earthworks and major civil project delivery.",
+    "link": "/civil-construction",
+    "order": 0
+   }
+  },
+  {
+   "title": "Utilities",
+   "acf": {
+    "icon": "zap",
+    "excerpt": "Safe access for water, power, gas and telecommunications works.",
+    "link": "",
+    "order": 1
+   }
+  },
+  {
+   "title": "Government Projects",
+   "acf": {
+    "icon": "landmark",
+    "excerpt": "Compliant, audit-ready delivery for TMR and local councils.",
+    "link": "",
+    "order": 2
+   }
+  },
+  {
+   "title": "Events & Private Projects",
+   "acf": {
+    "icon": "calendar-days",
+    "excerpt": "Crowd, road and access management for events and private works.",
+    "link": "",
+    "order": 3
+   }
+  }
+ ],
+ "location": [
+  {
+   "title": "Brisbane",
+   "acf": {
+    "blurb": "Our central hub for South East Queensland, supporting civil, government and utilities works across the metro network.",
+    "phone": "1300 786 233",
+    "email": "brisbane@safetrafficmanagement.com.au",
+    "address": "Brisbane, QLD 4000",
+    "map_image": "STM_ASSETS/maps/brisbane@2x.webp",
+    "link": "/brisbane",
+    "order": 0
+   }
+  },
+  {
+   "title": "Gold Coast",
+   "acf": {
+    "blurb": "Crews servicing the M1 corridor, coastal works and events across the Gold Coast and Logan.",
+    "phone": "1300 786 233",
+    "email": "goldcoast@safetrafficmanagement.com.au",
+    "address": "Southport, QLD 4215",
+    "map_image": "STM_ASSETS/maps/gold-coast@2x.webp",
+    "link": "",
+    "order": 1
+   }
+  },
+  {
+   "title": "Sunshine Coast",
+   "acf": {
+    "blurb": "Coverage from Caboolture to Noosa for infrastructure, maintenance and council projects.",
+    "phone": "1300 786 233",
+    "email": "sunshinecoast@safetrafficmanagement.com.au",
+    "address": "Maroochydore, QLD 4558",
+    "map_image": "STM_ASSETS/maps/sunshine-coast@2x.webp",
+    "link": "",
+    "order": 2
+   }
+  },
+  {
+   "title": "Northern NSW",
+   "acf": {
+    "blurb": "Cross-border support for the Tweed and Northern Rivers, working to NSW and QLD requirements.",
+    "phone": "1300 786 233",
+    "email": "nnsw@safetrafficmanagement.com.au",
+    "address": "Tweed Heads, NSW 2485",
+    "map_image": "STM_ASSETS/maps/northern-nsw@2x.webp",
+    "link": "",
+    "order": 3
+   }
+  }
+ ],
+ "testimonial": [
+  {
+   "title": "Project Engineer, Civil contractor, Brisbane",
+   "acf": {
+    "quote": "\"STM's crews turned up ticketed, briefed and ready. The end-of-shift reports made our compliance reviews straightforward.\"",
+    "author_role": "Project Engineer, Civil contractor, Brisbane",
+    "order": 0
+   }
+  },
+  {
+   "title": "Site Manager, Infrastructure project, Gold Coast",
+   "acf": {
+    "quote": "\"Reliable through a difficult night-works program. Their supervisors kept the site safe and the traffic moving.\"",
+    "author_role": "Site Manager, Infrastructure project, Gold Coast",
+    "order": 1
+   }
+  },
+  {
+   "title": "Works Coordinator, Local council, Sunshine Coast",
+   "acf": {
+    "quote": "\"The real-time reporting and GPS-verified inspections gave us the visibility we needed for a council audit.\"",
+    "author_role": "Works Coordinator, Local council, Sunshine Coast",
+    "order": 2
+   }
+  }
+ ],
+ "team": [
+  {
+   "title": "Kurt",
+   "acf": {
+    "role": "Owner / Director",
+    "bio": "Owner and decision maker, leading STM's safety-governed operating model. [Confirm full name + bio before launch.]",
+    "photo": "",
+    "order": 0
+   }
+  },
+  {
+   "title": "Shanaka",
+   "acf": {
+    "role": "Partner",
+    "bio": "Partner in the business, supporting operations and delivery. [Confirm full name + bio before launch.]",
+    "photo": "",
+    "order": 1
+   }
+  }
+ ]
+}

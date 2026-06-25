@@ -1,0 +1,761 @@
+[
+ {
+  "key": "post_type_service",
+  "title": "Services",
+  "menu_order": 0,
+  "active": true,
+  "post_type": "service",
+  "advanced_configuration": true,
+  "import_source": "",
+  "import_date": "",
+  "labels": {
+   "name": "Services",
+   "singular_name": "Service",
+   "menu_name": "Services",
+   "all_items": "All Services",
+   "add_new_item": "Add New Service",
+   "edit_item": "Edit Service",
+   "view_item": "View Service",
+   "search_items": "Search Services"
+  },
+  "description": "",
+  "public": true,
+  "hierarchical": false,
+  "exclude_from_search": false,
+  "publicly_queryable": true,
+  "show_ui": true,
+  "show_in_menu": true,
+  "show_in_admin_bar": true,
+  "show_in_nav_menus": true,
+  "show_in_rest": true,
+  "rest_base": "service",
+  "rest_namespace": "wp/v2",
+  "rest_controller_class": "WP_REST_Posts_Controller",
+  "menu_position": null,
+  "menu_icon": {
+   "type": "dashicons",
+   "value": "dashicons-archive"
+  },
+  "rewrite": {
+   "permalink_rewrite": "post_type_key",
+   "with_front": true,
+   "feeds": false,
+   "pages": true
+  },
+  "query_var": "post_type_key",
+  "query_var_name": "",
+  "can_export": true,
+  "delete_with_user": false,
+  "supports": [
+   "title",
+   "editor",
+   "thumbnail",
+   "custom-fields"
+  ],
+  "taxonomies": []
+ },
+ {
+  "key": "post_type_industry",
+  "title": "Industries",
+  "menu_order": 0,
+  "active": true,
+  "post_type": "industry",
+  "advanced_configuration": true,
+  "import_source": "",
+  "import_date": "",
+  "labels": {
+   "name": "Industries",
+   "singular_name": "Industry",
+   "menu_name": "Industries",
+   "all_items": "All Industries",
+   "add_new_item": "Add New Industry",
+   "edit_item": "Edit Industry",
+   "view_item": "View Industry",
+   "search_items": "Search Industries"
+  },
+  "description": "",
+  "public": true,
+  "hierarchical": false,
+  "exclude_from_search": false,
+  "publicly_queryable": true,
+  "show_ui": true,
+  "show_in_menu": true,
+  "show_in_admin_bar": true,
+  "show_in_nav_menus": true,
+  "show_in_rest": true,
+  "rest_base": "industry",
+  "rest_namespace": "wp/v2",
+  "rest_controller_class": "WP_REST_Posts_Controller",
+  "menu_position": null,
+  "menu_icon": {
+   "type": "dashicons",
+   "value": "dashicons-building"
+  },
+  "rewrite": {
+   "permalink_rewrite": "post_type_key",
+   "with_front": true,
+   "feeds": false,
+   "pages": true
+  },
+  "query_var": "post_type_key",
+  "query_var_name": "",
+  "can_export": true,
+  "delete_with_user": false,
+  "supports": [
+   "title",
+   "editor",
+   "thumbnail",
+   "custom-fields"
+  ],
+  "taxonomies": []
+ },
+ {
+  "key": "post_type_location",
+  "title": "Locations",
+  "menu_order": 0,
+  "active": true,
+  "post_type": "location",
+  "advanced_configuration": true,
+  "import_source": "",
+  "import_date": "",
+  "labels": {
+   "name": "Locations",
+   "singular_name": "Location",
+   "menu_name": "Locations",
+   "all_items": "All Locations",
+   "add_new_item": "Add New Location",
+   "edit_item": "Edit Location",
+   "view_item": "View Location",
+   "search_items": "Search Locations"
+  },
+  "description": "",
+  "public": true,
+  "hierarchical": false,
+  "exclude_from_search": false,
+  "publicly_queryable": true,
+  "show_ui": true,
+  "show_in_menu": true,
+  "show_in_admin_bar": true,
+  "show_in_nav_menus": true,
+  "show_in_rest": true,
+  "rest_base": "location",
+  "rest_namespace": "wp/v2",
+  "rest_controller_class": "WP_REST_Posts_Controller",
+  "menu_position": null,
+  "menu_icon": {
+   "type": "dashicons",
+   "value": "dashicons-location"
+  },
+  "rewrite": {
+   "permalink_rewrite": "post_type_key",
+   "with_front": true,
+   "feeds": false,
+   "pages": true
+  },
+  "query_var": "post_type_key",
+  "query_var_name": "",
+  "can_export": true,
+  "delete_with_user": false,
+  "supports": [
+   "title",
+   "editor",
+   "thumbnail",
+   "custom-fields"
+  ],
+  "taxonomies": []
+ },
+ {
+  "key": "post_type_testimonial",
+  "title": "Testimonials",
+  "menu_order": 0,
+  "active": true,
+  "post_type": "testimonial",
+  "advanced_configuration": true,
+  "import_source": "",
+  "import_date": "",
+  "labels": {
+   "name": "Testimonials",
+   "singular_name": "Testimonial",
+   "menu_name": "Testimonials",
+   "all_items": "All Testimonials",
+   "add_new_item": "Add New Testimonial",
+   "edit_item": "Edit Testimonial",
+   "view_item": "View Testimonial",
+   "search_items": "Search Testimonials"
+  },
+  "description": "",
+  "public": true,
+  "hierarchical": false,
+  "exclude_from_search": false,
+  "publicly_queryable": true,
+  "show_ui": true,
+  "show_in_menu": true,
+  "show_in_admin_bar": true,
+  "show_in_nav_menus": true,
+  "show_in_rest": true,
+  "rest_base": "testimonial",
+  "rest_namespace": "wp/v2",
+  "rest_controller_class": "WP_REST_Posts_Controller",
+  "menu_position": null,
+  "menu_icon": {
+   "type": "dashicons",
+   "value": "dashicons-format-quote"
+  },
+  "rewrite": {
+   "permalink_rewrite": "post_type_key",
+   "with_front": true,
+   "feeds": false,
+   "pages": true
+  },
+  "query_var": "post_type_key",
+  "query_var_name": "",
+  "can_export": true,
+  "delete_with_user": false,
+  "supports": [
+   "title",
+   "editor",
+   "thumbnail",
+   "custom-fields"
+  ],
+  "taxonomies": []
+ },
+ {
+  "key": "post_type_team",
+  "title": "Team",
+  "menu_order": 0,
+  "active": true,
+  "post_type": "team",
+  "advanced_configuration": true,
+  "import_source": "",
+  "import_date": "",
+  "labels": {
+   "name": "Team",
+   "singular_name": "Team Member",
+   "menu_name": "Team",
+   "all_items": "All Team",
+   "add_new_item": "Add New Team Member",
+   "edit_item": "Edit Team Member",
+   "view_item": "View Team Member",
+   "search_items": "Search Team"
+  },
+  "description": "",
+  "public": true,
+  "hierarchical": false,
+  "exclude_from_search": false,
+  "publicly_queryable": true,
+  "show_ui": true,
+  "show_in_menu": true,
+  "show_in_admin_bar": true,
+  "show_in_nav_menus": true,
+  "show_in_rest": true,
+  "rest_base": "team",
+  "rest_namespace": "wp/v2",
+  "rest_controller_class": "WP_REST_Posts_Controller",
+  "menu_position": null,
+  "menu_icon": {
+   "type": "dashicons",
+   "value": "dashicons-groups"
+  },
+  "rewrite": {
+   "permalink_rewrite": "post_type_key",
+   "with_front": true,
+   "feeds": false,
+   "pages": true
+  },
+  "query_var": "post_type_key",
+  "query_var_name": "",
+  "can_export": true,
+  "delete_with_user": false,
+  "supports": [
+   "title",
+   "editor",
+   "thumbnail",
+   "custom-fields"
+  ],
+  "taxonomies": []
+ },
+ {
+  "key": "group_service",
+  "title": "Service Fields",
+  "fields": [
+   {
+    "key": "field_service_icon",
+    "label": "Lucide icon name",
+    "name": "icon",
+    "type": "text",
+    "instructions": "e.g. traffic-cone, shield-check (matches the design's Lucide set)",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_service_image",
+    "label": "Tile image",
+    "name": "image",
+    "type": "image",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "return_format": "url",
+    "preview_size": "large",
+    "library": "all"
+   },
+   {
+    "key": "field_service_excerpt",
+    "label": "Short description",
+    "name": "excerpt",
+    "type": "textarea",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "rows": 3
+   },
+   {
+    "key": "field_service_link",
+    "label": "Link (optional)",
+    "name": "link",
+    "type": "url",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_service_order",
+    "label": "Display order",
+    "name": "order",
+    "type": "number",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "default_value": 0
+   }
+  ],
+  "location": [
+   [
+    {
+     "param": "post_type",
+     "operator": "==",
+     "value": "service"
+    }
+   ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 1
+ },
+ {
+  "key": "group_industry",
+  "title": "Industry Fields",
+  "fields": [
+   {
+    "key": "field_industry_icon",
+    "label": "Lucide icon name",
+    "name": "icon",
+    "type": "text",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_industry_excerpt",
+    "label": "Short description",
+    "name": "excerpt",
+    "type": "textarea",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "rows": 3
+   },
+   {
+    "key": "field_industry_link",
+    "label": "Link (optional)",
+    "name": "link",
+    "type": "url",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_industry_order",
+    "label": "Display order",
+    "name": "order",
+    "type": "number",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "default_value": 0
+   }
+  ],
+  "location": [
+   [
+    {
+     "param": "post_type",
+     "operator": "==",
+     "value": "industry"
+    }
+   ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 1
+ },
+ {
+  "key": "group_location",
+  "title": "Location Fields",
+  "fields": [
+   {
+    "key": "field_location_blurb",
+    "label": "Region blurb",
+    "name": "blurb",
+    "type": "textarea",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "rows": 3
+   },
+   {
+    "key": "field_location_phone",
+    "label": "Phone",
+    "name": "phone",
+    "type": "text",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_location_email",
+    "label": "Email",
+    "name": "email",
+    "type": "email",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_location_address",
+    "label": "Address",
+    "name": "address",
+    "type": "text",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_location_map_image",
+    "label": "Map image",
+    "name": "map_image",
+    "type": "image",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "return_format": "url",
+    "preview_size": "large",
+    "library": "all"
+   },
+   {
+    "key": "field_location_link",
+    "label": "Page link",
+    "name": "link",
+    "type": "url",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_location_order",
+    "label": "Display order",
+    "name": "order",
+    "type": "number",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "default_value": 0
+   }
+  ],
+  "location": [
+   [
+    {
+     "param": "post_type",
+     "operator": "==",
+     "value": "location"
+    }
+   ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 1
+ },
+ {
+  "key": "group_testimonial",
+  "title": "Testimonial Fields",
+  "fields": [
+   {
+    "key": "field_testimonial_quote",
+    "label": "Quote",
+    "name": "quote",
+    "type": "textarea",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "rows": 4
+   },
+   {
+    "key": "field_testimonial_author_role",
+    "label": "Author / role",
+    "name": "author_role",
+    "type": "text",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_testimonial_order",
+    "label": "Display order",
+    "name": "order",
+    "type": "number",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "default_value": 0
+   }
+  ],
+  "location": [
+   [
+    {
+     "param": "post_type",
+     "operator": "==",
+     "value": "testimonial"
+    }
+   ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 1
+ },
+ {
+  "key": "group_team",
+  "title": "Team Fields",
+  "fields": [
+   {
+    "key": "field_team_role",
+    "label": "Role",
+    "name": "role",
+    "type": "text",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1
+   },
+   {
+    "key": "field_team_bio",
+    "label": "Bio",
+    "name": "bio",
+    "type": "textarea",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "rows": 4
+   },
+   {
+    "key": "field_team_photo",
+    "label": "Photo",
+    "name": "photo",
+    "type": "image",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "return_format": "url",
+    "preview_size": "large",
+    "library": "all"
+   },
+   {
+    "key": "field_team_order",
+    "label": "Display order",
+    "name": "order",
+    "type": "number",
+    "instructions": "",
+    "required": 0,
+    "conditional_logic": 0,
+    "wrapper": {
+     "width": "",
+     "class": "",
+     "id": ""
+    },
+    "show_in_rest": 1,
+    "default_value": 0
+   }
+  ],
+  "location": [
+   [
+    {
+     "param": "post_type",
+     "operator": "==",
+     "value": "team"
+    }
+   ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 1
+ }
+]
