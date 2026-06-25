@@ -38,7 +38,10 @@ def api(method, path, data=None, raw=None, ctype=None, filename=None):
     else:
         route, _, qs = path.partition("?")
         url = f"{SITE}/?rest_route={route}" + (f"&{qs}" if qs else "")
-    headers = {"Authorization": AUTH}
+    headers = {"Authorization": AUTH,
+               # Cloudflare/Kinsta WAF returns 1010 for the default urllib UA
+               "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                             "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
     body = None
     if raw is not None:
         body = raw
@@ -88,15 +91,18 @@ REST_BASE = {"service": "service", "industry": "industry", "location": "location
 
 def seed():
     content = json.loads((HERE / "content-seed.json").read_text())
+    targets = [a for a in sys.argv[1:] if not a.startswith("--")]  # optional CPT filter
     for cpt, items in content.items():
+        if targets and cpt not in targets:
+            continue
         base = REST_BASE[cpt]
         print(f"\n== {cpt} ({len(items)}) ==")
         for it in items:
             title = it["title"]; slug = slugify(title)
             acf = dict(it["acf"])
             for fld in IMAGE_FIELDS.get(cpt, []):
-                if acf.get(fld):
-                    acf[fld] = upload_media(acf[fld]) or ""
+                # ACF image fields require an attachment ID or null (never "")
+                acf[fld] = upload_media(acf.get(fld))
             payload = {"title": title, "slug": slug, "status": "publish", "acf": acf}
             if DRY:
                 print(f"   would upsert {slug}: { {k:acf[k] for k in list(acf)[:2]} } ...")
