@@ -1,0 +1,533 @@
+{
+ "version": "0.4",
+ "title": "STM Homepage",
+ "type": "page",
+ "content": [
+  {
+   "id": "010000e",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Header"
+   },
+   "elements": [
+    {
+     "id": "0100007",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<header id=\"siteHeader\">\n  <div class=\"topstrip\" aria-hidden=\"true\"></div>\n  <nav class=\"mainnav\">\n    <div class=\"mainnav__inner\">\n      <a href=\"#top\" class=\"mainnav__logo\" aria-label=\"Safe Traffic Management home\">\n        <img src=\"STM_ASSETS/logos/stm-logo-governed-by-safety.webp\" alt=\"Safe Traffic Management, Governed By Safety\">\n      </a>\n      <div class=\"mainnav__menu\" id=\"mainMenu\">\n        <div class=\"nav-item\" data-dropdown>\n          <a class=\"nav-link\" href=\"services.html\">Services <i data-lucide=\"chevron-down\" class=\"caret\"></i></a>\n          <div class=\"dropdown\" role=\"menu\">\n            <a href=\"traffic-control-personnel.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Traffic Control Personnel</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Temporary Traffic Management</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Lane &amp; Shoulder Closures</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Pedestrian &amp; Cyclist Management</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Emergency Response</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Night Works</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Site Monitoring &amp; Compliance Reporting</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>VMS Board Hire</a>\n            <a href=\"services.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Permits &amp; Road Occupancy</a>\n          </div>\n        </div>\n        <div class=\"nav-item\" data-dropdown>\n          <a class=\"nav-link\" href=\"safety-compliance.html\">Safety &amp; Compliance <i data-lucide=\"chevron-down\" class=\"caret\"></i></a>\n          <div class=\"dropdown\" role=\"menu\">\n            <a href=\"swms-risk-assessments.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>SWMS &amp; Risk Assessments</a>\n            <a href=\"safety-compliance.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Compliance Standards</a>\n            <a href=\"safety-compliance.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Drug &amp; Alcohol Management</a>\n          </div>\n        </div>\n        <div class=\"nav-item\" data-dropdown>\n          <a class=\"nav-link\" href=\"industries.html\">Industries <i data-lucide=\"chevron-down\" class=\"caret\"></i></a>\n          <div class=\"dropdown\" role=\"menu\">\n            <a href=\"civil-construction.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Civil Construction</a>\n            <a href=\"industries.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Utilities</a>\n            <a href=\"industries.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Government Projects</a>\n            <a href=\"industries.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Events &amp; Private Projects</a>\n          </div>\n        </div>\n        <div class=\"nav-item\"><a class=\"nav-link\" href=\"capability.html\">Capability</a></div>\n        <div class=\"nav-item\" data-dropdown>\n          <a class=\"nav-link\" href=\"about.html\">About <i data-lucide=\"chevron-down\" class=\"caret\"></i></a>\n          <div class=\"dropdown\" role=\"menu\">\n            <a href=\"about.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>About Us</a>\n            <a href=\"careers.html\" role=\"menuitem\"><i data-lucide=\"chevron-right\"></i>Careers</a>\n          </div>\n        </div>\n        <div class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact</a></div>\n      </div>\n      <span class=\"mainnav__spacer\"></span>\n      <div class=\"mainnav__actions\">\n        <a class=\"nav-call\" href=\"tel:1300786233\"><i data-lucide=\"phone\"></i>1300 786 233</a>\n        <a href=\"#contact\" class=\"btn btn--primary btn--lg\"><i data-lucide=\"hard-hat\"></i>Request A Quote</a>\n        <button class=\"burger\" id=\"burgerBtn\" aria-label=\"Menu\" aria-expanded=\"false\">\n          <i data-lucide=\"menu\" id=\"burgerIcon\"></i>\n        </button>\n      </div>\n    </div>\n  </nav>\n  <div class=\"sheet\" id=\"mobileSheet\">\n    <div class=\"sheet__group\">\n      <a class=\"sheet__head\" href=\"services.html\">Services</a>\n      <a class=\"sub\" href=\"traffic-control-personnel.html\">Traffic Control Personnel</a>\n      <a class=\"sub\" href=\"services.html\">Temporary Traffic Management</a>\n      <a class=\"sub\" href=\"services.html\">Lane &amp; Shoulder Closures</a>\n      <a class=\"sub\" href=\"services.html\">Emergency Response</a>\n      <a class=\"sub\" href=\"services.html\">Night Works</a>\n    </div>\n    <div class=\"sheet__group\">\n      <a class=\"sheet__head\" href=\"safety-compliance.html\">Safety &amp; Compliance</a>\n      <a class=\"sub\" href=\"swms-risk-assessments.html\">SWMS &amp; Risk Assessments</a>\n      <a class=\"sub\" href=\"safety-compliance.html\">Compliance Standards</a>\n    </div>\n    <div class=\"sheet__group\">\n      <a class=\"sheet__head\" href=\"industries.html\">Industries</a>\n      <a class=\"sub\" href=\"civil-construction.html\">Civil Construction</a>\n      <a class=\"sub\" href=\"industries.html\">Utilities</a>\n      <a class=\"sub\" href=\"industries.html\">Government Projects</a>\n    </div>\n    <div class=\"sheet__group\"><a class=\"sheet__head\" href=\"capability.html\">Capability</a></div>\n    <div class=\"sheet__group\">\n      <a class=\"sheet__head\" href=\"about.html\">About</a>\n      <a class=\"sub\" href=\"about.html\">About Us</a>\n      <a class=\"sub\" href=\"careers.html\">Careers</a>\n    </div>\n    <div class=\"sheet__group\"><a class=\"sheet__head\" href=\"contact.html\">Contact</a></div>\n    <a href=\"tel:1300786233\" style=\"display:inline-flex;align-items:center;gap:8px;margin-top:var(--space-6);font-family:var(--font-display);font-weight:var(--fw-black);font-size:var(--text-md);color:var(--blue-700);text-decoration:none\"><i data-lucide=\"phone\"></i>1300 786 233</a>\n  </div>\n</header>",
+      "_title": "Header"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "010001c",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Hero"
+   },
+   "elements": [
+    {
+     "id": "0100015",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"hero\" id=\"top\">\n  <div class=\"hero__bg-img\"></div>\n  <div class=\"hero__bg-overlay\"></div>\n  <div class=\"hero__inner container\">\n    <div class=\"hero__content\">\n      <span class=\"kicker kicker--onDark\">Safety-governed traffic management \u00b7 Queensland</span>\n      <h1>Traffic management services, governed by <span class=\"hl\">safety and compliance</span>.</h1>\n      <p class=\"hero__lead\">Safe Traffic Management delivers qualified traffic crews, structured WHS systems and real-time compliance reporting, reducing risk and keeping government, infrastructure, utilities and construction projects moving.</p>\n      <div class=\"hero__cta\">\n        <a href=\"capability.html#government\" class=\"btn btn--primary btn--lg\"><i data-lucide=\"landmark\"></i>Government</a>\n        <a href=\"capability.html#non-government\" class=\"btn btn--outline-white btn--lg\"><i data-lucide=\"building-2\"></i>Non-Government</a>\n      </div>\n      <div class=\"hero__divider\" aria-hidden=\"true\"></div>\n      <div class=\"hero__trust\">\n        <span class=\"hero__trust-item\"><i data-lucide=\"shield-check\"></i>$20M Public Liability cover</span>\n        <span class=\"hero__trust-item\"><i data-lucide=\"file-check-2\"></i>TMR Code of Practice</span>\n        <span class=\"hero__trust-item\"><i data-lucide=\"badge-check\"></i>RIISS-ticketed crews</span>\n        <span class=\"hero__trust-item\"><i data-lucide=\"clock\"></i>Available 24/7</span>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Hero"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "010002a",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "CTA Strip"
+   },
+   "elements": [
+    {
+     "id": "0100023",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"ctastrip\">\n  <div class=\"ctastrip__inner\">\n    <div>\n      <p class=\"ctastrip__title\">Need a compliant crew on site?</p>\n      <p class=\"ctastrip__sub\">Planned works or emergency response, we mobilise across South East Queensland and Northern NSW.</p>\n    </div>\n    <div class=\"ctastrip__actions\">\n      <a class=\"ctastrip__call\" href=\"tel:1300786233\"><i data-lucide=\"phone\"></i>1300 786 233</a>\n      <a href=\"#contact\" class=\"btn btn--secondary btn--lg\"><i data-lucide=\"hard-hat\"></i>Request A Quote</a>\n\n    </div>\n  </div>\n</section>",
+      "_title": "CTA Strip"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "0100038",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Intro / What Is Traffic Management"
+   },
+   "elements": [
+    {
+     "id": "0100031",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section intro-section\">\n  <div class=\"container\">\n    <div class=\"intro-grid\">\n      <div class=\"intro-lead reveal\">\n        <span class=\"kicker\">What is traffic management?</span>\n        <h2 class=\"heading-lg\">Keeping people <span class=\"hl\">safe</span> while essential work gets done</h2>\n      </div>\n      <div class=\"intro-body reveal\">\n        <p class=\"intro-body__lead\">Whenever work happens on or near a road, laying utilities, repairing a carriageway, running an event or responding to an incident, the normal flow of vehicles, cyclists and pedestrians has to be controlled. Traffic management is the planning, signage and on-site control that keeps those road users, and the crews working among them, safe.</p>\n        <p class=\"intro-body__text\">Safe Traffic Management plans and runs that control for you. We design compliant Traffic Management Plans, put qualified, ticketed controllers on the ground, and document every shift with real-time reporting, so government, civil, utilities and construction projects stay safe, compliant and moving.</p>\n      </div>\n    </div>\n    <div class=\"intro-points reveal\">\n      <div class=\"intro-point\">\n        <span class=\"intro-point__icon\"><i data-lucide=\"clipboard-list\"></i></span>\n        <div><b>We plan it</b><span>Traffic Management Plans, permits and risk assessments built to TMR and Austroads standards.</span></div>\n      </div>\n      <div class=\"intro-point\">\n        <span class=\"intro-point__icon\"><i data-lucide=\"traffic-cone\"></i></span>\n        <div><b>We control it</b><span>Ticketed crews, signage and devices set up and run safely on live roads.</span></div>\n      </div>\n      <div class=\"intro-point\">\n        <span class=\"intro-point__icon\"><i data-lucide=\"footprints\"></i></span>\n        <div><b>We protect people</b><span>Pedestrians, cyclists and motorists guided safely around active works.</span></div>\n      </div>\n      <div class=\"intro-point\">\n        <span class=\"intro-point__icon\"><i data-lucide=\"siren\"></i></span>\n        <div><b>We respond fast</b><span>Crews and supervisors mobilised 24/7 for reactive and incident works.</span></div>\n      </div>\n      <div class=\"intro-point\">\n        <span class=\"intro-point__icon\"><i data-lucide=\"monitor-play\"></i></span>\n        <div><b>We equip it</b><span>VMS boards, barriers and signage supplied, delivered and maintained.</span></div>\n      </div>\n      <div class=\"intro-point\">\n        <span class=\"intro-point__icon\"><i data-lucide=\"file-check-2\"></i></span>\n        <div><b>We prove it</b><span>GPS-verified inspections and digital records, audit-ready every shift.</span></div>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Intro / What Is Traffic Management"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "0100046",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Services"
+   },
+   "elements": [
+    {
+     "id": "010003f",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section\" id=\"services\" style=\"background:var(--surface-page)\">\n  <div class=\"container\">\n    <div class=\"section-head reveal\">\n      <div>\n        <span class=\"kicker\">Traffic Management Services</span>\n        <h2>Everything a<br><span class=\"hl\">compliant worksite</span> needs</h2>\n        <p>Safety-led traffic management across government, infrastructure, civil, utilities and maintenance works, delivered by qualified, ticketed crews.</p>\n      </div>\n      <a href=\"services.html\" class=\"btn btn--outline\">View all services <i data-lucide=\"arrow-right\"></i></a>\n    </div>\n  </div>\n  <div class=\"svc-carousel reveal\">\n    <div class=\"svc-stage\">\n      <button class=\"svc-nav svc-nav--prev\" type=\"button\" aria-label=\"Previous services\"><i data-lucide=\"chevron-left\"></i></button>\n      <div class=\"svc-track\">\n        <a href=\"traffic-control-personnel.html\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/traffic-controller-slow-bat.webp\" alt=\"Traffic control personnel\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Traffic control personnel</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/hero-traffic-management-banner.webp\" alt=\"Temporary traffic management\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Temporary traffic management</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/iStock-1308371370.jpg\" alt=\"Lane and shoulder closures\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Lane &amp; shoulder closures</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/iStock-1038532394.jpg\" alt=\"Pedestrian and cyclist management\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Pedestrian &amp; cyclist management</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/iStock-1321417982.jpg\" alt=\"Emergency response\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Emergency response</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/traffic-controllers-team-YRbcKPuVvSRiApanBtP4uT.webp\" alt=\"Night works\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Night works</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/iStock-1415387571.jpg\" alt=\"Site monitoring and compliance reporting\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Site monitoring &amp; compliance reporting</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/iStock-1038532394.jpg\" alt=\"VMS board hire\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">VMS board hire</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n        <a href=\"#\" class=\"svc-tile\">\n          <img class=\"svc-tile__bg\" src=\"STM_ASSETS/photos/iStock-1308371370.jpg\" alt=\"Permits and road occupancy\">\n          <span class=\"svc-tile__logo\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <h3 class=\"svc-tile__title\">Permits &amp; road occupancy</h3>\n          <span class=\"svc-tile__plus\" aria-hidden=\"true\"><i data-lucide=\"plus\"></i></span>\n        </a>\n      </div>\n      <button class=\"svc-nav svc-nav--next\" type=\"button\" aria-label=\"Next services\"><i data-lucide=\"chevron-right\"></i></button>\n    </div>\n    <div class=\"svc-dots\" aria-hidden=\"true\"></div>\n  </div>\n</section>",
+      "_title": "Services"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "0100054",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Stats"
+   },
+   "elements": [
+    {
+     "id": "010004d",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"stats-section section--tight\">\n  <img class=\"stats-section__photo\" src=\"STM_ASSETS/photos/iStock-1415387571.jpg\" alt=\"\">\n  <div class=\"container\">\n    <div class=\"stats-grid\">\n      <div class=\"stat-card reveal\">\n        <span class=\"stat-card__value\" data-counter data-value=\"20\" data-prefix=\"$\" data-suffix=\"M\">$20M</span>\n        <span class=\"stat-card__bar\" aria-hidden=\"true\"></span>\n        <div class=\"stat-card__label\">Public Liability cover</div>\n        <div class=\"stat-card__caption\">Comprehensively insured for major projects</div>\n      </div>\n      <div class=\"stat-card reveal\">\n        <span class=\"stat-card__value\" data-counter data-value=\"24\" data-suffix=\"/7\">24/7</span>\n        <span class=\"stat-card__bar\" aria-hidden=\"true\"></span>\n        <div class=\"stat-card__label\">Reactive response</div>\n        <div class=\"stat-card__caption\">Crews available around the clock</div>\n      </div>\n      <div class=\"stat-card reveal\">\n        <span class=\"stat-card__value\" data-counter data-value=\"200\" data-suffix=\"+\">200+</span>\n        <span class=\"stat-card__bar\" aria-hidden=\"true\"></span>\n        <div class=\"stat-card__label\">Qualified controllers</div>\n        <div class=\"stat-card__caption\">Ticketed, screened and ready to deploy</div>\n      </div>\n      <div class=\"stat-card reveal\">\n        <span class=\"stat-card__value\" data-counter data-value=\"15\" data-suffix=\"+\">15+</span>\n        <span class=\"stat-card__bar\" aria-hidden=\"true\"></span>\n        <div class=\"stat-card__label\">Years experience</div>\n        <div class=\"stat-card__caption\">Safety-led traffic management expertise</div>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Stats"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "0100062",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "About"
+   },
+   "elements": [
+    {
+     "id": "010005b",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section\" id=\"about\" style=\"background:var(--surface-page)\">\n  <div class=\"container\">\n    <div class=\"about-grid\" style=\"margin-top:0\">\n      <div class=\"reveal\">\n        <span class=\"kicker\">Who we are</span>\n        <h2 class=\"heading-lg\" style=\"margin-top:var(--space-3)\">A safety and compliance <span class=\"hl\">partner</span>, not just a traffic controller</h2>\n        <p style=\"font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal);margin-bottom:var(--space-2)\">Safe Traffic Management is a Queensland traffic management provider built around safety, compliance and operational accountability. We combine qualified, ticketed crews with structured WHS systems, digital reporting and real-time compliance visibility, so government, utilities and major contractors can deliver complex, high-risk works with confidence.</p>\n        <div class=\"about-values\">\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Safety first</b>Every decision made with risk control at the core.</span></div>\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Accountability</b>We own our work, our people and our outcomes.</span></div>\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Compliance excellence</b>Held to the highest regulatory standards.</span></div>\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Reliability</b>Consistent, professional delivery, on time.</span></div>\n        </div>\n        <a href=\"about.html\" class=\"btn btn--primary\">About us <i data-lucide=\"arrow-right\"></i></a>\n      </div>\n      <div class=\"about-media reveal\">\n        <img src=\"STM_ASSETS/photos/traffic-controllers-team-YRbcKPuVvSRiApanBtP4uT.webp\" alt=\"Safe Traffic Management crew on site\" style=\"width:100%;height:100%;object-fit:cover;\">\n      </div>\n    </div>\n\n  </div>\n</section>",
+      "_title": "About"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "0100070",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "USP"
+   },
+   "elements": [
+    {
+     "id": "0100069",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section usp-section\">\n  <div class=\"container\">\n    <div class=\"section-head reveal\">\n      <div>\n        <span class=\"kicker\">Why choose us</span>\n        <h2>Why clients <span class=\"hl\">trust</span><br>Safe Traffic Management</h2>\n        <p>Owned and operated by safety professionals, STM gives government, civil and utilities clients the accountability and visibility to keep projects safe, compliant and moving.</p>\n      </div>\n    </div>\n    <div class=\"usp-grid\">\n      <div class=\"usp-card reveal\">\n        <span class=\"usp-icon\"><i data-lucide=\"shield-check\"></i></span>\n        <h3>Safety-governed operations</h3>\n        <p>Every decision is made with safety and risk control at the core, overseen end to end by experienced safety professionals.</p>\n      </div>\n      <div class=\"usp-card reveal\">\n        <span class=\"usp-icon\"><i data-lucide=\"activity\"></i></span>\n        <h3>Real-time compliance &amp; accountability</h3>\n        <p>GPS-verified inspections, digital reporting and corrective-action tracking give you live visibility and audit-ready records.</p>\n      </div>\n      <div class=\"usp-card reveal\">\n        <span class=\"usp-icon\"><i data-lucide=\"hard-hat\"></i></span>\n        <h3>Qualified &amp; reliable personnel</h3>\n        <p>Ticketed, screened and inducted crews you can depend on to deliver consistently, professionally and on time.</p>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "USP"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "010007e",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Safety & Compliance"
+   },
+   "elements": [
+    {
+     "id": "0100077",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section\" id=\"compliance\" style=\"background:var(--surface-page)\">\n  <div class=\"container\">\n    <div class=\"section-head reveal\">\n      <div>\n        <span class=\"kicker\">Safety &amp; Compliance</span>\n        <h2>Real-time <span class=\"hl\">compliance and<br>accountability</span>, every shift</h2>\n        <p>Structured WHS systems and traceable, audit-ready reporting underpin everything we do, from the first risk assessment to the end-of-shift report.</p>\n      </div>\n      <a href=\"safety-compliance.html\" class=\"btn btn--outline\">View all <i data-lucide=\"arrow-right\"></i></a>\n    </div>\n    <div class=\"svc-grid\">\n      <div class=\"svc-card svc-card--blue reveal\">\n        <span class=\"svc-card__icon\"><i data-lucide=\"clipboard-check\"></i></span>\n        <h3>SWMS &amp; risk assessments</h3>\n        <p>Site-specific Safe Work Method Statements and risk assessments prepared for every engagement.</p>\n        <a href=\"swms-risk-assessments.html\" class=\"textlink\">Learn more <i data-lucide=\"arrow-right\"></i></a>\n      </div>\n      <div class=\"svc-card svc-card--blue reveal\">\n        <span class=\"svc-card__icon\"><i data-lucide=\"shield-check\"></i></span>\n        <h3>Compliance standards</h3>\n        <p>Operating to MUTCD QLD, TMR Code of Practice, AS 1742, Austroads and the WHS Act (Qld).</p>\n        <a href=\"#\" class=\"textlink\">Learn more <i data-lucide=\"arrow-right\"></i></a>\n      </div>\n      <div class=\"svc-card svc-card--blue reveal\">\n        <span class=\"svc-card__icon\"><i data-lucide=\"flask-conical\"></i></span>\n        <h3>Drug &amp; alcohol management</h3>\n        <p>Fitness-for-work, drug, alcohol and fatigue management built into our operating model.</p>\n        <a href=\"#\" class=\"textlink\">Learn more <i data-lucide=\"arrow-right\"></i></a>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Safety & Compliance"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "010008c",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Testimonials"
+   },
+   "elements": [
+    {
+     "id": "0100085",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section tst-section\" id=\"testimonials\">\n  <div class=\"tst-wrap\">\n    <h2 class=\"tst-ghost reveal\" aria-hidden=\"true\">Testimonials</h2>\n    <div class=\"tst-card reveal\">\n      <span class=\"tst-badge\" aria-hidden=\"true\"><i data-lucide=\"quote\"></i></span>\n      <button class=\"tst-arrow tst-arrow--prev\" type=\"button\" aria-label=\"Previous testimonial\" onclick=\"var t=this.closest('.tst-card').querySelector('.tst-track');t.scrollBy({left:-t.clientWidth,behavior:'smooth'})\"><i data-lucide=\"chevron-left\"></i></button>\n      <div class=\"tst-track\">\n        <figure class=\"tst-slide\">\n          <blockquote class=\"tst-text\">\"STM's crews turned up ticketed, briefed and ready. The end-of-shift reports made our compliance reviews straightforward.\"</blockquote>\n          <span class=\"tst-mark\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <figcaption class=\"tst-by\">Project Engineer, Civil contractor, Brisbane</figcaption>\n        </figure>\n        <figure class=\"tst-slide\">\n          <blockquote class=\"tst-text\">\"Reliable through a difficult night-works program. Their supervisors kept the site safe and the traffic moving.\"</blockquote>\n          <span class=\"tst-mark\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <figcaption class=\"tst-by\">Site Manager, Infrastructure project, Gold Coast</figcaption>\n        </figure>\n        <figure class=\"tst-slide\">\n          <blockquote class=\"tst-text\">\"The real-time reporting and GPS-verified inspections gave us the visibility we needed for a council audit.\"</blockquote>\n          <span class=\"tst-mark\"><img src=\"STM_ASSETS/logos/stm-mark.png\" alt=\"\"></span>\n          <figcaption class=\"tst-by\">Works Coordinator, Local council, Sunshine Coast</figcaption>\n        </figure>\n      </div>\n      <button class=\"tst-arrow tst-arrow--next\" type=\"button\" aria-label=\"Next testimonial\" onclick=\"var t=this.closest('.tst-card').querySelector('.tst-track');t.scrollBy({left:t.clientWidth,behavior:'smooth'})\"><i data-lucide=\"chevron-right\"></i></button>\n    </div>\n    <div class=\"tst-google reveal\">\n      <a href=\"#google-business-profile\" class=\"google-badge\" aria-label=\"Google Reviews, 5.0 stars, 76 reviews\">\n        <img src=\"STM_ASSETS/photos/Google-Review-Logo.png\" alt=\"Google Reviews\" class=\"google-badge__logo\">\n        <div class=\"google-badge__right\">\n          <div class=\"google-badge__top\">\n            <span class=\"google-badge__num\">5.0</span>\n            <span class=\"google-badge__stars\">\u2605\u2605\u2605\u2605\u2605</span>\n          </div>\n          <span class=\"google-badge__count\">76 Google reviews</span>\n        </div>\n      </a>\n    </div>\n  </div>\n</section>",
+      "_title": "Testimonials"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "010009a",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Careers"
+   },
+   "elements": [
+    {
+     "id": "0100093",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section\" id=\"careers\" style=\"background:var(--surface-page)\">\n  <div class=\"container\">\n    <div class=\"about-grid\" style=\"margin-top:0\">\n      <div class=\"reveal\">\n        <span class=\"kicker\">Careers at STM</span>\n        <h2 class=\"heading-lg\" style=\"margin-top:var(--space-3)\">Build a career <span class=\"hl\">on the tools</span>, backed by real support</h2>\n        <p style=\"font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal);margin-bottom:var(--space-2)\">We recruit screened, ticketed traffic controllers and implementers who take safety seriously. If you want reliable work across South East Queensland and Northern NSW, structured induction and a team that backs its people, we want to hear from you.</p>\n        <div class=\"about-values\">\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Ticketed roles</b>Traffic controller and implementer positions.</span></div>\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Ongoing work</b>Day, night and after-hours shifts available.</span></div>\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Real support</b>Structured induction and safety systems.</span></div>\n          <div class=\"about-value\"><i data-lucide=\"check\"></i><span><b>Career pathways</b>Develop towards supervisory and TMP roles.</span></div>\n        </div>\n        <a href=\"#contact\" class=\"btn btn--primary\">Explore careers <i data-lucide=\"arrow-right\"></i></a>\n      </div>\n      <div class=\"about-media reveal\">\n        <img src=\"STM_ASSETS/photos/careers-traffic-controllers-stop.webp\" alt=\"Safe Traffic Management controllers holding STOP signs at a road intersection\" style=\"width:100%;height:100%;object-fit:cover;\">\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Careers"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000a8",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Capability"
+   },
+   "elements": [
+    {
+     "id": "01000a1",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section cap-section\" id=\"capability\">\n  <img class=\"cap__photo\" src=\"STM_ASSETS/photos/iStock-1308371370.jpg\" alt=\"\">\n  <div class=\"container\" style=\"position:relative;z-index:1\">\n    <div class=\"section-head reveal\">\n      <div>\n        <span class=\"kicker kicker--onDark\">Capability</span>\n        <h2>Capability built for<br><span class=\"hl\">government and industry</span></h2>\n        <p>We deliver two ways, for government, and for builders, utilities and contractors. See exactly how we operate, all in one place.</p>\n      </div>\n      <a href=\"capability.html\" class=\"btn btn--outline-white\">View our capability <i data-lucide=\"arrow-right\"></i></a>\n    </div>\n    <div class=\"cap-grid\">\n      <div class=\"cap-card reveal\">\n        <span class=\"cap-tag\"><i data-lucide=\"landmark\"></i>Government</span>\n        <h3>Transport &amp; Main Roads and councils</h3>\n        <p>Audit-ready delivery aligned to TMR and local government requirements.</p>\n        <ul class=\"cap-list\">\n          <li><i data-lucide=\"check\"></i>TMR Code of Practice</li>\n          <li><i data-lucide=\"check\"></i>GPS-verified inspections</li>\n          <li><i data-lucide=\"check\"></i>End-of-shift reporting</li>\n        </ul>\n      </div>\n      <div class=\"cap-card reveal\">\n        <span class=\"cap-tag\"><i data-lucide=\"building-2\"></i>Non-government</span>\n        <h3>Builders, utilities and contractors</h3>\n        <p>Reliable crews and structured systems for civil, utilities and infrastructure works.</p>\n        <ul class=\"cap-list\">\n          <li><i data-lucide=\"check\"></i>$20M Public Liability</li>\n          <li><i data-lucide=\"check\"></i>SWMS &amp; risk assessments</li>\n          <li><i data-lucide=\"check\"></i>24/7 reactive response</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Capability"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000b6",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Industries"
+   },
+   "elements": [
+    {
+     "id": "01000af",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section\" id=\"industries\" style=\"background:var(--surface-page)\">\n  <div class=\"container\">\n    <div class=\"section-head reveal\">\n      <div>\n        <span class=\"kicker\">Industries we support</span>\n        <h2>Trusted across Queensland's<br>most <span class=\"hl\">regulated</span> work</h2>\n        <p>From major civil projects to live utilities and council works, we tailor our crews and systems to the sector.</p>\n      </div>\n      <a href=\"industries.html\" class=\"btn btn--outline\">View all industries <i data-lucide=\"arrow-right\"></i></a>\n    </div>\n    <div class=\"ind-grid\">\n      <a href=\"civil-construction.html\" class=\"ind-card reveal\">\n        <span class=\"ind-icon\"><i data-lucide=\"building-2\"></i></span>\n        <h3>Civil construction</h3>\n        <p>Traffic control for roadworks, earthworks and major civil project delivery.</p>\n        <span class=\"ind-more\">Learn more <i data-lucide=\"arrow-right\"></i></span>\n      </a>\n      <a href=\"#\" class=\"ind-card reveal\">\n        <span class=\"ind-icon\"><i data-lucide=\"zap\"></i></span>\n        <h3>Utilities</h3>\n        <p>Safe access for water, power, gas and telecommunications works.</p>\n        <span class=\"ind-more\">Learn more <i data-lucide=\"arrow-right\"></i></span>\n      </a>\n      <a href=\"#\" class=\"ind-card reveal\">\n        <span class=\"ind-icon\"><i data-lucide=\"landmark\"></i></span>\n        <h3>Government projects</h3>\n        <p>Compliant, audit-ready delivery for TMR and local councils.</p>\n        <span class=\"ind-more\">Learn more <i data-lucide=\"arrow-right\"></i></span>\n      </a>\n      <a href=\"#\" class=\"ind-card reveal\">\n        <span class=\"ind-icon\"><i data-lucide=\"calendar-days\"></i></span>\n        <h3>Events &amp; private projects</h3>\n        <p>Crowd, road and access management for events and private works.</p>\n        <span class=\"ind-more\">Learn more <i data-lucide=\"arrow-right\"></i></span>\n      </a>\n    </div>\n  </div>\n</section>",
+      "_title": "Industries"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000c4",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "FAQ"
+   },
+   "elements": [
+    {
+     "id": "01000bd",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section faq-section\" id=\"faq\">\n  <div class=\"container\">\n    <div class=\"faq-grid\">\n      <div class=\"reveal\">\n        <span class=\"kicker\">FAQ</span>\n        <h2 class=\"heading-lg\" style=\"margin-top:var(--space-3)\">Questions, <span class=\"hl\">answered</span></h2>\n        <p style=\"font-size:var(--text-md);color:rgba(255,255,255,0.80);line-height:var(--leading-normal);margin-bottom:var(--space-6)\">The things clients ask most before engaging a traffic management partner. Need something specific to your site? Talk to our team.</p>\n        <a href=\"#contact\" class=\"btn btn--primary\"><i data-lucide=\"message-square\"></i>Ask a question</a>\n      </div>\n      <div class=\"faq-list reveal\">\n        <div class=\"faq-item faq-item--open\">\n          <button class=\"faq-q\" aria-expanded=\"true\">\n            <span>What areas do you service?</span>\n            <span class=\"faq-icon\"><i data-lucide=\"chevron-down\"></i></span>\n          </button>\n          <div class=\"faq-a\"><p>We operate across South East Queensland, including Brisbane, the Gold Coast and the Sunshine Coast, as well as Northern New South Wales. Reach out about your site and we will confirm availability.</p></div>\n        </div>\n        <div class=\"faq-item\">\n          <button class=\"faq-q\" aria-expanded=\"false\">\n            <span>Are your traffic controllers qualified and ticketed?</span>\n            <span class=\"faq-icon\"><i data-lucide=\"chevron-down\"></i></span>\n          </button>\n          <div class=\"faq-a\"><p>Yes. Every controller and implementer is screened, inducted and holds the relevant RIISS qualifications. We verify tickets and currency before crews reach your site.</p></div>\n        </div>\n        <div class=\"faq-item\">\n          <button class=\"faq-q\" aria-expanded=\"false\">\n            <span>Do you provide Traffic Management Plans?</span>\n            <span class=\"faq-icon\"><i data-lucide=\"chevron-down\"></i></span>\n          </button>\n          <div class=\"faq-a\"><p>We implement, operate and remove Traffic Management Plans in line with MUTCD QLD, the TMR Code of Practice and AS 1742, and can coordinate plan preparation where required.</p></div>\n        </div>\n        <div class=\"faq-item\">\n          <button class=\"faq-q\" aria-expanded=\"false\">\n            <span>Can you respond to emergencies and after-hours works?</span>\n            <span class=\"faq-icon\"><i data-lucide=\"chevron-down\"></i></span>\n          </button>\n          <div class=\"faq-a\"><p>Yes. We provide 24/7 reactive and emergency traffic management, including planned night and after-hours works with supervised, lit coverage.</p></div>\n        </div>\n        <div class=\"faq-item\">\n          <button class=\"faq-q\" aria-expanded=\"false\">\n            <span>How do you handle compliance and reporting?</span>\n            <span class=\"faq-icon\"><i data-lucide=\"chevron-down\"></i></span>\n          </button>\n          <div class=\"faq-a\"><p>Inspections are GPS-verified and time-stamped, corrective actions are tracked to closure, and a report is issued at the end of each shift, keeping your project audit-ready by default.</p></div>\n        </div>\n        <div class=\"faq-item\">\n          <button class=\"faq-q\" aria-expanded=\"false\">\n            <span>What insurance do you carry?</span>\n            <span class=\"faq-icon\"><i data-lucide=\"chevron-down\"></i></span>\n          </button>\n          <div class=\"faq-a\"><p>We hold $20M Public Liability cover and maintain the WHS systems, SWMS and risk assessments expected on government, utilities and major-contractor projects.</p></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "FAQ"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000d2",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Locations"
+   },
+   "elements": [
+    {
+     "id": "01000cb",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section\" id=\"locations\" style=\"background:var(--surface-page)\">\n  <div class=\"container\">\n    <div class=\"section-head reveal\">\n      <div>\n        <span class=\"kicker\">Locations</span>\n        <h2>Crews ready across <span class=\"hl\">South East QLD &amp; Northern NSW</span></h2>\n        <p>Local teams, mobilised from four regional bases. Choose a location for contact details and coverage.</p>\n      </div>\n      <div class=\"loc-tabs\">\n        <button class=\"loc-tab loc-tab--active\" data-loc=\"0\"><i data-lucide=\"map-pin\"></i>Brisbane</button>\n        <button class=\"loc-tab\" data-loc=\"1\"><i data-lucide=\"map-pin\"></i>Gold Coast</button>\n        <button class=\"loc-tab\" data-loc=\"2\"><i data-lucide=\"map-pin\"></i>Sunshine Coast</button>\n        <button class=\"loc-tab\" data-loc=\"3\"><i data-lucide=\"map-pin\"></i>Northern NSW</button>\n      </div>\n    </div>\n\n    <div class=\"loc-panel loc-panel--active\" data-loc-panel=\"0\">\n      <div class=\"loc-grid\">\n        <div class=\"loc-info\">\n          <h3>Brisbane</h3>\n          <p style=\"font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)\">Our central hub for South East Queensland, supporting civil, government and utilities works across the metro network.</p>\n          <ul class=\"loc-contacts\">\n            <li><span class=\"loc-ci\"><i data-lucide=\"phone\"></i></span><a href=\"tel:1300786233\">1300 786 233</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"mail\"></i></span><a href=\"mailto:brisbane@safetrafficmanagement.com.au\">brisbane@safetrafficmanagement.com.au</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"map-pin\"></i></span>Brisbane, QLD 4000</li>\n          </ul>\n          <a href=\"brisbane.html\" class=\"textlink\">View Brisbane page <i data-lucide=\"arrow-right\"></i></a>\n        </div>\n        <div class=\"loc-map\">\n          <img src=\"STM_ASSETS/maps/brisbane@2x.webp\" alt=\"Map of Safe Traffic Management's Brisbane service area\" loading=\"lazy\">\n        </div>\n      </div>\n    </div>\n    <div class=\"loc-panel\" data-loc-panel=\"1\">\n      <div class=\"loc-grid\">\n        <div class=\"loc-info\">\n          <h3>Gold Coast</h3>\n          <p style=\"font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)\">Crews servicing the M1 corridor, coastal works and events across the Gold Coast and Logan.</p>\n          <ul class=\"loc-contacts\">\n            <li><span class=\"loc-ci\"><i data-lucide=\"phone\"></i></span><a href=\"tel:1300786233\">1300 786 233</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"mail\"></i></span><a href=\"mailto:goldcoast@safetrafficmanagement.com.au\">goldcoast@safetrafficmanagement.com.au</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"map-pin\"></i></span>Southport, QLD 4215</li>\n          </ul>\n          <a href=\"#\" class=\"textlink\">View Gold Coast page <i data-lucide=\"arrow-right\"></i></a>\n        </div>\n        <div class=\"loc-map\">\n          <img src=\"STM_ASSETS/maps/gold-coast@2x.webp\" alt=\"Map of Safe Traffic Management's Gold Coast service area\" loading=\"lazy\">\n        </div>\n      </div>\n    </div>\n    <div class=\"loc-panel\" data-loc-panel=\"2\">\n      <div class=\"loc-grid\">\n        <div class=\"loc-info\">\n          <h3>Sunshine Coast</h3>\n          <p style=\"font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)\">Coverage from Caboolture to Noosa for infrastructure, maintenance and council projects.</p>\n          <ul class=\"loc-contacts\">\n            <li><span class=\"loc-ci\"><i data-lucide=\"phone\"></i></span><a href=\"tel:1300786233\">1300 786 233</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"mail\"></i></span><a href=\"mailto:sunshinecoast@safetrafficmanagement.com.au\">sunshinecoast@safetrafficmanagement.com.au</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"map-pin\"></i></span>Maroochydore, QLD 4558</li>\n          </ul>\n          <a href=\"#\" class=\"textlink\">View Sunshine Coast page <i data-lucide=\"arrow-right\"></i></a>\n        </div>\n        <div class=\"loc-map\">\n          <img src=\"STM_ASSETS/maps/sunshine-coast@2x.webp\" alt=\"Map of Safe Traffic Management's Sunshine Coast service area\" loading=\"lazy\">\n        </div>\n      </div>\n    </div>\n    <div class=\"loc-panel\" data-loc-panel=\"3\">\n      <div class=\"loc-grid\">\n        <div class=\"loc-info\">\n          <h3>Northern NSW</h3>\n          <p style=\"font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)\">Cross-border support for the Tweed and Northern Rivers, working to NSW and QLD requirements.</p>\n          <ul class=\"loc-contacts\">\n            <li><span class=\"loc-ci\"><i data-lucide=\"phone\"></i></span><a href=\"tel:1300786233\">1300 786 233</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"mail\"></i></span><a href=\"mailto:nnsw@safetrafficmanagement.com.au\">nnsw@safetrafficmanagement.com.au</a></li>\n            <li><span class=\"loc-ci\"><i data-lucide=\"map-pin\"></i></span>Tweed Heads, NSW 2485</li>\n          </ul>\n          <a href=\"#\" class=\"textlink\">View Northern NSW page <i data-lucide=\"arrow-right\"></i></a>\n        </div>\n        <div class=\"loc-map\">\n          <img src=\"STM_ASSETS/maps/northern-nsw@2x.webp\" alt=\"Map of Safe Traffic Management's Northern NSW service area\" loading=\"lazy\">\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Locations"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000e0",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Contact"
+   },
+   "elements": [
+    {
+     "id": "01000d9",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"section close-section\" id=\"contact\">\n  <div class=\"container\">\n    <div class=\"close-grid\">\n      <div class=\"reveal\">\n        <span class=\"kicker kicker--onDark\">Request A Quote</span>\n        <h2 class=\"heading-lg\" style=\"margin-top:var(--space-3)\">Tell us about <span class=\"hl\">your site</span></h2>\n        <p style=\"font-size:var(--text-md);color:var(--blue-100);line-height:var(--leading-normal);margin-bottom:var(--space-6)\">Send your project details and a supervisor will respond within one business day with availability and a compliant approach.</p>\n        <ul class=\"close-points\">\n          <li><i data-lucide=\"shield-check\"></i>Owned and operated by experienced safety professionals</li>\n          <li><i data-lucide=\"shield-check\"></i>Real-time compliance monitoring and visibility</li>\n          <li><i data-lucide=\"shield-check\"></i>Reliable, ticketed crews backed by structured safety systems</li>\n          <li><i data-lucide=\"shield-check\"></i>A supervisor responds within one business day</li>\n        </ul>\n        <a class=\"close-call\" href=\"tel:1300786233\">\n          <span class=\"close-call__ic\"><i data-lucide=\"phone\"></i></span>\n          <span>\n            <div class=\"close-call__num\">1300 786 233</div>\n            <div class=\"close-call__sub\">Call us 24/7 for emergency response</div>\n          </span>\n        </a>\n      </div>\n      <div class=\"reveal\">\n        <div class=\"contact-card\">\n          <div id=\"formSuccess\" class=\"form-success\">\n            <i data-lucide=\"circle-check\" style=\"display:block;margin:0 auto var(--space-4);color:var(--green-700);width:48px;height:48px\"></i>\n            <h3>Request received</h3>\n            <p>A supervisor will be in touch within one business day.</p>\n            <button class=\"btn btn--outline\" onclick=\"document.getElementById('formSuccess').classList.remove('form-success--visible');document.getElementById('contactForm').style.display='grid'\">Send another</button>\n          </div>\n          <form id=\"contactForm\" onsubmit=\"handleFormSubmit(event)\" style=\"display:grid;gap:var(--space-4)\">\n            <div class=\"form-grid-2\">\n              <div class=\"form-field\">\n                <label for=\"fname\">Contact name *</label>\n                <input class=\"form-input\" id=\"fname\" type=\"text\" required placeholder=\"Jordan Lee\">\n              </div>\n              <div class=\"form-field\">\n                <label for=\"forg\">Organisation</label>\n                <input class=\"form-input\" id=\"forg\" type=\"text\" placeholder=\"Council / builder / utility\">\n              </div>\n            </div>\n            <div class=\"form-grid-2\">\n              <div class=\"form-field\">\n                <label for=\"femail\">Email *</label>\n                <input class=\"form-input\" id=\"femail\" type=\"email\" required placeholder=\"name@org.qld.gov.au\">\n              </div>\n              <div class=\"form-field\">\n                <label for=\"fphone\">Phone</label>\n                <input class=\"form-input\" id=\"fphone\" type=\"tel\" placeholder=\"07 0000 0000\">\n              </div>\n            </div>\n            <div class=\"form-field\">\n              <label for=\"fsite\">Site / project *</label>\n              <input class=\"form-input\" id=\"fsite\" type=\"text\" required placeholder=\"e.g. Bruce Hwy upgrade, Stage 2\">\n            </div>\n            <div class=\"form-field\">\n              <label for=\"fscope\">Scope of works</label>\n              <textarea class=\"form-input\" id=\"fscope\" rows=\"3\" placeholder=\"Lane closures, night works, duration, location\u2026\"></textarea>\n            </div>\n            <button type=\"submit\" class=\"btn btn--primary btn--lg btn--full\"><i data-lucide=\"send\"></i>Submit request</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+      "_title": "Contact"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000ee",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Footer"
+   },
+   "elements": [
+    {
+     "id": "01000e7",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<footer class=\"footer\">\n  <div class=\"container\" style=\"padding-top:var(--space-16);padding-bottom:var(--space-8)\">\n    <div class=\"footer__top\">\n      <div>\n        <span class=\"footer__logo-wrap\"><img src=\"STM_ASSETS/logos/stm-logo-governed-by-safety.webp\" alt=\"Safe Traffic Management, Governed By Safety\"></span>\n        <p class=\"footer__about\">Safety-governed traffic management across South East Queensland and Northern NSW. Owned and operated by safety professionals, with structured WHS systems and real-time accountability that keep your project safe and audit-ready.</p>\n      </div>\n      <div class=\"footer__col\">\n        <h4>Services</h4>\n        <ul>\n          <li><a href=\"traffic-control-personnel.html\">Traffic control personnel</a></li>\n          <li><a href=\"services.html\">Temporary traffic management</a></li>\n          <li><a href=\"services.html\">Lane &amp; shoulder closures</a></li>\n          <li><a href=\"services.html\">Night works</a></li>\n          <li><a href=\"services.html\">Emergency response</a></li>\n        </ul>\n      </div>\n      <div class=\"footer__col\">\n        <h4>Safety &amp; Compliance</h4>\n        <ul>\n          <li><a href=\"swms-risk-assessments.html\">SWMS &amp; risk assessments</a></li>\n          <li><a href=\"safety-compliance.html\">Compliance standards</a></li>\n          <li><a href=\"safety-compliance.html\">Drug &amp; alcohol management</a></li>\n        </ul>\n      </div>\n      <div class=\"footer__col\">\n        <h4>Industries</h4>\n        <ul>\n          <li><a href=\"civil-construction.html\">Civil construction</a></li>\n          <li><a href=\"industries.html\">Utilities</a></li>\n          <li><a href=\"industries.html\">Government projects</a></li>\n          <li><a href=\"industries.html\">Events &amp; private projects</a></li>\n        </ul>\n      </div>\n      <div class=\"footer__col\">\n        <h4>Locations</h4>\n        <ul>\n          <li><a href=\"brisbane.html\">Brisbane</a></li>\n          <li><a href=\"locations.html\">Gold Coast</a></li>\n          <li><a href=\"locations.html\">Sunshine Coast</a></li>\n          <li><a href=\"locations.html\">Northern NSW</a></li>\n        </ul>\n      </div>\n      <div class=\"footer__col\">\n        <h4>Company</h4>\n        <ul>\n          <li><a href=\"about.html\">About us</a></li>\n          <li><a href=\"capability.html\">Capability</a></li>\n          <li><a href=\"careers.html\">Careers</a></li>\n          <li><a href=\"contact.html\">Contact us</a></li>\n        </ul>\n      </div>\n    </div>\n\n    <div class=\"footer__contactbar\">\n      <ul class=\"footer__contact\">\n        <li><i data-lucide=\"phone\"></i><a href=\"tel:1300786233\">1300 786 233</a></li>\n        <li><i data-lucide=\"mail\"></i><a href=\"mailto:operations@safetrafficmanagement.com.au\">operations@safetrafficmanagement.com.au</a></li>\n        <li><i data-lucide=\"map-pin\"></i>South East Queensland &amp; Northern NSW</li>\n      </ul>\n      <div class=\"footer__social\">\n        <a href=\"#\" aria-label=\"Safe Traffic Management on LinkedIn\"><i data-lucide=\"linkedin\"></i></a>\n        <a href=\"#\" aria-label=\"Safe Traffic Management on Facebook\"><i data-lucide=\"facebook\"></i></a>\n        <a href=\"#\" aria-label=\"Safe Traffic Management on Instagram\"><i data-lucide=\"instagram\"></i></a>\n      </div>\n    </div>\n\n    <div class=\"footer__certs\">\n      <span class=\"footer__certs-label\">Certifications &amp; memberships</span>\n      <div class=\"footer__certs-main\">\n        <div class=\"footer__cert-row\">\n          <span class=\"footer__cert\"><img src=\"STM_ASSETS/certs/qld-tmr.jpg\" alt=\"Queensland Government, Transport and Main Roads\"></span>\n          <span class=\"footer__cert\"><img src=\"STM_ASSETS/certs/nationally-recognised-training.png\" alt=\"Nationally Recognised Training\"></span>\n          <span class=\"footer__cert\"><img src=\"STM_ASSETS/certs/aqf.jpeg\" alt=\"Australian Qualifications Framework\"></span>\n          <span class=\"footer__cert\"><img src=\"STM_ASSETS/certs/standards-australia.png\" alt=\"Standards Australia\"></span>\n        </div>\n        <span class=\"footer__certs-rule\" aria-hidden=\"true\"></span>\n        <div class=\"footer__certs-right\">\n          <a href=\"#google-business-profile\" class=\"google-badge\" aria-label=\"Google Reviews, 5.0 stars, 76 reviews\">\n            <img src=\"STM_ASSETS/photos/Google-Review-Logo.png\" alt=\"Google Reviews\" class=\"google-badge__logo\">\n            <div class=\"google-badge__right\">\n              <div class=\"google-badge__top\">\n                <span class=\"google-badge__num\">5.0</span>\n                <span class=\"google-badge__stars\">\u2605\u2605\u2605\u2605\u2605</span>\n              </div>\n              <span class=\"google-badge__count\">76 Google reviews</span>\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"footer__legal\">\n      <span>\u00a9 2026 Safe Traffic Management Pty Ltd</span>\n      <span class=\"footer__legal-links\">\n        <a href=\"#\">Privacy</a>\n        <a href=\"#\">WHS policy</a>\n        <a href=\"#\">Terms</a>\n        <a class=\"footer__fbf\" href=\"https://www.fivebyfive.com.au\" target=\"_blank\" rel=\"noreferrer\">\n          Design by Five by Five\n          <img src=\"STM_ASSETS/fivebyfive-icon-white.png\" alt=\"Five by Five\">\n        </a>\n      </span>\n    </div>\n  </div>\n</footer>",
+      "_title": "Footer"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "01000fc",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "_title": "Scripts"
+   },
+   "elements": [
+    {
+     "id": "01000f5",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<script src=\"https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js\"></script>\n<script>\nlucide.createIcons();\n\n/* \u2500\u2500 Mobile menu \u2500\u2500 */\nconst burger = document.getElementById('burgerBtn');\nconst sheet = document.getElementById('mobileSheet');\nconst burgerIcon = document.getElementById('burgerIcon');\nlet sheetOpen = false;\n\nburger.addEventListener('click', () => {\n  sheetOpen = !sheetOpen;\n  sheet.classList.toggle('sheet--open', sheetOpen);\n  burger.setAttribute('aria-expanded', sheetOpen);\n  burgerIcon.setAttribute('data-lucide', sheetOpen ? 'x' : 'menu');\n  lucide.createIcons({ nodes: [burgerIcon] });\n});\n\nsheet.querySelectorAll('a').forEach(a => {\n  a.addEventListener('click', () => {\n    sheetOpen = false;\n    sheet.classList.remove('sheet--open');\n    burger.setAttribute('aria-expanded', false);\n    burgerIcon.setAttribute('data-lucide', 'menu');\n    lucide.createIcons({ nodes: [burgerIcon] });\n  });\n});\n\n/* \u2500\u2500 Desktop dropdowns \u2500\u2500 */\ndocument.querySelectorAll('.nav-item[data-dropdown]').forEach(item => {\n  const link = item.querySelector('.nav-link');\n  const dd = item.querySelector('.dropdown');\n  item.addEventListener('mouseenter', () => {\n    dd.classList.add('dropdown--open');\n    link.classList.add('nav-link--open');\n  });\n  item.addEventListener('mouseleave', () => {\n    dd.classList.remove('dropdown--open');\n    link.classList.remove('nav-link--open');\n  });\n  dd.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {\n    dd.classList.remove('dropdown--open');\n    link.classList.remove('nav-link--open');\n  }));\n});\n\n/* \u2500\u2500 Location tabs \u2500\u2500 */\ndocument.querySelectorAll('.loc-tab').forEach(btn => {\n  btn.addEventListener('click', () => {\n    const idx = btn.getAttribute('data-loc');\n    document.querySelectorAll('.loc-tab').forEach(b => b.classList.toggle('loc-tab--active', b === btn));\n    document.querySelectorAll('.loc-panel').forEach(p => {\n      p.classList.toggle('loc-panel--active', p.getAttribute('data-loc-panel') === idx);\n    });\n  });\n});\n\n/* \u2500\u2500 FAQ accordion \u2500\u2500 */\ndocument.querySelectorAll('.faq-q').forEach(btn => {\n  btn.addEventListener('click', () => {\n    const item = btn.closest('.faq-item');\n    const isOpen = item.classList.contains('faq-item--open');\n    document.querySelectorAll('.faq-item').forEach(i => {\n      i.classList.remove('faq-item--open');\n      i.querySelector('.faq-q').setAttribute('aria-expanded', false);\n    });\n    if (!isOpen) {\n      item.classList.add('faq-item--open');\n      btn.setAttribute('aria-expanded', true);\n    }\n  });\n});\n\n/* \u2500\u2500 Scroll reveal \u2500\u2500 */\nconst revealEls = document.querySelectorAll('.reveal');\nif (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n  const io = new IntersectionObserver((entries) => {\n    entries.forEach(e => {\n      if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }\n    });\n  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });\n  revealEls.forEach((el, i) => {\n    const r = el.getBoundingClientRect();\n    if (r.top < window.innerHeight * 0.92) { el.classList.add('revealed'); }\n    else { io.observe(el); }\n  });\n} else {\n  revealEls.forEach(el => el.classList.add('revealed'));\n}\n\n/* \u2500\u2500 Counter animation \u2500\u2500 */\nconst counters = document.querySelectorAll('[data-counter]');\nif (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n  const cio = new IntersectionObserver((entries) => {\n    entries.forEach(e => {\n      if (!e.isIntersecting) return;\n      const el = e.target;\n      const value = parseFloat(el.getAttribute('data-value'));\n      const prefix = el.getAttribute('data-prefix') || '';\n      const suffix = el.getAttribute('data-suffix') || '';\n      const duration = 1600;\n      const t0 = performance.now();\n      const tick = (t) => {\n        const p = Math.min(1, (t - t0) / duration);\n        const eased = 1 - Math.pow(1 - p, 3);\n        const n = Math.round(value * eased);\n        el.textContent = prefix + n.toLocaleString('en-AU') + suffix;\n        if (p < 1) requestAnimationFrame(tick);\n        else el.textContent = prefix + value.toLocaleString('en-AU') + suffix;\n      };\n      requestAnimationFrame(tick);\n      cio.unobserve(el);\n    });\n  }, { threshold: 0.4 });\n  counters.forEach(el => cio.observe(el));\n}\n\n/* \u2500\u2500 Header: transparent \u2192 solid on scroll \u2500\u2500 */\nconst siteHeader = document.getElementById('siteHeader');\nfunction updateHeader() {\n  siteHeader.classList.toggle('header--scrolled', window.scrollY > 60);\n}\nwindow.addEventListener('scroll', updateHeader, { passive: true });\nupdateHeader();\n\n/* \u2500\u2500 Form submit \u2500\u2500 */\nfunction handleFormSubmit(e) {\n  e.preventDefault();\n  e.target.style.display = 'none';\n  document.getElementById('formSuccess').classList.add('form-success--visible');\n  lucide.createIcons();\n}\n\n/* \u2500\u2500 Services photo carousel (merged from Design 2) \u2500\u2500 */\n/* \u2500\u2500 Services photo carousel (with dots) \u2500\u2500 */\ndocument.querySelectorAll('.svc-carousel').forEach(car => {\n  const track = car.querySelector('.svc-track');\n  if (!track) return;\n  const tiles = track.querySelectorAll('.svc-tile');\n  const dotsWrap = car.querySelector('.svc-dots');\n  const stepBy = () => tiles.length > 1 ? tiles[1].offsetLeft - tiles[0].offsetLeft : (tiles[0] ? tiles[0].offsetWidth : 320);\n  const padLeft = () => parseFloat(getComputedStyle(track).paddingLeft) || 0;\n  const dots = [];\n  if (dotsWrap) {\n    tiles.forEach((t, idx) => {\n      const b = document.createElement('button');\n      b.type = 'button';\n      b.className = 'svc-dot';\n      b.setAttribute('aria-label', 'Go to service ' + (idx + 1));\n      b.addEventListener('click', () => track.scrollTo({ left: t.offsetLeft - padLeft(), behavior: 'smooth' }));\n      dotsWrap.appendChild(b);\n      dots.push(b);\n    });\n  }\n  const update = () => {\n    const i = Math.round(track.scrollLeft / stepBy());\n    dots.forEach((d, k) => d.classList.toggle('is-active', k === Math.max(0, Math.min(i, dots.length - 1))));\n  };\n  const go = dir => {\n    const max = track.scrollWidth - track.clientWidth;\n    let target = track.scrollLeft + dir * stepBy();\n    if (dir > 0 && track.scrollLeft >= max - 4) target = 0;\n    else if (dir < 0 && track.scrollLeft <= 4) target = max;\n    track.scrollTo({ left: Math.max(0, Math.min(target, max)), behavior: 'smooth' });\n  };\n  const prev = car.querySelector('.svc-nav--prev');\n  const next = car.querySelector('.svc-nav--next');\n  if (prev) prev.addEventListener('click', () => go(-1));\n  if (next) next.addEventListener('click', () => go(1));\n  track.addEventListener('scroll', update, { passive: true });\n  update();\n});\n</script>",
+      "_title": "Scripts"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes",
+  "template": "elementor_canvas"
+ }
+}
