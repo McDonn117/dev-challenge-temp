@@ -19,7 +19,6 @@ pass in the editor wires up the bits that can't travel inside a template file.
 |------|------------|
 | `stm-homepage-elementor.json` | The full homepage as an importable Elementor page (18 sections). |
 | `stm-global.css` | All brand + component styling (palette, fonts, card accents, hovers, frosted-on-blue cards, ghost testimonial text). |
-| `assets/` | Every image + the 2 webfonts (Archivo, IBM Plex Mono) to upload to WordPress. |
 | `build.py` | The script that regenerated the two files from the mockup (re-run if the mockup changes). |
 
 **Images & fonts to upload** live in the existing repo (not duplicated here):
