@@ -1,0 +1,120 @@
+/* ============================================================
+   Safe Traffic Management — Colour System
+   Brand: #f48d26 (hi-vis orange)  #2864a9 (governance blue)
+          #383837 (charcoal)       #f1f2f2 (light grey)
+          #fefefe (off-white)
+   Orange = action, energy, hi-vis safety.
+   Blue   = trust, governance, compliance.
+   Charcoal carries text and the "asphalt" weight of the brand.
+   ============================================================ */
+
+:root {
+  /* ---- Brand orange (primary) ---- */
+  --orange-50:  #fef4e9;
+  --orange-100: #fde2c6;
+  --orange-200: #fac994;
+  --orange-300: #f8af62;
+  --orange-400: #f69e44;
+  --orange-500: #f48d26;  /* brand */
+  --orange-600: #db7711;
+  --orange-700: #ad5d0c;
+  --orange-800: #7d4308;
+  --orange-900: #4f2b05;
+
+  /* ---- Governance blue (secondary) ---- */
+  --blue-50:  #eaf1f8;
+  --blue-100: #c7daed;
+  --blue-200: #93b6db;
+  --blue-300: #5e8fc7;
+  --blue-400: #3d77b5;
+  --blue-500: #2864a9;  /* brand */
+  --blue-600: #215489;
+  --blue-700: #1a4169;
+  --blue-800: #122e4a;
+  --blue-900: #0b1c2e;
+
+  /* ---- Charcoal / neutral (asphalt) ---- */
+  --charcoal: #383837;   /* brand text */
+  --neutral-950: #1c1c1b;
+  --neutral-900: #262625;
+  --neutral-800: #383837;  /* brand */
+  --neutral-700: #4d4d4b;
+  --neutral-600: #6b6b69;
+  --neutral-500: #8a8a87;
+  --neutral-400: #aeaeab;
+  --neutral-300: #cdcdca;
+  --neutral-200: #e2e2e0;
+  --neutral-100: #f1f2f2;  /* brand light grey */
+  --neutral-50:  #f8f8f7;
+  --white: #fefefe;        /* brand off-white */
+  --true-white: #ffffff;
+
+  /* ---- Semantic / status (safety domain) ---- */
+  --green-500:  #2e8b57;  /* compliant / pass */
+  --green-50:   #e7f3ec;
+  --green-700:  #1f6a40;
+  --amber-500:  #e8a317;  /* caution / pending */
+  --amber-50:   #fdf3da;
+  --amber-700:  #b07c08;
+  --red-500:    #d23b34;  /* non-compliant / incident */
+  --red-50:     #fbeae9;
+  --red-700:    #a02822;
+
+  /* Hi-vis accent (PPE / signage echo) */
+  --hivis-yellow: #f7c948;
+  --hivis-orange: #f48d26;
+
+  /* ---- Brand gradients (mirrors the logo road + triangle) ---- */
+  --gradient-hivis: linear-gradient(135deg, #f7c948 0%, #f48d26 55%, #db7711 100%); /* @kind color */
+  --gradient-blue:  linear-gradient(160deg, #3d92d6 0%, #2864a9 60%, #1a4169 100%); /* @kind color */
+  --gradient-asphalt: linear-gradient(180deg, #4d4d4b 0%, #262625 100%); /* @kind color */
+
+  /* ============================================================
+     SEMANTIC ALIASES — reach for these, not the raw scales.
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:      var(--white);
+  --surface-sunken:    var(--neutral-100);
+  --surface-card:      var(--true-white);
+  --surface-raised:    var(--true-white);
+  --surface-inverse:   var(--neutral-800);
+  --surface-brand:     var(--orange-500);
+  --surface-brand-sub: var(--orange-50);
+  --surface-gov:       var(--blue-500);
+  --surface-gov-sub:   var(--blue-50);
+
+  /* Text */
+  --text-strong:   var(--neutral-900);
+  --text-body:     var(--charcoal);
+  --text-muted:    var(--neutral-600);
+  --text-subtle:   var(--neutral-500);
+  --text-on-brand: var(--neutral-950);   /* dark text on hi-vis orange = max legibility */
+  --text-on-gov:   var(--white);
+  --text-on-dark:  var(--neutral-100);
+  --text-link:     var(--blue-600);
+
+  /* Borders / lines */
+  --border-subtle: var(--neutral-200);
+  --border-default: var(--neutral-300);
+  --border-strong: var(--neutral-400);
+  --border-brand:  var(--orange-500);
+  --border-focus:  var(--blue-500);
+
+  /* Status semantics */
+  --status-pass-fg:   var(--green-700);
+  --status-pass-bg:   var(--green-50);
+  --status-pass-bd:   var(--green-500);
+  --status-warn-fg:   var(--amber-700);
+  --status-warn-bg:   var(--amber-50);
+  --status-warn-bd:   var(--amber-500);
+  --status-fail-fg:   var(--red-700);
+  --status-fail-bg:   var(--red-50);
+  --status-fail-bd:   var(--red-500);
+  --status-info-fg:   var(--blue-700);
+  --status-info-bg:   var(--blue-50);
+  --status-info-bd:   var(--blue-500);
+
+  /* Focus ring */
+  --ring: 0 0 0 3px color-mix(in srgb, var(--blue-500) 35%, transparent);
+}

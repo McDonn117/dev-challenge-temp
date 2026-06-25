@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industries | Safe Traffic Management</title>
+<meta name="description" content="Safe Traffic Management delivers safety-governed traffic control across Queensland's most regulated sectors, civil construction, utilities, government projects and events. Qualified crews, compliant systems and real-time reporting tailored to your industry.">
+<link rel="icon" href="assets/logos/stm-mark.png">
+<link rel="stylesheet" href="_ds/safe-traffic-management-design-system-f034675c-40b0-440d-8a18-6c6f041ea4be/styles.css">
+<style>
+/* ── Layout helpers ── */
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--surface-page); color: var(--text-body); overflow-x: hidden; }
+:root { --nav-h: 90px; }
+[id] { scroll-margin-top: var(--nav-h); }
+
+/* ── PALETTE LOCK, approved brand colours only ──
+   #F48D26 orange · #2864A9 blue · #383837 charcoal · #F1F2F2 grey · #FEFEFE white */
+:root {
+  --orange-50:  #F1F2F2;
+  --orange-400: #F48D26;
+  --orange-600: #F48D26;
+  --orange-700: #F48D26;
+  --blue-50:    #F1F2F2;
+  --blue-600:   #2864A9;
+  --blue-700:   #2864A9;
+  --green-50:   #F1F2F2;
+  --green-500:  #2864A9;
+  --green-700:  #2864A9;
+  --hivis-yellow: #F48D26;
+  --text-strong: #383837;
+}
+
+/* ── Highlight word inside headings ── */
+.hl { color: #F48D26; }
+.hl--blue { color: #2864A9; }
+
+/* ── Large content heading (matches section-head h2 scale) ── */
+.heading-lg { font-size: clamp(2.25rem, 3.4vw, 2.85rem); line-height: 1.08; letter-spacing: 0.01em; }
+
+/* ── All headings set in uppercase ── */
+h1, h2 { text-transform: uppercase; }
+img { max-width: 100%; }
+.container { max-width: var(--container-xl); margin: 0 auto; padding-left: var(--space-6); padding-right: var(--space-6); }
+.section { padding: var(--space-24) 0; }
+.section--tight { padding: var(--space-20) 0; }
+.section--sunken { background: var(--surface-sunken); }
+
+/* ── Kicker ── */
+.kicker { font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--orange-600); display: block; margin-bottom: var(--space-3); }
+.kicker--onDark { color: var(--orange-400); }
+.kicker--blue { color: var(--blue-600); }
+
+/* ── Section header ── */
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-8); margin-bottom: var(--space-12); flex-wrap: wrap; }
+.section-head--center { flex-direction: column; align-items: center; text-align: center; }
+.section-head h2 { font-size: clamp(2.25rem, 3.4vw, 2.85rem); margin: var(--space-2) 0 var(--space-4); line-height: 1.08; letter-spacing: 0.01em; }
+.section-head p { font-size: var(--text-md); color: var(--text-muted); line-height: var(--leading-normal); margin: 0; max-width: 62ch; }
+
+/* ── Buttons ── */
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); border-radius: var(--radius-md); padding: 11px 20px; cursor: pointer; border: 1.5px solid transparent; text-decoration: none; transition: background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast), transform var(--dur-fast), box-shadow var(--dur-fast); white-space: nowrap; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn--lg { font-size: var(--text-base); padding: 14px 26px; }
+.btn--lg svg { width: 20px; height: 20px; }
+.btn--primary { background: #f48d26; color: var(--neutral-950); border-color: #f48d26; }
+.btn--primary:hover { background: var(--orange-600); border-color: var(--orange-600); text-decoration: none; }
+.btn--secondary { background: var(--neutral-950); color: #fefefe; border-color: var(--neutral-950); }
+.btn--secondary:hover { background: var(--neutral-800); text-decoration: none; }
+.btn--outline { background: transparent; color: var(--text-strong); border-color: var(--border-default); }
+.btn--outline:hover { border-color: var(--border-strong); background: var(--neutral-50); text-decoration: none; }
+.btn--outline-white { background: rgba(255,255,255,0.08); color: #fefefe; border-color: rgba(255,255,255,0.42); }
+.btn--outline-white:hover { background: rgba(255,255,255,0.14); text-decoration: none; }
+.btn--full { width: 100%; justify-content: center; }
+
+/* ── Text link ── */
+.textlink { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-link); text-decoration: none; }
+.textlink svg { width: 16px; height: 16px; transition: transform var(--dur-fast); }
+.textlink:hover svg { transform: translateX(3px); }
+
+/* ── Reveal animation ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out); }
+.reveal.revealed { opacity: 1; transform: none; }
+
+/* ── HEADER: transparent → solid on scroll ── */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; }
+
+/* ── TOP STRIP (orange, flush above nav on scroll) ── */
+.topstrip { height: 0; background: #F48D26; transition: height 0.3s var(--ease-standard); }
+header.header--scrolled .topstrip { height: 6px; }
+
+/* ── NAV CALL LINK ── */
+.nav-call { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-md); color: #fefefe; text-decoration: none; white-space: nowrap; padding: 0 var(--space-2); transition: color var(--dur-fast); }
+.nav-call svg { width: 18px; height: 18px; color: #f48d26; }
+.nav-call:hover { color: #fefefe; text-decoration: none; }
+header.header--scrolled .nav-call { color: #383837; }
+@media (max-width:1060px){ .nav-call { display: none; } }
+
+/* ── MAIN NAV ── */
+.mainnav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; transition: background 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease; }
+.mainnav__inner { max-width: var(--container-xl); margin: 0 auto; height: 86px; display: flex; align-items: center; gap: var(--space-6); padding: 0 var(--space-6); }
+.mainnav__logo { background: #fefefe; padding: 4px 12px; border-radius: var(--radius-md); display: inline-flex; align-items: center; text-decoration: none; flex: none; }
+.mainnav__logo img { height: 64px; width: auto; max-width: none; object-fit: contain; display: block; }
+.mainnav__menu { display: flex; align-items: center; gap: 1px; margin-left: var(--space-4); }
+.nav-item { position: relative; }
+.nav-link { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-sans); font-weight: var(--fw-semibold); font-size: var(--text-sm); color: #fefefe; text-decoration: none; padding: 10px 13px; border-radius: var(--radius-sm); white-space: nowrap; background: none; border: 0; cursor: pointer; transition: color var(--dur-fast), background var(--dur-fast); }
+.nav-link:hover { color: #fefefe; background: rgba(255,255,255,0.12); text-decoration: none; }
+.nav-link svg { width: 15px; height: 15px; transition: transform var(--dur-fast); }
+.nav-link--open svg.caret { transform: rotate(180deg); }
+.dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 290px; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: var(--space-2); display: none; z-index: 60; }
+.dropdown::before { content: ""; position: absolute; top: -4px; left: 14px; right: 14px; height: 4px; background: #f48d26; border-radius: 4px 4px 0 0; }
+.dropdown--open { display: block; animation: dropIn 200ms var(--ease-out); }
+@keyframes dropIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.dropdown a { display: flex; align-items: center; gap: 11px; padding: 11px 12px; border-radius: var(--radius-sm); color: var(--text-body); text-decoration: none; font-size: var(--text-sm); font-weight: var(--fw-medium); }
+.dropdown a svg { width: 16px; height: 16px; color: var(--orange-600); flex: none; }
+.dropdown a:hover { background: var(--blue-50); color: var(--blue-700); text-decoration: none; }
+.mainnav__spacer { flex: 1; }
+.mainnav__actions { display: flex; align-items: center; gap: var(--space-3); flex: none; }
+.burger { display: none; align-items: center; justify-content: center; width: 46px; height: 46px; border: 1px solid rgba(255,255,255,0.42); border-radius: var(--radius-md); background: rgba(255,255,255,0.08); cursor: pointer; color: #fefefe; }
+@media (max-width:1060px){ .mainnav__menu { display: none; } .burger { display: inline-flex; } }
+header.header--scrolled .mainnav { background: #fefefe; border-bottom-color: var(--border-subtle); box-shadow: var(--shadow-sm); }
+header.header--scrolled .nav-link { color: #383837; }
+header.header--scrolled .nav-link:hover { color: #2864a9; background: var(--blue-50); }
+header.header--scrolled .burger { border-color: var(--border-default); background: #fefefe; color: #383837; }
+
+/* ── MOBILE SHEET ── */
+.sheet { display: none; position: fixed; inset: var(--nav-h) 0 0 0; background: var(--surface-card); z-index: 40; overflow-y: auto; padding: var(--space-5) var(--space-6) var(--space-16); }
+.sheet--open { display: block; }
+.sheet__group { border-bottom: 1px solid var(--border-subtle); padding: var(--space-3) 0; }
+.sheet__head { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-md); color: var(--text-strong); padding: 8px 0; text-decoration: none; display: block; }
+.sheet a.sub { display: block; padding: 9px 0 9px var(--space-4); color: var(--text-muted); text-decoration: none; font-weight: var(--fw-medium); font-size: var(--text-sm); }
+
+/* ── HERO (split panel) ── */
+.hero { position: relative; background: #2864a9; overflow: hidden; border-bottom: 4px solid #f48d26; }
+.hero__bg-img { position: absolute; inset: 0; width: 100%; height: 100%; background: url('assets/photos/iStock-1038532394.jpg') center center/cover no-repeat; }
+.hero__bg-overlay { position: absolute; inset: 0; background: linear-gradient(to right, #2864a9 0%, #2864a9 26%, rgba(40,100,169,0.92) 44%, rgba(40,100,169,0.55) 68%, rgba(40,100,169,0.18) 100%); pointer-events: none; }
+.hero__inner { position: relative; z-index: 2; max-width: var(--container-xl); margin: 0 auto; padding: 106px var(--space-6) 66px; }
+.hero__content { max-width: 660px; }
+.hero h1 { color: #fefefe; font-size: clamp(2.2rem, 3.5vw, 3.25rem); line-height: 1.06; font-stretch: 108%; letter-spacing: 0; margin: var(--space-3) 0 var(--space-4); max-width: 24ch; }
+.hero__lead { color: rgba(255,255,255,0.84); font-size: var(--text-base); line-height: var(--leading-normal); max-width: 58ch; margin: 0 0 var(--space-8); }
+.hero__cta { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.hero__divider { height: 1px; background: rgba(255,255,255,0.24); margin: var(--space-8) 0; }
+.hero__trust { display: grid; grid-template-columns: repeat(2, max-content); justify-content: start; gap: var(--space-4) var(--space-10); }
+.hero__trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.88); font-weight: var(--fw-semibold); font-size: var(--text-sm); white-space: nowrap; }
+@media (max-width:480px){ .hero__trust { grid-template-columns: max-content; } }
+.hero__trust-item svg { width: 18px; height: 18px; color: #f48d26; flex: none; }
+@media (max-width:720px){ .hero h1 { font-size: var(--text-2xl); } .hero__bg-img { width: 100%; } .hero__bg-overlay { width: 100%; background: rgba(40,100,169,0.88); } .hero__inner { padding: calc(86px + var(--space-8)) var(--space-6) var(--space-12); } }
+
+/* ── CTA STRIP ── */
+.ctastrip { background: #f48d26; }
+.ctastrip__inner { max-width: var(--container-xl); margin: 0 auto; padding: var(--space-4) var(--space-6); display: flex; align-items: center; justify-content: space-between; gap: var(--space-5) var(--space-8); flex-wrap: wrap; }
+.ctastrip__title { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); color: var(--neutral-950); margin: 0; line-height: 1.15; }
+.ctastrip__sub { color: rgba(28,28,27,0.82); font-weight: var(--fw-semibold); font-size: var(--text-sm); margin: 2px 0 0; }
+.ctastrip__actions { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.ctastrip__call { display: inline-flex; align-items: center; gap: 9px; color: var(--neutral-950); text-decoration: none; font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-md); }
+.ctastrip__call svg { width: 20px; height: 20px; }
+.ctastrip__call:hover { opacity: 0.82; text-decoration: none; }
+
+/* ── INTRO / WHAT IS TRAFFIC MANAGEMENT ── */
+.intro-section { background: var(--surface-sunken); }
+.intro-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-10) var(--space-16); align-items: start; }
+.intro-lead .kicker { margin-bottom: var(--space-4); }
+.intro-lead h2 { margin: 0; color: var(--text-strong); }
+.intro-body__lead { font-size: var(--text-md); color: var(--text-body); line-height: var(--leading-relaxed); margin: 0 0 var(--space-5); }
+.intro-body__lead b { color: var(--text-strong); }
+.intro-body__text { font-size: var(--text-md); color: var(--text-body); line-height: var(--leading-relaxed); margin: 0; }
+.intro-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8) var(--space-10); margin-top: var(--space-12); padding-top: var(--space-10); border-top: 1px solid var(--border-subtle); }
+.intro-point { display: flex; align-items: flex-start; gap: var(--space-4); }
+.intro-point__icon { width: 56px; height: 56px; flex: none; border-radius: var(--radius-md); background: #383837; color: #F48D26; display: inline-flex; align-items: center; justify-content: center; transition: background var(--dur-base) var(--ease-standard), color var(--dur-base); }
+.intro-point__icon svg { width: 26px; height: 26px; }
+.intro-point:hover .intro-point__icon { background: #F48D26; color: #383837; }
+.intro-point > div b { display: block; color: var(--text-strong); font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); margin-bottom: 4px; }
+.intro-point > div span { display: block; color: var(--text-muted); font-size: var(--text-sm); line-height: var(--leading-normal); }
+@media (max-width:900px){ .intro-grid { grid-template-columns: 1fr; gap: var(--space-6); } .intro-points { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:620px){ .intro-points { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+/* ── SERVICES ── */
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-5); }
+.svc-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-3); transition: box-shadow var(--dur-base), transform var(--dur-base), border-color var(--dur-base); border-top: 3px solid var(--orange-500); text-decoration: none; color: inherit; }
+.svc-card--blue { border-top-color: var(--blue-500); }
+.svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--border-strong); text-decoration: none; }
+.svc-card__icon { width: 52px; height: 52px; border-radius: var(--radius-md); background: var(--orange-50); color: var(--orange-600); display: inline-flex; align-items: center; justify-content: center; }
+.svc-card--blue .svc-card__icon { background: var(--blue-50); color: var(--blue-600); }
+.svc-card__icon svg { width: 24px; height: 24px; }
+.svc-card h3 { font-size: var(--text-md); margin: 0; color: var(--text-strong); }
+.svc-card p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; line-height: var(--leading-normal); flex: 1; }
+.svc-card .textlink { margin-top: auto; }
+
+/* ── Services + Compliance, solid orange top accent (scoped) ── */
+#services .svc-card, #compliance .svc-card { position: relative; overflow: hidden; border-top: 0; padding: calc(var(--space-6) + 6px) var(--space-6) var(--space-6); gap: var(--space-4); }
+#services .svc-card::before, #compliance .svc-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: #F48D26; }
+#services .svc-card__icon, #compliance .svc-card__icon { background: #383837; color: #F48D26; width: 56px; height: 56px; transition: background var(--dur-base) var(--ease-standard), color var(--dur-base); }
+#services .svc-card:hover .svc-card__icon, #compliance .svc-card:hover .svc-card__icon { background: #F48D26; color: #383837; }
+#services .svc-card h3, #compliance .svc-card h3 { line-height: 1.25; }
+.svc-card__more { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; color: var(--text-link); font-weight: var(--fw-bold); font-size: var(--text-sm); }
+.svc-card__more svg { width: 15px; height: 15px; transition: transform var(--dur-fast); }
+.svc-card:hover .svc-card__more svg { transform: translateX(3px); }
+@media (max-width:1080px){ .svc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width:720px){ .svc-grid { grid-template-columns: 1fr; } }
+
+/* ── STATS ── */
+.stats-section { background: var(--gradient-blue); position: relative; overflow: hidden; }
+.stats-section__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.16; }
+.stats-section::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,46,74,0.35), rgba(11,28,46,0.65)); }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-6); position: relative; z-index: 1; }
+.stat-card { padding-left: var(--space-6); border-left: 3px solid var(--orange-500); }
+.stat-card__value { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-4xl); line-height: 1; color: var(--hivis-yellow); font-stretch: 108%; letter-spacing: var(--tracking-tight); display: block; }
+.stat-card__label { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); color: var(--white); margin-top: var(--space-3); }
+.stat-card__caption { font-size: var(--text-sm); color: var(--blue-100); margin-top: 4px; line-height: 1.4; }
+@media (max-width:1080px){ .stats-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width:720px){ .stat-card__value { font-size: var(--text-3xl); } }
+
+/* ── TABS ── */
+.tabs { display: inline-flex; gap: 4px; background: var(--neutral-100); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 4px; }
+.tab-btn { appearance: none; border: 0; cursor: pointer; background: transparent; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-muted); padding: 10px 20px; border-radius: var(--radius-sm); transition: all var(--dur-fast); display: inline-flex; align-items: center; gap: 8px; }
+.tab-btn svg { width: 16px; height: 16px; }
+.tab-btn--active { background: var(--surface-card); color: var(--text-strong); box-shadow: var(--shadow-sm); }
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: stretch; margin-top: var(--space-10); }
+.about-media { position: relative; min-height: 440px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+.about-media img { width: 100%; height: 100%; object-fit: cover; }
+.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-6) 0 var(--space-8); }
+.about-value { display: flex; gap: 10px; align-items: flex-start; }
+.about-value svg { width: 20px; height: 20px; color: var(--green-700); flex: none; margin-top: 2px; }
+.about-value b { display: block; color: var(--text-strong); font-size: var(--text-sm); }
+.about-value span { color: var(--text-muted); font-size: var(--text-sm); }
+@media (max-width:1080px){ .about-grid { grid-template-columns: 1fr; } .about-values { grid-template-columns: 1fr; } }
+
+/* ── USP ── */
+.usp-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.usp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-6); }
+.usp-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-top: 3px solid var(--orange-500); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-sm); }
+.usp-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--orange-50); color: var(--orange-600); display: inline-flex; align-items: center; justify-content: center; margin: 0 0 var(--space-5); }
+.usp-icon svg { width: 26px; height: 26px; }
+.usp-card h3 { font-size: var(--text-md); margin: 0 0 8px; }
+.usp-card p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; line-height: var(--leading-normal); }
+@media (max-width:1080px){ .usp-grid { grid-template-columns: 1fr; } }
+
+/* ── STANDARDS ── */
+.standards { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-top: var(--space-10); padding-top: var(--space-8); border-top: 1px solid var(--border-subtle); }
+.standards__label { font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-subtle); font-weight: var(--fw-bold); margin-right: var(--space-2); }
+.standards__chip { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-body); background: var(--neutral-100); border: 1px solid var(--border-subtle); padding: 6px 12px; border-radius: var(--radius-sm); }
+
+/* ── TESTIMONIALS ── */
+.tst-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.tst-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-5); }
+.tst-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-4); }
+.tst-stars { display: inline-flex; gap: 2px; color: #f48d26; }
+.tst-stars svg { width: 18px; height: 18px; fill: currentColor; }
+.tst-quote { font-size: var(--text-md); color: var(--text-body); line-height: var(--leading-normal); margin: 0; }
+.tst-who { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--border-subtle); }
+.tst-avatar { width: 42px; height: 42px; border-radius: var(--radius-pill); background: var(--blue-50); color: var(--blue-700); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: var(--fw-black); flex: none; font-size: var(--text-sm); }
+.tst-name { font-weight: var(--fw-bold); color: var(--text-strong); font-size: var(--text-sm); }
+.tst-role { color: var(--text-muted); font-size: var(--text-xs); }
+@media (max-width:980px){ .tst-grid { grid-template-columns: 1fr; } }
+
+/* ── GOOGLE BADGE ── */
+.google-badge { display: inline-flex; align-items: center; gap: 12px; background: #fefefe; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 12px 18px; text-decoration: none; box-shadow: var(--shadow-sm); transition: transform var(--dur-fast), box-shadow var(--dur-fast); }
+.google-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); text-decoration: none; }
+.google-badge__logo { height: 32px; width: auto; flex: none; display: block; }
+.google-badge__right { display: flex; flex-direction: column; gap: 2px; }
+.google-badge__top { display: flex; align-items: center; gap: 7px; }
+.google-badge__num { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); color: var(--text-strong); line-height: 1; }
+.google-badge__stars { color: #F48D26; font-size: 15px; letter-spacing: 1px; line-height: 1; }
+.google-badge__count { font-size: var(--text-xs); color: var(--text-muted); white-space: nowrap; }
+
+/* ── CAPABILITY (dark band) ── */
+.cap-section { background: #1a4169; color: var(--text-on-dark); position: relative; overflow: hidden; }
+.cap-section .cap__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; z-index: 0; }
+.cap-section::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(160deg, rgba(61,146,214,0.82) 0%, rgba(40,100,169,0.93) 55%, rgba(26,65,105,0.97) 100%); }
+.cap-section .section-head h2 { color: var(--white); }
+.cap-section .section-head p { color: var(--neutral-300); }
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); position: relative; z-index: 1; }
+.cap-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid #F48D26; border-radius: var(--radius-lg); padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4); }
+.cap-tag { display: inline-flex; align-items: center; gap: 8px; font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.12em; font-weight: var(--fw-bold); color: var(--orange-400); }
+.cap-tag svg { width: 16px; height: 16px; }
+.cap-card h3 { color: var(--white); font-size: var(--text-lg); margin: 0; }
+.cap-card p { color: var(--neutral-300); font-size: var(--text-sm); margin: 0; line-height: var(--leading-normal); }
+.cap-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cap-list li { display: flex; align-items: center; gap: 9px; color: var(--neutral-100); font-size: var(--text-sm); font-weight: var(--fw-medium); }
+.cap-list li svg { width: 16px; height: 16px; color: var(--orange-400); flex: none; }
+.cap-section .section-head { position: relative; z-index: 1; }
+#capability .section-head > div { max-width: 900px; }
+#industries .section-head > div { max-width: 1000px; }
+#compliance .section-head > div { max-width: 1000px; }
+.usp-section .section-head > div { max-width: 820px; }
+#services .section-head > div { max-width: 880px; }
+@media (max-width:720px){ .cap-grid { grid-template-columns: 1fr; } }
+
+/* ── INDUSTRIES ── */
+.ind-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-5); }
+.ind-card { position: relative; overflow: hidden; display: block; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: calc(var(--space-6) + 6px) var(--space-6) var(--space-6); box-shadow: var(--shadow-sm); text-decoration: none; transition: box-shadow var(--dur-base), transform var(--dur-base), border-color var(--dur-base); }
+.ind-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: #F48D26; }
+.ind-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--border-strong); text-decoration: none; }
+.ind-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: #383837; color: #F48D26; display: inline-flex; align-items: center; justify-content: center; margin-bottom: var(--space-4); transition: background var(--dur-base) var(--ease-standard), color var(--dur-base); }
+.ind-card:hover .ind-icon { background: #F48D26; color: #383837; }
+.ind-icon svg { width: 26px; height: 26px; }
+.ind-card h3 { font-size: var(--text-md); margin: 0 0 6px; }
+.ind-card p { color: var(--text-muted); font-size: var(--text-sm); margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
+.ind-more { display: inline-flex; align-items: center; gap: 6px; color: var(--text-link); font-weight: var(--fw-bold); font-size: var(--text-sm); }
+.ind-more svg { width: 15px; height: 15px; transition: transform var(--dur-fast); }
+.ind-card:hover .ind-more svg { transform: translateX(3px); }
+@media (max-width:1080px){ .ind-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ── FAQ ── */
+.faq-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.faq-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-16); align-items: start; }
+.faq-list { display: grid; gap: var(--space-3); }
+.faq-item { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; transition: border-color var(--dur-fast); }
+.faq-item--open { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+.faq-q { width: 100%; text-align: left; appearance: none; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) var(--space-6); font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); color: var(--text-strong); }
+.faq-icon { width: 30px; height: 30px; border-radius: var(--radius-sm); background: var(--orange-50); color: var(--orange-600); display: inline-flex; align-items: center; justify-content: center; flex: none; transition: background var(--dur-fast), transform var(--dur-base); }
+.faq-icon svg { width: 18px; height: 18px; }
+.faq-item--open .faq-icon { background: var(--orange-500); color: var(--neutral-950); transform: rotate(180deg); }
+.faq-a { display: block; max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease-standard); }
+.faq-item--open .faq-a { max-height: 460px; }
+.faq-a p { margin: 0; padding: 0 var(--space-6) var(--space-6); color: var(--text-muted); font-size: var(--text-base); line-height: var(--leading-normal); }
+@media (max-width:980px){ .faq-grid { grid-template-columns: 1fr; gap: var(--space-10); } }
+
+/* ── BLUE PANELS, recolour content to suit the #2864A9 background ── */
+.usp-section .section-head h2, .tst-section .section-head h2, .faq-section h2 { color: #FEFEFE; }
+.usp-section .section-head p, .tst-section .section-head p { color: rgba(255,255,255,0.80); }
+
+/* frosted cards on blue, orange kept as the accent */
+.usp-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-top: 3px solid #F48D26; box-shadow: none; }
+.usp-card h3 { color: #FEFEFE; }
+.usp-card p { color: rgba(255,255,255,0.80); }
+.usp-icon { background: rgba(255,255,255,0.10); color: #F48D26; }
+
+.tst-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-top: 3px solid #F48D26; box-shadow: none; }
+.tst-quote { color: #FEFEFE; }
+.tst-who { border-top-color: rgba(255,255,255,0.16); }
+.tst-avatar { background: rgba(255,255,255,0.12); color: #FEFEFE; }
+.tst-name { color: #FEFEFE; }
+.tst-role { color: rgba(255,255,255,0.72); }
+
+.faq-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); }
+.faq-item--open { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.30); border-top: 3px solid #F48D26; box-shadow: none; }
+.faq-q { color: #FEFEFE; }
+.faq-icon { background: rgba(255,255,255,0.12); color: #F48D26; }
+.faq-item--open .faq-icon { background: #F48D26; color: #383837; }
+.faq-a p { color: rgba(255,255,255,0.80); }
+
+/* ── LOCATIONS ── */
+.loc-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: none; width: 390px; align-items: stretch; }
+#locations .section-head > div { max-width: 600px; }
+#locations .loc-tab { justify-content: center; white-space: nowrap; }
+@media (max-width:520px){ .loc-tabs { grid-template-columns: 1fr; width: 100%; } }
+.loc-tab { appearance: none; cursor: pointer; border: 1px solid var(--border-default); background: var(--surface-card); border-radius: var(--radius-md); padding: 11px 20px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-body); display: inline-flex; align-items: center; gap: 8px; transition: all var(--dur-fast); }
+.loc-tab svg { width: 16px; height: 16px; }
+.loc-tab:hover { border-color: var(--border-strong); }
+.loc-tab--active { background: var(--orange-500); border-color: var(--orange-500); color: var(--neutral-950); }
+.loc-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: var(--space-12); align-items: stretch; }
+.loc-info h3 { font-size: var(--text-2xl); margin: var(--space-2) 0 var(--space-3); }
+.loc-contacts { list-style: none; margin: var(--space-6) 0 var(--space-8); padding: 0; display: grid; gap: var(--space-4); }
+.loc-contacts li { display: flex; align-items: center; gap: 12px; color: var(--text-body); font-weight: var(--fw-semibold); font-size: var(--text-base); }
+.loc-contacts a { color: var(--text-body); text-decoration: none; }
+.loc-contacts a:hover { color: var(--orange-700); }
+.loc-ci { width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--blue-50); color: var(--blue-600); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.loc-ci svg { width: 19px; height: 19px; }
+.map-placeholder { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-default); min-height: 360px; background: linear-gradient(var(--neutral-200) 1px, transparent 1px) 0 0 / 100% 44px, linear-gradient(90deg, var(--neutral-200) 1px, transparent 1px) 0 0 / 44px 100%, var(--neutral-100); }
+.map-road { position: absolute; background: var(--neutral-300); }
+.map-road--h { left: -5%; right: -5%; top: 58%; height: 16px; transform: rotate(-6deg); }
+.map-road--v { top: -5%; bottom: -5%; left: 38%; width: 13px; transform: rotate(4deg); }
+.map-road--d { left: 10%; right: -10%; top: 22%; height: 9px; transform: rotate(18deg); background: var(--blue-200); }
+.map-pin { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; z-index: 2; }
+.map-pin-dot { width: 30px; height: 30px; border-radius: 50% 50% 50% 0; background: var(--orange-500); transform: rotate(-45deg); border: 3px solid var(--white); box-shadow: var(--shadow-md); }
+.map-pin-label { transform: translateY(8px); background: var(--neutral-950); color: var(--white); font-size: var(--text-xs); font-weight: var(--fw-bold); padding: 4px 10px; border-radius: var(--radius-sm); white-space: nowrap; }
+.map-coords { position: absolute; left: var(--space-4); bottom: var(--space-4); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); background: rgba(254,254,254,0.9); padding: 5px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); z-index: 2; }
+.map-open { position: absolute; right: var(--space-4); top: var(--space-4); display: inline-flex; align-items: center; gap: 7px; background: var(--surface-card); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 8px 14px; font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-strong); text-decoration: none; box-shadow: var(--shadow-sm); z-index: 2; }
+.map-open:hover { border-color: var(--orange-500); text-decoration: none; }
+.map-open svg { width: 16px; height: 16px; color: var(--orange-600); }
+.loc-map { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-default); min-height: 380px; box-shadow: var(--shadow-sm); }
+.loc-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.18) contrast(1.02); }
+.loc-map img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.loc-panel { display: none; }
+.loc-panel--active { display: block; }
+@media (max-width:980px){ .loc-grid { grid-template-columns: 1fr; } }
+
+/* ── CONTACT / CLOSING CTA ── */
+.close-section { position: relative; overflow: hidden; background: #1a4169; color: var(--white); }
+.close-section::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url('assets/photos/iStock-1321417982.jpg') center/cover no-repeat; }
+.close-section::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to right, #1a4169 0%, rgba(26,65,105,0.96) 30%, rgba(33,84,137,0.74) 62%, rgba(33,84,137,0.48) 100%); }
+.close-section > .container { position: relative; z-index: 1; }
+.close-section h2 { color: var(--white); }
+.close-section .section-head p { color: var(--blue-100); }
+.close-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-16); align-items: start; }
+.close-points { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.close-points li { display: flex; gap: 10px; align-items: flex-start; color: #eaf1f8; font-size: var(--text-base); font-weight: var(--fw-medium); }
+.close-points li svg { width: 19px; height: 19px; color: var(--orange-400); flex: none; margin-top: 2px; }
+.close-call { display: inline-flex; align-items: center; gap: 12px; margin-top: var(--space-8); padding: var(--space-4) var(--space-5); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-lg); text-decoration: none; }
+.close-call__ic { width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--orange-500); color: var(--neutral-950); display: inline-flex; align-items: center; justify-content: center; }
+.close-call__ic svg { width: 22px; height: 22px; }
+.close-call:hover { background: rgba(255,255,255,0.16); text-decoration: none; }
+.close-call__num { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); color: var(--white); }
+.close-call__sub { font-size: var(--text-xs); color: var(--blue-100); }
+.contact-card { background: var(--surface-card); border-radius: var(--radius-xl); padding: var(--space-8); box-shadow: var(--shadow-xl); border-top: 3px solid var(--orange-500); }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: var(--text-sm); font-weight: var(--fw-bold); color: var(--text-strong); }
+.form-input { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border-default); border-radius: var(--radius-md); font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-body); background: var(--surface-card); transition: border-color var(--dur-fast); box-sizing: border-box; }
+.form-input:focus { outline: none; border-color: var(--blue-500); box-shadow: var(--ring); }
+textarea.form-input { resize: vertical; min-height: 88px; }
+.form-success { text-align: center; padding: var(--space-12) var(--space-4); display: none; }
+.form-success--visible { display: block; }
+.form-success svg { width: 48px; height: 48px; color: var(--green-700); margin-bottom: var(--space-4); }
+.form-success h3 { font-size: var(--text-lg); margin: 0 0 var(--space-2); }
+.form-success p { color: var(--text-muted); margin: 0 0 var(--space-6); }
+@media (max-width:980px){ .close-grid { grid-template-columns: 1fr; gap: var(--space-10); } .form-grid-2 { grid-template-columns: 1fr; } }
+
+/* ── FOOTER ── */
+.footer { background: var(--neutral-950); color: var(--neutral-300); }
+.footer__top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr; gap: var(--space-10); }
+.footer__logo-wrap { background: var(--white); padding: 12px 16px; border-radius: var(--radius-md); display: inline-block; margin-bottom: var(--space-5); }
+.footer__logo-wrap img { height: 62px; display: block; }
+.footer__about { font-size: var(--text-sm); line-height: var(--leading-normal); color: var(--neutral-400); max-width: 38ch; margin: 0 0 var(--space-5); }
+.footer__contactbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-5) var(--space-8); margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid rgba(255,255,255,0.1); }
+.footer__contact { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-8); }
+.footer__contact li { display: flex; align-items: center; gap: 10px; font-size: var(--text-sm); color: var(--neutral-300); }
+.footer__contact a { color: var(--neutral-300); text-decoration: none; }
+.footer__contact a:hover { color: var(--white); }
+.footer__contact svg { width: 18px; height: 18px; color: var(--orange-400); flex: none; }
+.footer__social { display: flex; align-items: center; gap: var(--space-3); }
+.footer__social a { width: 40px; height: 40px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.16); display: inline-flex; align-items: center; justify-content: center; color: var(--neutral-300); transition: color var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast); }
+.footer__social a:hover { color: var(--neutral-950); background: #F48D26; border-color: #F48D26; transform: translateY(-2px); }
+.footer__social svg { width: 18px; height: 18px; }
+.footer h4 { font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--neutral-500); font-weight: 700; margin: 0 0 var(--space-4); }
+.footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.footer__col a { color: var(--neutral-300); font-size: var(--text-sm); text-decoration: none; }
+.footer__col a:hover { color: var(--white); }
+.footer__certs { margin: var(--space-12) 0; padding: var(--space-10) 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer__certs-label { font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--neutral-500); font-weight: 700; margin-bottom: var(--space-6); display: block; }
+.footer__certs-main { display: flex; align-items: center; gap: var(--space-6); }
+.footer__cert-row { flex: 1 1 auto; display: flex; flex-wrap: nowrap; align-items: center; gap: var(--space-4); }
+.footer__cert { height: 72px; background: #fefefe; border-radius: var(--radius-md); display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; flex: none; }
+.footer__cert img { height: 100%; max-height: 50px; width: auto; object-fit: contain; }
+.footer__certs-rule { flex: none; width: 1px; align-self: stretch; min-height: 72px; margin: 0 var(--space-4); background: rgba(255,255,255,0.14); }
+.footer__certs-right { flex: none; display: flex; justify-content: flex-end; }
+@media (max-width:860px){ .footer__certs-main { flex-direction: column; align-items: stretch; gap: var(--space-8); } .footer__certs-rule { display: none; } .footer__cert-row { flex-wrap: wrap; justify-content: center; } .footer__certs-right { justify-content: center; } }
+.footer__legal { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); font-size: var(--text-xs); color: var(--neutral-500); }
+.footer__legal-links { display: inline-flex; gap: var(--space-4); align-items: center; }
+.footer__legal a { color: var(--neutral-400); }
+.footer__fbf { display: inline-flex; align-items: center; gap: 10px; color: #87aaa1; text-decoration: none; font-weight: var(--fw-semibold); font-size: var(--text-sm); }
+.footer__fbf:hover { color: #aecabf; text-decoration: none; }
+.footer__fbf img { height: 22px; width: auto; }
+@media (max-width:980px){ .footer__top { grid-template-columns: 1fr 1fr 1fr; } .footer__cert-row { flex-wrap: wrap; } }
+@media (max-width:720px){ .footer__top { grid-template-columns: 1fr 1fr; } }
+
+/* ═══════════ MERGED FROM DESIGN 2, Services carousel, Stats, Testimonials ═══════════ */
+.svc-carousel { position: relative; margin-top: var(--space-10); }
+.svc-stage { position: relative; }
+.svc-track { display: flex; gap: var(--space-5); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: clamp(var(--space-4), 2.5vw, var(--space-10)); padding: var(--space-2) clamp(var(--space-4), 2.5vw, var(--space-10)) var(--space-4); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.svc-track::-webkit-scrollbar { display: none; }
+.svc-tile { scroll-snap-align: start; flex: 0 0 clamp(258px, 23vw, 320px); aspect-ratio: 3 / 4; position: relative; display: block; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); text-decoration: none; }
+.svc-tile__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+.svc-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,40,64,0.16) 0%, rgba(11,28,46,0.5) 52%, rgba(8,20,33,0.9) 100%); }
+.svc-tile:hover .svc-tile__bg { transform: scale(1.06); }
+.svc-tile__logo { position: absolute; top: var(--space-5); left: 50%; transform: translateX(-50%); z-index: 2; width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.92); display: inline-flex; align-items: center; justify-content: center; }
+.svc-tile__logo img { width: 60%; height: 60%; object-fit: contain; }
+.svc-tile__title { position: absolute; left: var(--space-5); right: var(--space-5); top: 50%; transform: translateY(-50%); z-index: 2; margin: 0; text-align: center; color: #fff; text-transform: uppercase; font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); line-height: 1.18; letter-spacing: 0.01em; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+.svc-tile__plus { position: absolute; bottom: var(--space-5); left: 50%; transform: translateX(-50%); z-index: 2; width: 46px; height: 46px; border-radius: 50%; background: var(--orange-400); color: #383837; display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); transition: transform var(--dur-fast); }
+.svc-tile:hover .svc-tile__plus { transform: translateX(-50%) scale(1.12); }
+.svc-tile__plus svg { width: 24px; height: 24px; }
+.svc-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 46px; height: 46px; border-radius: 50%; border: none; background: #fefefe; color: var(--text-strong); box-shadow: var(--shadow-lg); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background var(--dur-fast), color var(--dur-fast); }
+.svc-nav:hover { background: var(--orange-400); color: #fefefe; }
+.svc-nav svg { width: 22px; height: 22px; }
+.svc-nav--prev { left: var(--space-4); }
+.svc-nav--next { right: var(--space-4); }
+.svc-dots { display: flex; justify-content: center; gap: 9px; margin-top: var(--space-6); flex-wrap: wrap; }
+.svc-dot { width: 9px; height: 9px; border-radius: 50%; border: none; padding: 0; background: var(--border-strong); cursor: pointer; transition: background var(--dur-fast), width var(--dur-fast); }
+.svc-dot.is-active { background: var(--orange-400); width: 26px; border-radius: 2.5px; }
+@media (max-width:760px){ .svc-nav { display: none; } }
+
+.stats-section { background: #1a4169; position: relative; overflow: hidden; }
+.stats-section__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+.stats-section::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(61,146,214,0.82) 0%, rgba(40,100,169,0.93) 55%, rgba(26,65,105,0.97) 100%); }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-8); position: relative; z-index: 1; }
+.stat-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stat-card__value { font-family: var(--font-display); font-weight: var(--fw-black); font-size: clamp(3rem, 6vw, 4.75rem); line-height: 1; color: #fefefe; font-stretch: 108%; letter-spacing: var(--tracking-tight); display: block; }
+.stat-card__bar { display: block; width: 92px; height: 9px; background: var(--orange-400); margin: var(--space-4) 0; }
+.stat-card__label { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); text-transform: uppercase; letter-spacing: var(--tracking-caps); color: var(--white); }
+.stat-card__caption { font-size: var(--text-sm); color: rgba(255,255,255,0.68); margin-top: var(--space-2); line-height: 1.4; max-width: 26ch; }
+@media (max-width:1080px){ .stats-grid { grid-template-columns: 1fr 1fr; gap: var(--space-10); } }
+.tst-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.tst-wrap { position: relative; max-width: var(--container-xl); margin: 0 auto; padding: 0 var(--space-6); }
+.tst-ghost { text-align: center; font-family: var(--font-display); font-weight: var(--fw-black); text-transform: uppercase; font-size: clamp(2.25rem, 9.5vw, 9rem); line-height: 0.86; letter-spacing: -0.01em; margin: 0 0 -0.32em; color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.34); position: relative; z-index: 0; user-select: none; white-space: nowrap; overflow: visible; }
+.tst-card { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; background: #fefefe; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); border-top: 4px solid var(--orange-400); }
+.tst-badge { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); z-index: 2; width: 64px; height: 64px; border-radius: var(--radius-sm); background: var(--orange-400); color: #383837; display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); }
+.tst-badge svg { width: 30px; height: 30px; stroke-width: 2.5; }
+.tst-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.tst-track::-webkit-scrollbar { display: none; }
+.tst-slide { flex: 0 0 100%; scroll-snap-align: center; box-sizing: border-box; padding: var(--space-12) clamp(var(--space-8), 6vw, 90px) var(--space-10); display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-6); }
+.tst-text { font-size: clamp(var(--text-md), 1.4vw, var(--text-lg)); color: var(--text-body); line-height: 1.6; margin: 0; max-width: 70ch; }
+.tst-mark { width: 66px; height: 66px; border-radius: 50%; background: var(--neutral-50); border: 1px solid var(--border-subtle); display: inline-flex; align-items: center; justify-content: center; overflow: hidden; flex: none; }
+.tst-mark img { width: 62%; height: 62%; object-fit: contain; }
+.tst-by { font-family: var(--font-display); font-weight: var(--fw-bold); color: var(--text-strong); font-size: var(--text-md); }
+.tst-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-subtle); background: #fefefe; color: var(--text-strong); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast); }
+.tst-arrow:hover { background: var(--orange-400); color: #fefefe; border-color: var(--orange-400); }
+.tst-arrow svg { width: 20px; height: 20px; }
+.tst-arrow--prev { left: var(--space-3); }
+.tst-arrow--next { right: var(--space-3); }
+.tst-google { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: var(--space-10); }
+@media (max-width:760px){ .tst-arrow { display: none; } .tst-slide { padding: var(--space-12) var(--space-6) var(--space-8); } }
+
+/* ── ABOUT HERO (full banner) ── */
+.hero--about { min-height: 620px; display: flex; align-items: center; }
+.hero--about .hero__inner { padding: var(--space-20) var(--space-6); width: 100%; }
+.hero--about .hero__content { max-width: 740px; }
+@media (max-width:720px){ .hero--about { min-height: 0; display: block; } .hero--about .hero__inner { padding: calc(86px + var(--space-8)) var(--space-6) var(--space-12); } }
+
+/* ── LOCATIONS FEED (overview cards) ── */
+.locfeed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8); margin-top: var(--space-2); }
+.locfeed-card { position: relative; display: flex; flex-direction: column; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); transition: box-shadow var(--dur-base), transform var(--dur-base), border-color var(--dur-base); }
+.locfeed-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-3px); border-color: var(--border-strong); }
+.locfeed-mapwrap { position: relative; height: 230px; overflow: hidden; border-bottom: 4px solid #F48D26; }
+.locfeed-mapwrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms var(--ease-out); }
+.locfeed-card:hover .locfeed-mapwrap img { transform: scale(1.04); }
+.locfeed-maplink { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2; display: inline-flex; align-items: center; gap: 7px; background: #fefefe; border-radius: var(--radius-md); padding: 8px 14px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--blue-700); text-decoration: none; box-shadow: var(--shadow-sm); transition: transform var(--dur-fast), box-shadow var(--dur-fast); }
+.locfeed-maplink:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); text-decoration: none; }
+.locfeed-maplink svg { width: 15px; height: 15px; }
+.locfeed-body { display: flex; flex-direction: column; flex: 1; padding: var(--space-8); }
+.locfeed-title { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-2xl); color: var(--text-strong); margin: 0 0 var(--space-4); line-height: 1.1; }
+.locfeed-desc { font-size: var(--text-md); color: var(--text-muted); line-height: var(--leading-relaxed); margin: 0; }
+.locfeed-rule { height: 1px; background: var(--border-subtle); margin: var(--space-8) 0; }
+.locfeed-meta { list-style: none; margin: 0 0 var(--space-8); padding: 0; display: grid; gap: var(--space-5); }
+.locfeed-meta li { display: flex; align-items: center; gap: 14px; color: var(--text-body); font-weight: var(--fw-semibold); font-size: var(--text-md); }
+.locfeed-meta a { color: var(--text-body); text-decoration: none; }
+.locfeed-meta a:hover { color: var(--orange-700); }
+.locfeed-meta svg { width: 22px; height: 22px; color: var(--blue-600); flex: none; }
+.locfeed-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: auto; }
+.locfeed-actions .btn { border-radius: var(--radius-pill); padding: 13px 26px; font-size: var(--text-base); }
+.locfeed-actions .btn svg { width: 18px; height: 18px; }
+@media (max-width:880px){ .locfeed-grid { grid-template-columns: 1fr; } }
+
+/* ── OUR APPROACH (industries) ── */
+.approach-steps { display: grid; gap: var(--space-4); }
+.approach-step { display: flex; gap: var(--space-5); align-items: flex-start; background: var(--surface-card); border: 1px solid var(--border-subtle); border-left: 3px solid #F48D26; border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); box-shadow: var(--shadow-sm); transition: box-shadow var(--dur-base), transform var(--dur-base); }
+.approach-step:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+.approach-num { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-2xl); color: #F48D26; line-height: 1; flex: none; min-width: 40px; }
+.approach-step h3 { font-size: var(--text-md); margin: 0 0 4px; color: var(--text-strong); }
+.approach-step p { margin: 0; color: var(--text-muted); font-size: var(--text-sm); line-height: var(--leading-normal); }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+<header id="siteHeader">
+  <div class="topstrip" aria-hidden="true"></div>
+  <nav class="mainnav">
+    <div class="mainnav__inner">
+      <a href="index.html" class="mainnav__logo" aria-label="Safe Traffic Management home">
+        <img src="assets/logos/stm-logo-governed-by-safety.webp" alt="Safe Traffic Management, Governed By Safety">
+      </a>
+      <div class="mainnav__menu" id="mainMenu">
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="services.html">Services <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="traffic-control-personnel.html" role="menuitem"><i data-lucide="chevron-right"></i>Traffic Control Personnel</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Temporary Traffic Management</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Lane &amp; Shoulder Closures</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Pedestrian &amp; Cyclist Management</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Emergency Response</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Night Works</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Site Monitoring &amp; Compliance Reporting</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>VMS Board Hire</a>
+            <a href="services.html" role="menuitem"><i data-lucide="chevron-right"></i>Permits &amp; Road Occupancy</a>
+          </div>
+        </div>
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="safety-compliance.html">Safety &amp; Compliance <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="swms-risk-assessments.html" role="menuitem"><i data-lucide="chevron-right"></i>SWMS &amp; Risk Assessments</a>
+            <a href="safety-compliance.html" role="menuitem"><i data-lucide="chevron-right"></i>Compliance Standards</a>
+            <a href="safety-compliance.html" role="menuitem"><i data-lucide="chevron-right"></i>Drug &amp; Alcohol Management</a>
+          </div>
+        </div>
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="#industries">Industries <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="civil-construction.html" role="menuitem"><i data-lucide="chevron-right"></i>Civil Construction</a>
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Utilities</a>
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Government Projects</a>
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Events &amp; Private Projects</a>
+          </div>
+        </div>
+        <div class="nav-item"><a class="nav-link" href="capability.html">Capability</a></div>
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="about.html">About <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="about.html" role="menuitem"><i data-lucide="chevron-right"></i>About Us</a>
+            <a href="careers.html" role="menuitem"><i data-lucide="chevron-right"></i>Careers</a>
+          </div>
+        </div>
+        <div class="nav-item"><a class="nav-link" href="contact.html">Contact</a></div>
+      </div>
+      <span class="mainnav__spacer"></span>
+      <div class="mainnav__actions">
+        <a class="nav-call" href="tel:1300786233"><i data-lucide="phone"></i>1300 786 233</a>
+        <a href="#contact" class="btn btn--primary btn--lg"><i data-lucide="hard-hat"></i>Request A Quote</a>
+        <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+          <i data-lucide="menu" id="burgerIcon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="sheet" id="mobileSheet">
+    <div class="sheet__group">
+      <a class="sheet__head" href="services.html">Services</a>
+      <a class="sub" href="traffic-control-personnel.html">Traffic Control Personnel</a>
+      <a class="sub" href="services.html">Temporary Traffic Management</a>
+      <a class="sub" href="services.html">Lane &amp; Shoulder Closures</a>
+      <a class="sub" href="services.html">Emergency Response</a>
+      <a class="sub" href="services.html">Night Works</a>
+    </div>
+    <div class="sheet__group">
+      <a class="sheet__head" href="safety-compliance.html">Safety &amp; Compliance</a>
+      <a class="sub" href="swms-risk-assessments.html">SWMS &amp; Risk Assessments</a>
+      <a class="sub" href="safety-compliance.html">Compliance Standards</a>
+    </div>
+    <div class="sheet__group">
+      <a class="sheet__head" href="#industries">Industries</a>
+      <a class="sub" href="civil-construction.html">Civil Construction</a>
+      <a class="sub" href="#industries">Utilities</a>
+      <a class="sub" href="#industries">Government Projects</a>
+    </div>
+    <div class="sheet__group"><a class="sheet__head" href="capability.html">Capability</a></div>
+    <div class="sheet__group">
+      <a class="sheet__head" href="about.html">About</a>
+      <a class="sub" href="about.html">About Us</a>
+      <a class="sub" href="careers.html">Careers</a>
+    </div>
+    <div class="sheet__group"><a class="sheet__head" href="contact.html">Contact</a></div>
+    <a href="tel:1300786233" style="display:inline-flex;align-items:center;gap:8px;margin-top:var(--space-6);font-family:var(--font-display);font-weight:var(--fw-black);font-size:var(--text-md);color:var(--blue-700);text-decoration:none"><i data-lucide="phone"></i>1300 786 233</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ HERO (full banner · Industries) ═════════════════════════════════════ -->
+<section class="hero hero--about" id="top">
+  <div class="hero__bg-img" style="background-image:url('assets/photos/iStock-1384640356.jpg')"></div>
+  <div class="hero__bg-overlay"></div>
+  <div class="hero__inner container">
+    <div class="hero__content">
+      <span class="kicker kicker--onDark">Industries</span>
+      <h1>Traffic management for <span class="hl">every sector we serve</span></h1>
+      <p class="hero__lead" style="margin-bottom:0">Safe Traffic Management supports civil construction, utilities, government and events, tailoring qualified crews, compliant systems and real-time reporting to the risks and standards of each industry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA STRIP ════════════════════════════════════════════════════════════ -->
+<section class="ctastrip">
+  <div class="ctastrip__inner">
+    <div>
+      <p class="ctastrip__title">Need a compliant crew on site?</p>
+      <p class="ctastrip__sub">Planned works or emergency response, we mobilise across South East Queensland and Northern NSW.</p>
+    </div>
+    <div class="ctastrip__actions">
+      <a class="ctastrip__call" href="tel:1300786233"><i data-lucide="phone"></i>1300 786 233</a>
+      <a href="#contact" class="btn btn--secondary btn--lg"><i data-lucide="hard-hat"></i>Request A Quote</a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ LEAD-IN ═════════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="section-head section-head--center reveal" style="margin:0 auto;max-width:760px">
+      <span class="kicker">Industries we support</span>
+      <h2>Crews and systems built for<br><span class="hl">regulated, high-risk work</span></h2>
+      <p>From major civil projects to live utilities and council works, we adapt our people, plans and equipment to the standards and stakeholders of your sector. Explore the industries we support below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES FEED -->
+<section class="section section--sunken" id="industries">
+  <div class="container">
+    <div class="ind-grid">
+      <a href="civil-construction.html" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="building-2"></i></span>
+        <h3>Civil construction</h3>
+        <p>Traffic control for roadworks, earthworks and major civil project delivery.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="zap"></i></span>
+        <h3>Utilities</h3>
+        <p>Safe access for water, power, gas and telecommunications works.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="landmark"></i></span>
+        <h3>Government projects</h3>
+        <p>Compliant, audit-ready delivery for TMR and local councils.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="calendar-days"></i></span>
+        <h3>Events &amp; private projects</h3>
+        <p>Crowd, road and access management for events and private works.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section class="section" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="intro-grid" style="align-items:start">
+      <div class="reveal">
+        <span class="kicker">Our approach</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">One method, <span class="hl">tailored to your sector</span></h2>
+        <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-relaxed);margin:var(--space-4) 0 0">Every industry carries its own risks, standards and stakeholders. We apply the same disciplined, safety-governed process to all of them, adapted to the conditions of your site and the requirements of your sector, from the first risk assessment to the final end-of-shift report.</p>
+        <a href="#contact" class="btn btn--primary" style="margin-top:var(--space-6)">Request a quote <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="approach-steps reveal">
+        <div class="approach-step"><span class="approach-num">01</span><div><h3>Understand the site &amp; risk</h3><p>We assess the worksite, traffic conditions and the hazards specific to your sector before any crew is mobilised.</p></div></div>
+        <div class="approach-step"><span class="approach-num">02</span><div><h3>Plan compliant traffic management</h3><p>TMPs and SWMS built to MUTCD QLD, the TMR Code of Practice and AS 1742, and your client&rsquo;s requirements.</p></div></div>
+        <div class="approach-step"><span class="approach-num">03</span><div><h3>Deploy qualified crews</h3><p>Ticketed, screened and inducted controllers and implementers, scaled to suit the size and complexity of the works.</p></div></div>
+        <div class="approach-step"><span class="approach-num">04</span><div><h3>Prove it with reporting</h3><p>GPS-verified inspections, tracked corrective actions and audit-ready records issued at the end of every shift.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="reveal">
+        <span class="kicker">FAQ</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">Questions, <span class="hl">answered</span></h2>
+        <p style="font-size:var(--text-md);color:rgba(255,255,255,0.80);line-height:var(--leading-normal);margin-bottom:var(--space-6)">The things clients ask most before engaging a traffic management partner. Need something specific to your site? Talk to our team.</p>
+        <a href="#contact" class="btn btn--primary"><i data-lucide="message-square"></i>Ask a question</a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item faq-item--open">
+          <button class="faq-q" aria-expanded="true">
+            <span>What areas do you service?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>We operate across South East Queensland, including Brisbane, the Gold Coast and the Sunshine Coast, as well as Northern New South Wales. Reach out about your site and we will confirm availability.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Are your traffic controllers qualified and ticketed?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>Yes. Every controller and implementer is screened, inducted and holds the relevant RIISS qualifications. We verify tickets and currency before crews reach your site.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Do you provide Traffic Management Plans?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>We implement, operate and remove Traffic Management Plans in line with MUTCD QLD, the TMR Code of Practice and AS 1742, and can coordinate plan preparation where required.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Can you respond to emergencies and after-hours works?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>Yes. We provide 24/7 reactive and emergency traffic management, including planned night and after-hours works with supervised, lit coverage.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How do you handle compliance and reporting?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>Inspections are GPS-verified and time-stamped, corrective actions are tracked to closure, and a report is issued at the end of each shift, keeping your project audit-ready by default.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What insurance do you carry?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>We hold $20M Public Liability cover and maintain the WHS systems, SWMS and risk assessments expected on government, utilities and major-contractor projects.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ═══════════════════════════════════════════════════════════════ -->
+<section class="section close-section" id="contact">
+  <div class="container">
+    <div class="close-grid">
+      <div class="reveal">
+        <span class="kicker kicker--onDark">Request A Quote</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">Tell us about <span class="hl">your site</span></h2>
+        <p style="font-size:var(--text-md);color:var(--blue-100);line-height:var(--leading-normal);margin-bottom:var(--space-6)">Send your project details and a supervisor will respond within one business day with availability and a compliant approach.</p>
+        <ul class="close-points">
+          <li><i data-lucide="shield-check"></i>Owned and operated by experienced safety professionals</li>
+          <li><i data-lucide="shield-check"></i>Real-time compliance monitoring and visibility</li>
+          <li><i data-lucide="shield-check"></i>Reliable, ticketed crews backed by structured safety systems</li>
+          <li><i data-lucide="shield-check"></i>A supervisor responds within one business day</li>
+        </ul>
+        <a class="close-call" href="tel:1300786233">
+          <span class="close-call__ic"><i data-lucide="phone"></i></span>
+          <span>
+            <div class="close-call__num">1300 786 233</div>
+            <div class="close-call__sub">Call us 24/7 for emergency response</div>
+          </span>
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="contact-card">
+          <div id="formSuccess" class="form-success">
+            <i data-lucide="circle-check" style="display:block;margin:0 auto var(--space-4);color:var(--green-700);width:48px;height:48px"></i>
+            <h3>Request received</h3>
+            <p>A supervisor will be in touch within one business day.</p>
+            <button class="btn btn--outline" onclick="document.getElementById('formSuccess').classList.remove('form-success--visible');document.getElementById('contactForm').style.display='grid'">Send another</button>
+          </div>
+          <form id="contactForm" onsubmit="handleFormSubmit(event)" style="display:grid;gap:var(--space-4)">
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="fname">Contact name *</label>
+                <input class="form-input" id="fname" type="text" required placeholder="Jordan Lee">
+              </div>
+              <div class="form-field">
+                <label for="forg">Organisation</label>
+                <input class="form-input" id="forg" type="text" placeholder="Council / builder / utility">
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="femail">Email *</label>
+                <input class="form-input" id="femail" type="email" required placeholder="name@org.qld.gov.au">
+              </div>
+              <div class="form-field">
+                <label for="fphone">Phone</label>
+                <input class="form-input" id="fphone" type="tel" placeholder="07 0000 0000">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="fsite">Site / project *</label>
+              <input class="form-input" id="fsite" type="text" required placeholder="e.g. Bruce Hwy upgrade, Stage 2">
+            </div>
+            <div class="form-field">
+              <label for="fscope">Scope of works</label>
+              <textarea class="form-input" id="fscope" rows="3" placeholder="Lane closures, night works, duration, location…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--full"><i data-lucide="send"></i>Submit request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container" style="padding-top:var(--space-16);padding-bottom:var(--space-8)">
+    <div class="footer__top">
+      <div>
+        <span class="footer__logo-wrap"><img src="assets/logos/stm-logo-governed-by-safety.webp" alt="Safe Traffic Management, Governed By Safety"></span>
+        <p class="footer__about">Safety-governed traffic management across South East Queensland and Northern NSW. Owned and operated by safety professionals, with structured WHS systems and real-time accountability that keep your project safe and audit-ready.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="traffic-control-personnel.html">Traffic control personnel</a></li>
+          <li><a href="services.html">Temporary traffic management</a></li>
+          <li><a href="services.html">Lane &amp; shoulder closures</a></li>
+          <li><a href="services.html">Night works</a></li>
+          <li><a href="services.html">Emergency response</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Safety &amp; Compliance</h4>
+        <ul>
+          <li><a href="swms-risk-assessments.html">SWMS &amp; risk assessments</a></li>
+          <li><a href="safety-compliance.html">Compliance standards</a></li>
+          <li><a href="safety-compliance.html">Drug &amp; alcohol management</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="civil-construction.html">Civil construction</a></li>
+          <li><a href="#industries">Utilities</a></li>
+          <li><a href="#industries">Government projects</a></li>
+          <li><a href="#industries">Events &amp; private projects</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="brisbane.html">Brisbane</a></li>
+          <li><a href="locations.html">Gold Coast</a></li>
+          <li><a href="locations.html">Sunshine Coast</a></li>
+          <li><a href="locations.html">Northern NSW</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="capability.html">Capability</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__contactbar">
+      <ul class="footer__contact">
+        <li><i data-lucide="phone"></i><a href="tel:1300786233">1300 786 233</a></li>
+        <li><i data-lucide="mail"></i><a href="mailto:operations@safetrafficmanagement.com.au">operations@safetrafficmanagement.com.au</a></li>
+        <li><i data-lucide="map-pin"></i>South East Queensland &amp; Northern NSW</li>
+      </ul>
+      <div class="footer__social">
+        <a href="#" aria-label="Safe Traffic Management on LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="#" aria-label="Safe Traffic Management on Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" aria-label="Safe Traffic Management on Instagram"><i data-lucide="instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer__certs">
+      <span class="footer__certs-label">Certifications &amp; memberships</span>
+      <div class="footer__certs-main">
+        <div class="footer__cert-row">
+          <span class="footer__cert"><img src="assets/certs/qld-tmr.jpg" alt="Queensland Government, Transport and Main Roads"></span>
+          <span class="footer__cert"><img src="assets/certs/nationally-recognised-training.png" alt="Nationally Recognised Training"></span>
+          <span class="footer__cert"><img src="assets/certs/aqf.jpeg" alt="Australian Qualifications Framework"></span>
+          <span class="footer__cert"><img src="assets/certs/standards-australia.png" alt="Standards Australia"></span>
+        </div>
+        <span class="footer__certs-rule" aria-hidden="true"></span>
+        <div class="footer__certs-right">
+          <a href="#google-business-profile" class="google-badge" aria-label="Google Reviews, 5.0 stars, 76 reviews">
+            <img src="assets/photos/Google-Review-Logo.png" alt="Google Reviews" class="google-badge__logo">
+            <div class="google-badge__right">
+              <div class="google-badge__top">
+                <span class="google-badge__num">5.0</span>
+                <span class="google-badge__stars">★★★★★</span>
+              </div>
+              <span class="google-badge__count">76 Google reviews</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__legal">
+      <span>© 2026 Safe Traffic Management Pty Ltd</span>
+      <span class="footer__legal-links">
+        <a href="#">Privacy</a>
+        <a href="#">WHS policy</a>
+        <a href="#">Terms</a>
+        <a class="footer__fbf" href="https://www.fivebyfive.com.au" target="_blank" rel="noreferrer">
+          Design by Five by Five
+          <img src="assets/fivebyfive-icon-white.png" alt="Five by Five">
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ═══════════════════════════════════════════════════════════════ -->
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script>
+lucide.createIcons();
+
+/* ── Mobile menu ── */
+const burger = document.getElementById('burgerBtn');
+const sheet = document.getElementById('mobileSheet');
+const burgerIcon = document.getElementById('burgerIcon');
+let sheetOpen = false;
+
+burger.addEventListener('click', () => {
+  sheetOpen = !sheetOpen;
+  sheet.classList.toggle('sheet--open', sheetOpen);
+  burger.setAttribute('aria-expanded', sheetOpen);
+  burgerIcon.setAttribute('data-lucide', sheetOpen ? 'x' : 'menu');
+  lucide.createIcons({ nodes: [burgerIcon] });
+});
+
+sheet.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    sheetOpen = false;
+    sheet.classList.remove('sheet--open');
+    burger.setAttribute('aria-expanded', false);
+    burgerIcon.setAttribute('data-lucide', 'menu');
+    lucide.createIcons({ nodes: [burgerIcon] });
+  });
+});
+
+/* ── Desktop dropdowns ── */
+document.querySelectorAll('.nav-item[data-dropdown]').forEach(item => {
+  const link = item.querySelector('.nav-link');
+  const dd = item.querySelector('.dropdown');
+  item.addEventListener('mouseenter', () => {
+    dd.classList.add('dropdown--open');
+    link.classList.add('nav-link--open');
+  });
+  item.addEventListener('mouseleave', () => {
+    dd.classList.remove('dropdown--open');
+    link.classList.remove('nav-link--open');
+  });
+  dd.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    dd.classList.remove('dropdown--open');
+    link.classList.remove('nav-link--open');
+  }));
+});
+
+/* ── Location tabs ── */
+document.querySelectorAll('.loc-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const idx = btn.getAttribute('data-loc');
+    document.querySelectorAll('.loc-tab').forEach(b => b.classList.toggle('loc-tab--active', b === btn));
+    document.querySelectorAll('.loc-panel').forEach(p => {
+      p.classList.toggle('loc-panel--active', p.getAttribute('data-loc-panel') === idx);
+    });
+  });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('faq-item--open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('faq-item--open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', false);
+    });
+    if (!isOpen) {
+      item.classList.add('faq-item--open');
+      btn.setAttribute('aria-expanded', true);
+    }
+  });
+});
+
+/* ── Scroll reveal ── */
+const revealEls = document.querySelectorAll('.reveal');
+if (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  revealEls.forEach((el, i) => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.92) { el.classList.add('revealed'); }
+    else { io.observe(el); }
+  });
+} else {
+  revealEls.forEach(el => el.classList.add('revealed'));
+}
+
+/* ── Counter animation ── */
+const counters = document.querySelectorAll('[data-counter]');
+if (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const value = parseFloat(el.getAttribute('data-value'));
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1600;
+      const t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const n = Math.round(value * eased);
+        el.textContent = prefix + n.toLocaleString('en-AU') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + value.toLocaleString('en-AU') + suffix;
+      };
+      requestAnimationFrame(tick);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(el => cio.observe(el));
+}
+
+/* ── Header: transparent → solid on scroll ── */
+const siteHeader = document.getElementById('siteHeader');
+function updateHeader() {
+  siteHeader.classList.toggle('header--scrolled', window.scrollY > 60);
+}
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
+
+/* ── Form submit ── */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  e.target.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('form-success--visible');
+  lucide.createIcons();
+}
+
+/* ── Services photo carousel (merged from Design 2) ── */
+/* ── Services photo carousel (with dots) ── */
+document.querySelectorAll('.svc-carousel').forEach(car => {
+  const track = car.querySelector('.svc-track');
+  if (!track) return;
+  const tiles = track.querySelectorAll('.svc-tile');
+  const dotsWrap = car.querySelector('.svc-dots');
+  const stepBy = () => tiles.length > 1 ? tiles[1].offsetLeft - tiles[0].offsetLeft : (tiles[0] ? tiles[0].offsetWidth : 320);
+  const padLeft = () => parseFloat(getComputedStyle(track).paddingLeft) || 0;
+  const dots = [];
+  if (dotsWrap) {
+    tiles.forEach((t, idx) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'svc-dot';
+      b.setAttribute('aria-label', 'Go to service ' + (idx + 1));
+      b.addEventListener('click', () => track.scrollTo({ left: t.offsetLeft - padLeft(), behavior: 'smooth' }));
+      dotsWrap.appendChild(b);
+      dots.push(b);
+    });
+  }
+  const update = () => {
+    const i = Math.round(track.scrollLeft / stepBy());
+    dots.forEach((d, k) => d.classList.toggle('is-active', k === Math.max(0, Math.min(i, dots.length - 1))));
+  };
+  const go = dir => {
+    const max = track.scrollWidth - track.clientWidth;
+    let target = track.scrollLeft + dir * stepBy();
+    if (dir > 0 && track.scrollLeft >= max - 4) target = 0;
+    else if (dir < 0 && track.scrollLeft <= 4) target = max;
+    track.scrollTo({ left: Math.max(0, Math.min(target, max)), behavior: 'smooth' });
+  };
+  const prev = car.querySelector('.svc-nav--prev');
+  const next = car.querySelector('.svc-nav--next');
+  if (prev) prev.addEventListener('click', () => go(-1));
+  if (next) next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', update, { passive: true });
+  update();
+});
+</script>
+<!-- BugHerd -->
+<script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=xlmo5gxn9zp20bn9hycblg" async="true"></script>
+</body>
+</html>

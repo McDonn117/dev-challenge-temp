@@ -1,0 +1,39 @@
+/* ============================================================
+   Safe Traffic Management — Webfonts
+   Archivo (display + UI) is a grotesque sans shipped as a single
+   variable file. IBM Plex Mono carries compliance codes, IDs,
+   timestamps and any "traceable" data.
+   ============================================================ */
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url("../assets/fonts/archivo-var.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/ibmplexmono-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/ibmplexmono-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/ibmplexmono-600.woff2") format("woff2");
+}

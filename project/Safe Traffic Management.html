@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safe Traffic Management | Governed By Safety</title>
+<meta name="description" content="Safety-governed traffic management across South East Queensland. Qualified crews, structured WHS systems and real-time compliance reporting for government, infrastructure, utilities and construction projects.">
+<link rel="icon" href="assets/logos/stm-mark.png">
+<link rel="stylesheet" href="_ds/safe-traffic-management-design-system-f034675c-40b0-440d-8a18-6c6f041ea4be/styles.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--surface-page); color: var(--text-body); overflow-x: hidden; }
+  :root { --nav-h: 126px; } /* topbar + nav row, used for scroll offset */
+  [id] { scroll-margin-top: var(--nav-h); }
+  img { max-width: 100%; }
+  .stm-container { max-width: var(--container-xl); margin: 0 auto; padding-left: var(--space-6); padding-right: var(--space-6); }
+  .stm-section { padding: var(--space-24) 0; }
+  .stm-section--tight { padding: var(--space-20) 0; }
+  .stm-eyebrow-row { display: flex; align-items: center; gap: var(--space-3); }
+
+  /* Generic link-button used for "view all" links */
+  .stm-textlink {
+    display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans);
+    font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-link);
+    text-decoration: none; cursor: pointer; letter-spacing: 0.01em;
+  }
+  .stm-textlink svg { width: 16px; height: 16px; transition: transform var(--dur-fast) var(--ease-standard); }
+  .stm-textlink:hover { text-decoration: none; }
+  .stm-textlink:hover svg { transform: translateX(3px); }
+
+  /* Section heading helper */
+  .stm-h2 { font-size: var(--text-2xl); margin: var(--space-3) 0 var(--space-4); line-height: var(--leading-tight); }
+  .stm-lead { font-size: var(--text-md); color: var(--text-muted); line-height: var(--leading-normal); margin: 0; }
+
+  /* responsive grids set per-section; mobile fallbacks below */
+  @media (max-width: 1080px) {
+    .stm-hero__grid { grid-template-columns: 1fr !important; }
+    .stm-2col { grid-template-columns: 1fr !important; }
+    .stm-svc-grid { grid-template-columns: 1fr 1fr !important; }
+    .stm-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 720px) {
+    .stm-section { padding: var(--space-16) 0; }
+    .stm-svc-grid { grid-template-columns: 1fr !important; }
+    .stm-stats-grid { grid-template-columns: 1fr 1fr !important; }
+    .stm-ind-grid { grid-template-columns: 1fr !important; }
+    .stm-footer-grid { grid-template-columns: 1fr 1fr !important; }
+    .stm-nav-row { display: none !important; }
+    .stm-h2 { font-size: var(--text-xl); }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- image placeholders the client fills with their own on-site photography -->
+  <script src="app/image-slot.js"></script>
+
+  <!-- React + Babel (pinned) -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Design system runtime -->
+  <script src="_ds/safe-traffic-management-design-system-f034675c-40b0-440d-8a18-6c6f041ea4be/_ds_bundle.js"></script>
+
+  <!-- App (order matters: shared helpers first, sections, then main) -->
+  <script type="text/babel" src="app/shared.jsx"></script>
+  <script type="text/babel" src="app/header.jsx"></script>
+  <script type="text/babel" src="app/hero.jsx"></script>
+  <script type="text/babel" src="app/services.jsx"></script>
+  <script type="text/babel" src="app/about.jsx"></script>
+  <script type="text/babel" src="app/compliance.jsx"></script>
+  <script type="text/babel" src="app/social.jsx"></script>
+  <script type="text/babel" src="app/locations.jsx"></script>
+  <script type="text/babel" src="app/main.jsx"></script>
+</body>
+</html>

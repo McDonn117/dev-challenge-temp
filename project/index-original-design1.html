@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safe Traffic Management | Governed By Safety</title>
+<meta name="description" content="Safety-governed traffic management across South East Queensland. Qualified crews, structured WHS systems and real-time compliance reporting for government, infrastructure, utilities and construction projects.">
+<link rel="icon" href="assets/logos/stm-mark.png">
+<link rel="stylesheet" href="_ds/safe-traffic-management-design-system-f034675c-40b0-440d-8a18-6c6f041ea4be/styles.css">
+<style>
+/* ── Layout helpers ── */
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--surface-page); color: var(--text-body); overflow-x: hidden; }
+:root { --nav-h: 90px; }
+[id] { scroll-margin-top: var(--nav-h); }
+
+/* ── PALETTE LOCK — approved brand colours only ──
+   #F48D26 orange · #2864A9 blue · #383837 charcoal · #F1F2F2 grey · #FEFEFE white */
+:root {
+  --orange-50:  #F1F2F2;
+  --orange-400: #F48D26;
+  --orange-600: #F48D26;
+  --orange-700: #F48D26;
+  --blue-50:    #F1F2F2;
+  --blue-600:   #2864A9;
+  --blue-700:   #2864A9;
+  --green-50:   #F1F2F2;
+  --green-500:  #2864A9;
+  --green-700:  #2864A9;
+  --hivis-yellow: #F48D26;
+  --text-strong: #383837;
+}
+
+/* ── Highlight word inside headings ── */
+.hl { color: #F48D26; }
+.hl--blue { color: #2864A9; }
+
+/* ── Large content heading (matches section-head h2 scale) ── */
+.heading-lg { font-size: clamp(2.25rem, 3.4vw, 2.85rem); line-height: 1.08; letter-spacing: 0.01em; }
+
+/* ── All headings set in uppercase ── */
+h1, h2 { text-transform: uppercase; }
+img { max-width: 100%; }
+.container { max-width: var(--container-xl); margin: 0 auto; padding-left: var(--space-6); padding-right: var(--space-6); }
+.section { padding: var(--space-24) 0; }
+.section--tight { padding: var(--space-20) 0; }
+.section--sunken { background: var(--surface-sunken); }
+
+/* ── Kicker ── */
+.kicker { font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--orange-600); display: block; margin-bottom: var(--space-3); }
+.kicker--onDark { color: var(--orange-400); }
+.kicker--blue { color: var(--blue-600); }
+
+/* ── Section header ── */
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-8); margin-bottom: var(--space-12); flex-wrap: wrap; }
+.section-head--center { flex-direction: column; align-items: center; text-align: center; }
+.section-head h2 { font-size: clamp(2.25rem, 3.4vw, 2.85rem); margin: var(--space-2) 0 var(--space-4); line-height: 1.08; letter-spacing: 0.01em; }
+.section-head p { font-size: var(--text-md); color: var(--text-muted); line-height: var(--leading-normal); margin: 0; max-width: 62ch; }
+
+/* ── Buttons ── */
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); border-radius: var(--radius-md); padding: 11px 20px; cursor: pointer; border: 1.5px solid transparent; text-decoration: none; transition: background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast), transform var(--dur-fast), box-shadow var(--dur-fast); white-space: nowrap; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn--lg { font-size: var(--text-base); padding: 14px 26px; }
+.btn--lg svg { width: 20px; height: 20px; }
+.btn--primary { background: #f48d26; color: var(--neutral-950); border-color: #f48d26; }
+.btn--primary:hover { background: var(--orange-600); border-color: var(--orange-600); text-decoration: none; }
+.btn--secondary { background: var(--neutral-950); color: #fefefe; border-color: var(--neutral-950); }
+.btn--secondary:hover { background: var(--neutral-800); text-decoration: none; }
+.btn--outline { background: transparent; color: var(--text-strong); border-color: var(--border-default); }
+.btn--outline:hover { border-color: var(--border-strong); background: var(--neutral-50); text-decoration: none; }
+.btn--outline-white { background: rgba(255,255,255,0.08); color: #fefefe; border-color: rgba(255,255,255,0.42); }
+.btn--outline-white:hover { background: rgba(255,255,255,0.14); text-decoration: none; }
+.btn--full { width: 100%; justify-content: center; }
+
+/* ── Text link ── */
+.textlink { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-link); text-decoration: none; }
+.textlink svg { width: 16px; height: 16px; transition: transform var(--dur-fast); }
+.textlink:hover svg { transform: translateX(3px); }
+
+/* ── Reveal animation ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out); }
+.reveal.revealed { opacity: 1; transform: none; }
+
+/* ── HEADER: transparent → solid on scroll ── */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; }
+
+/* ── TOP STRIP (orange, flush above nav on scroll) ── */
+.topstrip { height: 0; background: repeating-linear-gradient(135deg, #F48D26 0 9px, #383837 9px 18px); transition: height 0.3s var(--ease-standard); }
+header.header--scrolled .topstrip { height: 6px; }
+
+/* ── NAV CALL LINK ── */
+.nav-call { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-md); color: #fefefe; text-decoration: none; white-space: nowrap; padding: 0 var(--space-2); transition: color var(--dur-fast); }
+.nav-call svg { width: 18px; height: 18px; color: #f48d26; }
+.nav-call:hover { color: #fefefe; text-decoration: none; }
+header.header--scrolled .nav-call { color: #383837; }
+@media (max-width:1060px){ .nav-call { display: none; } }
+
+/* ── MAIN NAV ── */
+.mainnav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; transition: background 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease; }
+.mainnav__inner { max-width: var(--container-xl); margin: 0 auto; height: 86px; display: flex; align-items: center; gap: var(--space-6); padding: 0 var(--space-6); }
+.mainnav__logo { background: #fefefe; padding: 8px 14px; border-radius: var(--radius-md); display: inline-flex; align-items: center; text-decoration: none; flex: none; }
+.mainnav__logo img { height: 46px; width: auto; max-width: none; object-fit: contain; display: block; }
+.mainnav__menu { display: flex; align-items: center; gap: 1px; margin-left: var(--space-4); }
+.nav-item { position: relative; }
+.nav-link { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-sans); font-weight: var(--fw-semibold); font-size: var(--text-sm); color: #fefefe; text-decoration: none; padding: 10px 13px; border-radius: var(--radius-sm); white-space: nowrap; background: none; border: 0; cursor: pointer; transition: color var(--dur-fast), background var(--dur-fast); }
+.nav-link:hover { color: #fefefe; background: rgba(255,255,255,0.12); text-decoration: none; }
+.nav-link svg { width: 15px; height: 15px; transition: transform var(--dur-fast); }
+.nav-link--open svg.caret { transform: rotate(180deg); }
+.dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 290px; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: var(--space-2); display: none; z-index: 60; }
+.dropdown::before { content: ""; position: absolute; top: -4px; left: 14px; right: 14px; height: 4px; background: #f48d26; border-radius: 4px 4px 0 0; }
+.dropdown--open { display: block; animation: dropIn 200ms var(--ease-out); }
+@keyframes dropIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.dropdown a { display: flex; align-items: center; gap: 11px; padding: 11px 12px; border-radius: var(--radius-sm); color: var(--text-body); text-decoration: none; font-size: var(--text-sm); font-weight: var(--fw-medium); }
+.dropdown a svg { width: 16px; height: 16px; color: var(--orange-600); flex: none; }
+.dropdown a:hover { background: var(--blue-50); color: var(--blue-700); text-decoration: none; }
+.mainnav__spacer { flex: 1; }
+.mainnav__actions { display: flex; align-items: center; gap: var(--space-3); flex: none; }
+.burger { display: none; align-items: center; justify-content: center; width: 46px; height: 46px; border: 1px solid rgba(255,255,255,0.42); border-radius: var(--radius-md); background: rgba(255,255,255,0.08); cursor: pointer; color: #fefefe; }
+@media (max-width:1060px){ .mainnav__menu { display: none; } .burger { display: inline-flex; } }
+header.header--scrolled .mainnav { background: #fefefe; border-bottom-color: var(--border-subtle); box-shadow: var(--shadow-sm); }
+header.header--scrolled .nav-link { color: #383837; }
+header.header--scrolled .nav-link:hover { color: #2864a9; background: var(--blue-50); }
+header.header--scrolled .burger { border-color: var(--border-default); background: #fefefe; color: #383837; }
+
+/* ── MOBILE SHEET ── */
+.sheet { display: none; position: fixed; inset: var(--nav-h) 0 0 0; background: var(--surface-card); z-index: 40; overflow-y: auto; padding: var(--space-5) var(--space-6) var(--space-16); }
+.sheet--open { display: block; }
+.sheet__group { border-bottom: 1px solid var(--border-subtle); padding: var(--space-3) 0; }
+.sheet__head { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-md); color: var(--text-strong); padding: 8px 0; text-decoration: none; display: block; }
+.sheet a.sub { display: block; padding: 9px 0 9px var(--space-4); color: var(--text-muted); text-decoration: none; font-weight: var(--fw-medium); font-size: var(--text-sm); }
+
+/* ── HERO (split panel) ── */
+.hero { position: relative; background: #2864a9; overflow: hidden; border-bottom: 4px solid #f48d26; }
+.hero__bg-img { position: absolute; inset: 0; width: 100%; height: 100%; background: url('assets/photos/iStock-1038532394.jpg') center center/cover no-repeat; }
+.hero__bg-overlay { position: absolute; inset: 0; background: linear-gradient(to right, #2864a9 0%, #2864a9 26%, rgba(40,100,169,0.92) 44%, rgba(40,100,169,0.55) 68%, rgba(40,100,169,0.18) 100%); pointer-events: none; }
+.hero__inner { position: relative; z-index: 2; max-width: var(--container-xl); margin: 0 auto; padding: 106px var(--space-6) 66px; }
+.hero__content { max-width: 660px; }
+.hero h1 { color: #fefefe; font-size: clamp(2.75rem, 4.6vw, 4.35rem); line-height: 1.03; font-stretch: 108%; letter-spacing: 0; margin: var(--space-4) 0 var(--space-5); max-width: 15ch; }
+.hero__lead { color: rgba(255,255,255,0.84); font-size: var(--text-base); line-height: var(--leading-normal); max-width: 58ch; margin: 0 0 var(--space-8); }
+.hero__cta { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.hero__divider { height: 1px; background: rgba(255,255,255,0.24); margin: var(--space-8) 0; }
+.hero__trust { display: grid; grid-template-columns: repeat(2, max-content); justify-content: start; gap: var(--space-4) var(--space-10); }
+.hero__trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.88); font-weight: var(--fw-semibold); font-size: var(--text-sm); white-space: nowrap; }
+@media (max-width:480px){ .hero__trust { grid-template-columns: max-content; } }
+.hero__trust-item svg { width: 18px; height: 18px; color: #f48d26; flex: none; }
+@media (max-width:720px){ .hero h1 { font-size: var(--text-2xl); } .hero__bg-img { width: 100%; } .hero__bg-overlay { width: 100%; background: rgba(40,100,169,0.88); } .hero__inner { padding: calc(86px + var(--space-8)) var(--space-6) var(--space-12); } }
+
+/* ── CTA STRIP ── */
+.ctastrip { background: #f48d26; }
+.ctastrip__inner { max-width: var(--container-xl); margin: 0 auto; padding: var(--space-4) var(--space-6); display: flex; align-items: center; justify-content: space-between; gap: var(--space-5) var(--space-8); flex-wrap: wrap; }
+.ctastrip__title { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); color: var(--neutral-950); margin: 0; line-height: 1.15; }
+.ctastrip__sub { color: rgba(28,28,27,0.82); font-weight: var(--fw-semibold); font-size: var(--text-sm); margin: 2px 0 0; }
+.ctastrip__actions { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.ctastrip__call { display: inline-flex; align-items: center; gap: 9px; color: var(--neutral-950); text-decoration: none; font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-md); }
+.ctastrip__call svg { width: 20px; height: 20px; }
+.ctastrip__call:hover { opacity: 0.82; text-decoration: none; }
+
+/* ── INTRO / WHAT IS TRAFFIC MANAGEMENT ── */
+.intro-section { background: var(--surface-sunken); }
+.intro-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-10) var(--space-16); align-items: start; }
+.intro-lead .kicker { margin-bottom: var(--space-4); }
+.intro-lead h2 { margin: 0; color: var(--text-strong); }
+.intro-body__lead { font-size: var(--text-md); color: var(--text-body); line-height: var(--leading-relaxed); margin: 0 0 var(--space-5); }
+.intro-body__lead b { color: var(--text-strong); }
+.intro-body__text { font-size: var(--text-base); color: var(--text-muted); line-height: var(--leading-relaxed); margin: 0; }
+.intro-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8) var(--space-10); margin-top: var(--space-12); padding-top: var(--space-10); border-top: 1px solid var(--border-subtle); }
+.intro-point { display: flex; align-items: flex-start; gap: var(--space-4); }
+.intro-point__icon { width: 56px; height: 56px; flex: none; border-radius: var(--radius-md); background: #383837; color: #F48D26; display: inline-flex; align-items: center; justify-content: center; transition: background var(--dur-base) var(--ease-standard), color var(--dur-base); }
+.intro-point__icon svg { width: 26px; height: 26px; }
+.intro-point:hover .intro-point__icon { background: #F48D26; color: #383837; }
+.intro-point > div b { display: block; color: var(--text-strong); font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); margin-bottom: 4px; }
+.intro-point > div span { display: block; color: var(--text-muted); font-size: var(--text-sm); line-height: var(--leading-normal); }
+@media (max-width:900px){ .intro-grid { grid-template-columns: 1fr; gap: var(--space-6); } .intro-points { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:620px){ .intro-points { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+/* ── SERVICES ── */
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-5); }
+.svc-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-3); transition: box-shadow var(--dur-base), transform var(--dur-base), border-color var(--dur-base); border-top: 3px solid var(--orange-500); text-decoration: none; color: inherit; }
+.svc-card--blue { border-top-color: var(--blue-500); }
+.svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--border-strong); text-decoration: none; }
+.svc-card__icon { width: 52px; height: 52px; border-radius: var(--radius-md); background: var(--orange-50); color: var(--orange-600); display: inline-flex; align-items: center; justify-content: center; }
+.svc-card--blue .svc-card__icon { background: var(--blue-50); color: var(--blue-600); }
+.svc-card__icon svg { width: 24px; height: 24px; }
+.svc-card h3 { font-size: var(--text-md); margin: 0; color: var(--text-strong); }
+.svc-card p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; line-height: var(--leading-normal); flex: 1; }
+.svc-card .textlink { margin-top: auto; }
+
+/* ── Services + Compliance — distinctive hi-vis caution card treatment (scoped) ── */
+#services .svc-card, #compliance .svc-card { position: relative; overflow: hidden; border-top: 0; padding: calc(var(--space-6) + 6px) var(--space-6) var(--space-6); gap: var(--space-4); }
+#services .svc-card::before, #compliance .svc-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(135deg, #F48D26 0 9px, #383837 9px 18px); }
+#services .svc-card__icon, #compliance .svc-card__icon { background: #383837; color: #F48D26; width: 56px; height: 56px; transition: background var(--dur-base) var(--ease-standard), color var(--dur-base); }
+#services .svc-card:hover .svc-card__icon, #compliance .svc-card:hover .svc-card__icon { background: #F48D26; color: #383837; }
+#services .svc-card h3, #compliance .svc-card h3 { line-height: 1.25; }
+.svc-card__more { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; color: var(--text-link); font-weight: var(--fw-bold); font-size: var(--text-sm); }
+.svc-card__more svg { width: 15px; height: 15px; transition: transform var(--dur-fast); }
+.svc-card:hover .svc-card__more svg { transform: translateX(3px); }
+@media (max-width:1080px){ .svc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width:720px){ .svc-grid { grid-template-columns: 1fr; } }
+
+/* ── STATS ── */
+.stats-section { background: var(--gradient-blue); position: relative; overflow: hidden; }
+.stats-section__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.16; }
+.stats-section::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,46,74,0.35), rgba(11,28,46,0.65)); }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-6); position: relative; z-index: 1; }
+.stat-card { padding-left: var(--space-6); border-left: 3px solid var(--orange-500); }
+.stat-card__value { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-4xl); line-height: 1; color: var(--hivis-yellow); font-stretch: 108%; letter-spacing: var(--tracking-tight); display: block; }
+.stat-card__label { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); color: var(--white); margin-top: var(--space-3); }
+.stat-card__caption { font-size: var(--text-sm); color: var(--blue-100); margin-top: 4px; line-height: 1.4; }
+@media (max-width:1080px){ .stats-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width:720px){ .stat-card__value { font-size: var(--text-3xl); } }
+
+/* ── TABS ── */
+.tabs { display: inline-flex; gap: 4px; background: var(--neutral-100); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 4px; }
+.tab-btn { appearance: none; border: 0; cursor: pointer; background: transparent; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-muted); padding: 10px 20px; border-radius: var(--radius-sm); transition: all var(--dur-fast); display: inline-flex; align-items: center; gap: 8px; }
+.tab-btn svg { width: 16px; height: 16px; }
+.tab-btn--active { background: var(--surface-card); color: var(--text-strong); box-shadow: var(--shadow-sm); }
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: stretch; margin-top: var(--space-10); }
+.about-media { position: relative; min-height: 440px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+.about-media img { width: 100%; height: 100%; object-fit: cover; }
+.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-6) 0 var(--space-8); }
+.about-value { display: flex; gap: 10px; align-items: flex-start; }
+.about-value svg { width: 20px; height: 20px; color: var(--green-700); flex: none; margin-top: 2px; }
+.about-value b { display: block; color: var(--text-strong); font-size: var(--text-sm); }
+.about-value span { color: var(--text-muted); font-size: var(--text-sm); }
+@media (max-width:1080px){ .about-grid { grid-template-columns: 1fr; } .about-values { grid-template-columns: 1fr; } }
+
+/* ── USP ── */
+.usp-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.usp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-6); }
+.usp-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-top: 3px solid var(--orange-500); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-sm); }
+.usp-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--orange-50); color: var(--orange-600); display: inline-flex; align-items: center; justify-content: center; margin: 0 0 var(--space-5); }
+.usp-icon svg { width: 26px; height: 26px; }
+.usp-card h3 { font-size: var(--text-md); margin: 0 0 8px; }
+.usp-card p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; line-height: var(--leading-normal); }
+@media (max-width:1080px){ .usp-grid { grid-template-columns: 1fr; } }
+
+/* ── STANDARDS ── */
+.standards { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-top: var(--space-10); padding-top: var(--space-8); border-top: 1px solid var(--border-subtle); }
+.standards__label { font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-subtle); font-weight: var(--fw-bold); margin-right: var(--space-2); }
+.standards__chip { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-body); background: var(--neutral-100); border: 1px solid var(--border-subtle); padding: 6px 12px; border-radius: var(--radius-sm); }
+
+/* ── TESTIMONIALS ── */
+.tst-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.tst-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-5); }
+.tst-card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-4); }
+.tst-stars { display: inline-flex; gap: 2px; color: #f48d26; }
+.tst-stars svg { width: 18px; height: 18px; fill: currentColor; }
+.tst-quote { font-size: var(--text-md); color: var(--text-body); line-height: var(--leading-normal); margin: 0; }
+.tst-who { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--border-subtle); }
+.tst-avatar { width: 42px; height: 42px; border-radius: var(--radius-pill); background: var(--blue-50); color: var(--blue-700); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: var(--fw-black); flex: none; font-size: var(--text-sm); }
+.tst-name { font-weight: var(--fw-bold); color: var(--text-strong); font-size: var(--text-sm); }
+.tst-role { color: var(--text-muted); font-size: var(--text-xs); }
+@media (max-width:980px){ .tst-grid { grid-template-columns: 1fr; } }
+
+/* ── GOOGLE BADGE ── */
+.google-badge { display: inline-flex; align-items: center; gap: 12px; background: #fefefe; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 12px 18px; text-decoration: none; box-shadow: var(--shadow-sm); transition: transform var(--dur-fast), box-shadow var(--dur-fast); }
+.google-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); text-decoration: none; }
+.google-badge__logo { height: 32px; width: auto; flex: none; display: block; }
+.google-badge__right { display: flex; flex-direction: column; gap: 2px; }
+.google-badge__top { display: flex; align-items: center; gap: 7px; }
+.google-badge__num { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); color: var(--text-strong); line-height: 1; }
+.google-badge__stars { color: #F48D26; font-size: 15px; letter-spacing: 1px; line-height: 1; }
+.google-badge__count { font-size: var(--text-xs); color: var(--text-muted); white-space: nowrap; }
+
+/* ── CAPABILITY (dark band) ── */
+.cap-section { background: #1a4169; color: var(--text-on-dark); position: relative; overflow: hidden; }
+.cap-section .cap__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; z-index: 0; }
+.cap-section::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(160deg, rgba(61,146,214,0.82) 0%, rgba(40,100,169,0.93) 55%, rgba(26,65,105,0.97) 100%); }
+.cap-section .section-head h2 { color: var(--white); }
+.cap-section .section-head p { color: var(--neutral-300); }
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); position: relative; z-index: 1; }
+.cap-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid #F48D26; border-radius: var(--radius-lg); padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4); }
+.cap-tag { display: inline-flex; align-items: center; gap: 8px; font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.12em; font-weight: var(--fw-bold); color: var(--orange-400); }
+.cap-tag svg { width: 16px; height: 16px; }
+.cap-card h3 { color: var(--white); font-size: var(--text-lg); margin: 0; }
+.cap-card p { color: var(--neutral-300); font-size: var(--text-sm); margin: 0; line-height: var(--leading-normal); }
+.cap-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cap-list li { display: flex; align-items: center; gap: 9px; color: var(--neutral-100); font-size: var(--text-sm); font-weight: var(--fw-medium); }
+.cap-list li svg { width: 16px; height: 16px; color: var(--orange-400); flex: none; }
+.cap-section .section-head { position: relative; z-index: 1; }
+#capability .section-head > div { max-width: 900px; }
+#industries .section-head > div { max-width: 1000px; }
+#compliance .section-head > div { max-width: 1000px; }
+.usp-section .section-head > div { max-width: 820px; }
+#services .section-head > div { max-width: 880px; }
+@media (max-width:720px){ .cap-grid { grid-template-columns: 1fr; } }
+
+/* ── INDUSTRIES ── */
+.ind-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-5); }
+.ind-card { position: relative; overflow: hidden; display: block; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: calc(var(--space-6) + 6px) var(--space-6) var(--space-6); box-shadow: var(--shadow-sm); text-decoration: none; transition: box-shadow var(--dur-base), transform var(--dur-base), border-color var(--dur-base); }
+.ind-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(135deg, #F48D26 0 9px, #383837 9px 18px); }
+.ind-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--border-strong); text-decoration: none; }
+.ind-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: #383837; color: #F48D26; display: inline-flex; align-items: center; justify-content: center; margin-bottom: var(--space-4); transition: background var(--dur-base) var(--ease-standard), color var(--dur-base); }
+.ind-card:hover .ind-icon { background: #F48D26; color: #383837; }
+.ind-icon svg { width: 26px; height: 26px; }
+.ind-card h3 { font-size: var(--text-md); margin: 0 0 6px; }
+.ind-card p { color: var(--text-muted); font-size: var(--text-sm); margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
+.ind-more { display: inline-flex; align-items: center; gap: 6px; color: var(--text-link); font-weight: var(--fw-bold); font-size: var(--text-sm); }
+.ind-more svg { width: 15px; height: 15px; transition: transform var(--dur-fast); }
+.ind-card:hover .ind-more svg { transform: translateX(3px); }
+@media (max-width:1080px){ .ind-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ── FAQ ── */
+.faq-section { background: #2864A9; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.faq-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-16); align-items: start; }
+.faq-list { display: grid; gap: var(--space-3); }
+.faq-item { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; transition: border-color var(--dur-fast); }
+.faq-item--open { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+.faq-q { width: 100%; text-align: left; appearance: none; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) var(--space-6); font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--text-md); color: var(--text-strong); }
+.faq-icon { width: 30px; height: 30px; border-radius: var(--radius-sm); background: var(--orange-50); color: var(--orange-600); display: inline-flex; align-items: center; justify-content: center; flex: none; transition: background var(--dur-fast), transform var(--dur-base); }
+.faq-icon svg { width: 18px; height: 18px; }
+.faq-item--open .faq-icon { background: var(--orange-500); color: var(--neutral-950); transform: rotate(180deg); }
+.faq-a { display: block; max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease-standard); }
+.faq-item--open .faq-a { max-height: 460px; }
+.faq-a p { margin: 0; padding: 0 var(--space-6) var(--space-6); color: var(--text-muted); font-size: var(--text-base); line-height: var(--leading-normal); }
+@media (max-width:980px){ .faq-grid { grid-template-columns: 1fr; gap: var(--space-10); } }
+
+/* ── BLUE PANELS — recolour content to suit the #2864A9 background ── */
+.usp-section .section-head h2, .tst-section .section-head h2, .faq-section h2 { color: #FEFEFE; }
+.usp-section .section-head p, .tst-section .section-head p { color: rgba(255,255,255,0.80); }
+
+/* frosted cards on blue, orange kept as the accent */
+.usp-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-top: 3px solid #F48D26; box-shadow: none; }
+.usp-card h3 { color: #FEFEFE; }
+.usp-card p { color: rgba(255,255,255,0.80); }
+.usp-icon { background: rgba(255,255,255,0.10); color: #F48D26; }
+
+.tst-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-top: 3px solid #F48D26; box-shadow: none; }
+.tst-quote { color: #FEFEFE; }
+.tst-who { border-top-color: rgba(255,255,255,0.16); }
+.tst-avatar { background: rgba(255,255,255,0.12); color: #FEFEFE; }
+.tst-name { color: #FEFEFE; }
+.tst-role { color: rgba(255,255,255,0.72); }
+
+.faq-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); }
+.faq-item--open { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.30); border-top: 3px solid #F48D26; box-shadow: none; }
+.faq-q { color: #FEFEFE; }
+.faq-icon { background: rgba(255,255,255,0.12); color: #F48D26; }
+.faq-item--open .faq-icon { background: #F48D26; color: #383837; }
+.faq-a p { color: rgba(255,255,255,0.80); }
+
+/* ── LOCATIONS ── */
+.loc-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: none; width: 390px; align-items: stretch; }
+#locations .section-head > div { max-width: 600px; }
+#locations .loc-tab { justify-content: center; white-space: nowrap; }
+@media (max-width:520px){ .loc-tabs { grid-template-columns: 1fr; width: 100%; } }
+.loc-tab { appearance: none; cursor: pointer; border: 1px solid var(--border-default); background: var(--surface-card); border-radius: var(--radius-md); padding: 11px 20px; font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-body); display: inline-flex; align-items: center; gap: 8px; transition: all var(--dur-fast); }
+.loc-tab svg { width: 16px; height: 16px; }
+.loc-tab:hover { border-color: var(--border-strong); }
+.loc-tab--active { background: var(--orange-500); border-color: var(--orange-500); color: var(--neutral-950); }
+.loc-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: var(--space-12); align-items: stretch; }
+.loc-info h3 { font-size: var(--text-2xl); margin: var(--space-2) 0 var(--space-3); }
+.loc-contacts { list-style: none; margin: var(--space-6) 0 var(--space-8); padding: 0; display: grid; gap: var(--space-4); }
+.loc-contacts li { display: flex; align-items: center; gap: 12px; color: var(--text-body); font-weight: var(--fw-semibold); font-size: var(--text-base); }
+.loc-contacts a { color: var(--text-body); text-decoration: none; }
+.loc-contacts a:hover { color: var(--orange-700); }
+.loc-ci { width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--blue-50); color: var(--blue-600); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.loc-ci svg { width: 19px; height: 19px; }
+.map-placeholder { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-default); min-height: 360px; background: linear-gradient(var(--neutral-200) 1px, transparent 1px) 0 0 / 100% 44px, linear-gradient(90deg, var(--neutral-200) 1px, transparent 1px) 0 0 / 44px 100%, var(--neutral-100); }
+.map-road { position: absolute; background: var(--neutral-300); }
+.map-road--h { left: -5%; right: -5%; top: 58%; height: 16px; transform: rotate(-6deg); }
+.map-road--v { top: -5%; bottom: -5%; left: 38%; width: 13px; transform: rotate(4deg); }
+.map-road--d { left: 10%; right: -10%; top: 22%; height: 9px; transform: rotate(18deg); background: var(--blue-200); }
+.map-pin { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; z-index: 2; }
+.map-pin-dot { width: 30px; height: 30px; border-radius: 50% 50% 50% 0; background: var(--orange-500); transform: rotate(-45deg); border: 3px solid var(--white); box-shadow: var(--shadow-md); }
+.map-pin-label { transform: translateY(8px); background: var(--neutral-950); color: var(--white); font-size: var(--text-xs); font-weight: var(--fw-bold); padding: 4px 10px; border-radius: var(--radius-sm); white-space: nowrap; }
+.map-coords { position: absolute; left: var(--space-4); bottom: var(--space-4); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); background: rgba(254,254,254,0.9); padding: 5px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); z-index: 2; }
+.map-open { position: absolute; right: var(--space-4); top: var(--space-4); display: inline-flex; align-items: center; gap: 7px; background: var(--surface-card); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 8px 14px; font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-strong); text-decoration: none; box-shadow: var(--shadow-sm); z-index: 2; }
+.map-open:hover { border-color: var(--orange-500); text-decoration: none; }
+.map-open svg { width: 16px; height: 16px; color: var(--orange-600); }
+.loc-map { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-default); min-height: 380px; box-shadow: var(--shadow-sm); }
+.loc-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.18) contrast(1.02); }
+.loc-panel { display: none; }
+.loc-panel--active { display: block; }
+@media (max-width:980px){ .loc-grid { grid-template-columns: 1fr; } }
+
+/* ── CONTACT / CLOSING CTA ── */
+.close-section { position: relative; overflow: hidden; background: #1a4169; color: var(--white); }
+.close-section::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url('assets/photos/iStock-1321417982.jpg') center/cover no-repeat; }
+.close-section::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to right, #1a4169 0%, rgba(26,65,105,0.96) 30%, rgba(33,84,137,0.74) 62%, rgba(33,84,137,0.48) 100%); }
+.close-section > .container { position: relative; z-index: 1; }
+.close-section h2 { color: var(--white); }
+.close-section .section-head p { color: var(--blue-100); }
+.close-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-16); align-items: start; }
+.close-points { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.close-points li { display: flex; gap: 10px; align-items: flex-start; color: #eaf1f8; font-size: var(--text-base); font-weight: var(--fw-medium); }
+.close-points li svg { width: 19px; height: 19px; color: var(--orange-400); flex: none; margin-top: 2px; }
+.close-call { display: inline-flex; align-items: center; gap: 12px; margin-top: var(--space-8); padding: var(--space-4) var(--space-5); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-lg); text-decoration: none; }
+.close-call__ic { width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--orange-500); color: var(--neutral-950); display: inline-flex; align-items: center; justify-content: center; }
+.close-call__ic svg { width: 22px; height: 22px; }
+.close-call:hover { background: rgba(255,255,255,0.16); text-decoration: none; }
+.close-call__num { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--text-lg); color: var(--white); }
+.close-call__sub { font-size: var(--text-xs); color: var(--blue-100); }
+.contact-card { background: var(--surface-card); border-radius: var(--radius-xl); padding: var(--space-8); box-shadow: var(--shadow-xl); border-top: 3px solid var(--orange-500); }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: var(--text-sm); font-weight: var(--fw-bold); color: var(--text-strong); }
+.form-input { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border-default); border-radius: var(--radius-md); font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-body); background: var(--surface-card); transition: border-color var(--dur-fast); box-sizing: border-box; }
+.form-input:focus { outline: none; border-color: var(--blue-500); box-shadow: var(--ring); }
+textarea.form-input { resize: vertical; min-height: 88px; }
+.form-success { text-align: center; padding: var(--space-12) var(--space-4); display: none; }
+.form-success--visible { display: block; }
+.form-success svg { width: 48px; height: 48px; color: var(--green-700); margin-bottom: var(--space-4); }
+.form-success h3 { font-size: var(--text-lg); margin: 0 0 var(--space-2); }
+.form-success p { color: var(--text-muted); margin: 0 0 var(--space-6); }
+@media (max-width:980px){ .close-grid { grid-template-columns: 1fr; gap: var(--space-10); } .form-grid-2 { grid-template-columns: 1fr; } }
+
+/* ── FOOTER ── */
+.footer { background: var(--neutral-950); color: var(--neutral-300); }
+.footer__top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: var(--space-10); }
+.footer__logo-wrap { background: var(--white); padding: 12px 16px; border-radius: var(--radius-md); display: inline-block; margin-bottom: var(--space-5); }
+.footer__logo-wrap img { height: 54px; display: block; }
+.footer__about { font-size: var(--text-sm); line-height: var(--leading-normal); color: var(--neutral-400); max-width: 38ch; margin: 0 0 var(--space-5); }
+.footer__contactbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-5) var(--space-8); margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid rgba(255,255,255,0.1); }
+.footer__contact { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-8); }
+.footer__contact li { display: flex; align-items: center; gap: 10px; font-size: var(--text-sm); color: var(--neutral-300); }
+.footer__contact a { color: var(--neutral-300); text-decoration: none; }
+.footer__contact a:hover { color: var(--white); }
+.footer__contact svg { width: 18px; height: 18px; color: var(--orange-400); flex: none; }
+.footer__social { display: flex; align-items: center; gap: var(--space-3); }
+.footer__social a { width: 40px; height: 40px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.16); display: inline-flex; align-items: center; justify-content: center; color: var(--neutral-300); transition: color var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast); }
+.footer__social a:hover { color: var(--neutral-950); background: #F48D26; border-color: #F48D26; transform: translateY(-2px); }
+.footer__social svg { width: 18px; height: 18px; }
+.footer h4 { font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--neutral-500); font-weight: 700; margin: 0 0 var(--space-4); }
+.footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.footer__col a { color: var(--neutral-300); font-size: var(--text-sm); text-decoration: none; }
+.footer__col a:hover { color: var(--white); }
+.footer__certs { margin: var(--space-12) 0; padding: var(--space-10) 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer__certs-label { font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--neutral-500); font-weight: 700; margin-bottom: var(--space-6); display: block; }
+.footer__certs-main { display: flex; align-items: center; gap: var(--space-6); }
+.footer__cert-row { flex: 1 1 auto; display: flex; flex-wrap: nowrap; align-items: center; gap: var(--space-4); }
+.footer__cert { height: 72px; background: #fefefe; border-radius: var(--radius-md); display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; flex: none; }
+.footer__cert img { height: 100%; max-height: 50px; width: auto; object-fit: contain; }
+.footer__certs-rule { flex: none; width: 1px; align-self: stretch; min-height: 72px; margin: 0 var(--space-4); background: rgba(255,255,255,0.14); }
+.footer__certs-right { flex: none; display: flex; justify-content: flex-end; }
+@media (max-width:860px){ .footer__certs-main { flex-direction: column; align-items: stretch; gap: var(--space-8); } .footer__certs-rule { display: none; } .footer__cert-row { flex-wrap: wrap; justify-content: center; } .footer__certs-right { justify-content: center; } }
+.footer__legal { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); font-size: var(--text-xs); color: var(--neutral-500); }
+.footer__legal-links { display: inline-flex; gap: var(--space-4); align-items: center; }
+.footer__legal a { color: var(--neutral-400); }
+.footer__fbf { display: inline-flex; align-items: center; gap: 10px; color: #87aaa1; text-decoration: none; font-weight: var(--fw-semibold); font-size: var(--text-sm); }
+.footer__fbf:hover { color: #aecabf; text-decoration: none; }
+.footer__fbf img { height: 22px; width: auto; }
+@media (max-width:980px){ .footer__top { grid-template-columns: 1fr 1fr 1fr; } .footer__cert-row { flex-wrap: wrap; } }
+@media (max-width:720px){ .footer__top { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+<header id="siteHeader">
+  <div class="topstrip" aria-hidden="true"></div>
+  <nav class="mainnav">
+    <div class="mainnav__inner">
+      <a href="#top" class="mainnav__logo" aria-label="Safe Traffic Management home">
+        <img src="assets/logos/stm-logo-horizontal.png" alt="Safe Traffic Management">
+      </a>
+      <div class="mainnav__menu" id="mainMenu">
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="#services">Services <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Traffic Control Personnel</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Temporary Traffic Management</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Lane &amp; Shoulder Closures</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Pedestrian &amp; Cyclist Management</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Emergency Response</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Night Works</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Site Monitoring &amp; Compliance Reporting</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>VMS Board Hire</a>
+            <a href="#services" role="menuitem"><i data-lucide="chevron-right"></i>Permits &amp; Road Occupancy</a>
+          </div>
+        </div>
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="#compliance">Safety &amp; Compliance <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="#compliance" role="menuitem"><i data-lucide="chevron-right"></i>SWMS &amp; Risk Assessments</a>
+            <a href="#compliance" role="menuitem"><i data-lucide="chevron-right"></i>Compliance Standards</a>
+            <a href="#compliance" role="menuitem"><i data-lucide="chevron-right"></i>Drug &amp; Alcohol Management</a>
+          </div>
+        </div>
+        <div class="nav-item" data-dropdown>
+          <a class="nav-link" href="#industries">Industries <i data-lucide="chevron-down" class="caret"></i></a>
+          <div class="dropdown" role="menu">
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Civil Construction</a>
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Utilities</a>
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Government Projects</a>
+            <a href="#industries" role="menuitem"><i data-lucide="chevron-right"></i>Events &amp; Private Projects</a>
+          </div>
+        </div>
+        <div class="nav-item"><a class="nav-link" href="#capability">Capability</a></div>
+        <div class="nav-item"><a class="nav-link" href="#careers">Careers</a></div>
+        <div class="nav-item"><a class="nav-link" href="#contact">Contact</a></div>
+      </div>
+      <span class="mainnav__spacer"></span>
+      <div class="mainnav__actions">
+        <a class="nav-call" href="tel:1300786233"><i data-lucide="phone"></i>1300 786 233</a>
+        <a href="#contact" class="btn btn--primary btn--lg"><i data-lucide="hard-hat"></i>Request A Quote</a>
+        <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+          <i data-lucide="menu" id="burgerIcon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="sheet" id="mobileSheet">
+    <div class="sheet__group">
+      <a class="sheet__head" href="#services">Services</a>
+      <a class="sub" href="#services">Traffic Control Personnel</a>
+      <a class="sub" href="#services">Temporary Traffic Management</a>
+      <a class="sub" href="#services">Lane &amp; Shoulder Closures</a>
+      <a class="sub" href="#services">Emergency Response</a>
+      <a class="sub" href="#services">Night Works</a>
+    </div>
+    <div class="sheet__group">
+      <a class="sheet__head" href="#compliance">Safety &amp; Compliance</a>
+      <a class="sub" href="#compliance">SWMS &amp; Risk Assessments</a>
+      <a class="sub" href="#compliance">Compliance Standards</a>
+    </div>
+    <div class="sheet__group">
+      <a class="sheet__head" href="#industries">Industries</a>
+      <a class="sub" href="#industries">Civil Construction</a>
+      <a class="sub" href="#industries">Utilities</a>
+      <a class="sub" href="#industries">Government Projects</a>
+    </div>
+    <div class="sheet__group"><a class="sheet__head" href="#capability">Capability</a></div>
+    <div class="sheet__group"><a class="sheet__head" href="#careers">Careers</a></div>
+    <div class="sheet__group"><a class="sheet__head" href="#contact">Contact</a></div>
+    <a href="tel:1300786233" style="display:inline-flex;align-items:center;gap:8px;margin-top:var(--space-6);font-family:var(--font-display);font-weight:var(--fw-black);font-size:var(--text-md);color:var(--blue-700);text-decoration:none"><i data-lucide="phone"></i>1300 786 233</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ HERO ════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero__bg-img"></div>
+  <div class="hero__bg-overlay"></div>
+  <div class="hero__inner container">
+    <div class="hero__content">
+      <span class="kicker kicker--onDark">Safety-governed traffic management · Queensland</span>
+      <h1>Governed by <span class="hl">safety</span>. Proven by <span class="hl">compliance</span>.</h1>
+      <p class="hero__lead">Safe Traffic Management delivers qualified traffic crews, structured WHS systems and real-time compliance reporting, reducing risk and keeping government, infrastructure, utilities and construction projects moving.</p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary btn--lg"><i data-lucide="hard-hat"></i>Request A Quote</a>
+        <a href="tel:1300786233" class="btn btn--outline-white btn--lg"><i data-lucide="phone"></i>Call us</a>
+      </div>
+      <div class="hero__divider" aria-hidden="true"></div>
+      <div class="hero__trust">
+        <span class="hero__trust-item"><i data-lucide="shield-check"></i>$20M Public Liability cover</span>
+        <span class="hero__trust-item"><i data-lucide="file-check-2"></i>TMR Code of Practice</span>
+        <span class="hero__trust-item"><i data-lucide="badge-check"></i>RIISS-ticketed crews</span>
+        <span class="hero__trust-item"><i data-lucide="clock"></i>Available 24/7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA STRIP ════════════════════════════════════════════════════════════ -->
+<section class="ctastrip">
+  <div class="ctastrip__inner">
+    <div>
+      <p class="ctastrip__title">Need a compliant crew on site?</p>
+      <p class="ctastrip__sub">Planned works or emergency response, we mobilise across South East Queensland and Northern NSW.</p>
+    </div>
+    <div class="ctastrip__actions">
+      <a class="ctastrip__call" href="tel:1300786233"><i data-lucide="phone"></i>1300 786 233</a>
+      <a href="#services" class="btn btn--secondary btn--lg"><i data-lucide="arrow-right"></i>View Our Services</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ INTRO / WHAT IS TRAFFIC MANAGEMENT ═══════════════════════════════════ -->
+<section class="section intro-section">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-lead reveal">
+        <span class="kicker">What is traffic management?</span>
+        <h2 class="heading-lg">Keeping people <span class="hl">safe</span> while essential work gets done</h2>
+      </div>
+      <div class="intro-body reveal">
+        <p class="intro-body__lead">Whenever work happens on or near a road &mdash; laying utilities, repairing a carriageway, running an event or responding to an incident &mdash; the normal flow of vehicles, cyclists and pedestrians has to be controlled. <b>Traffic management</b> is the planning, signage and on-site control that keeps those road users, and the crews working among them, safe.</p>
+        <p class="intro-body__text">Safe Traffic Management plans and runs that control for you. We design compliant Traffic Management Plans, put qualified, ticketed controllers on the ground, and document every shift with real-time reporting &mdash; so government, civil, utilities and construction projects stay safe, compliant and moving.</p>
+      </div>
+    </div>
+    <div class="intro-points reveal">
+      <div class="intro-point">
+        <span class="intro-point__icon"><i data-lucide="clipboard-list"></i></span>
+        <div><b>We plan it</b><span>Traffic Management Plans, permits and risk assessments built to TMR and Austroads standards.</span></div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point__icon"><i data-lucide="traffic-cone"></i></span>
+        <div><b>We control it</b><span>Ticketed crews, signage and devices set up and run safely on live roads.</span></div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point__icon"><i data-lucide="footprints"></i></span>
+        <div><b>We protect people</b><span>Pedestrians, cyclists and motorists guided safely around active works.</span></div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point__icon"><i data-lucide="siren"></i></span>
+        <div><b>We respond fast</b><span>Crews and supervisors mobilised 24/7 for reactive and incident works.</span></div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point__icon"><i data-lucide="monitor-play"></i></span>
+        <div><b>We equip it</b><span>VMS boards, barriers and signage supplied, delivered and maintained.</span></div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point__icon"><i data-lucide="file-check-2"></i></span>
+        <div><b>We prove it</b><span>GPS-verified inspections and digital records, audit-ready every shift.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══════════════════════════════════════════════════════════════ -->
+<section class="section" id="services" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker">Traffic Management Services</span>
+        <h2>Everything a<br><span class="hl">compliant worksite</span> needs</h2>
+        <p>Safety-led traffic management across government, infrastructure, civil, utilities and maintenance works, delivered by qualified, ticketed crews.</p>
+      </div>
+      <a href="#services" class="btn btn--outline">View all services <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="svc-grid">
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="traffic-cone"></i></span>
+        <h3>Traffic control personnel</h3>
+        <p>RIISS-ticketed controllers and implementers, site-ready and verified before they reach your works.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="route"></i></span>
+        <h3>Temporary traffic management</h3>
+        <p>Compliant set-up, operation and removal of Traffic Management Plans on live carriageways.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="construction"></i></span>
+        <h3>Lane &amp; shoulder closures</h3>
+        <p>Safe, efficient access maintained around lane, shoulder and full road closures.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="footprints"></i></span>
+        <h3>Pedestrian &amp; cyclist management</h3>
+        <p>Protected movement and clear detours around active works for the public.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="siren"></i></span>
+        <h3>Emergency response</h3>
+        <p>Crews and supervisors mobilised 24/7 for reactive and incident traffic management.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="moon"></i></span>
+        <h3>Night works</h3>
+        <p>Lit, supervised night-works coverage delivered when the road is quietest.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="cctv"></i></span>
+        <h3>Site monitoring &amp; compliance reporting</h3>
+        <p>GPS-verified inspections, digital audit trails and end-of-shift client reporting.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="monitor-play"></i></span>
+        <h3>VMS board hire</h3>
+        <p>Variable message signs and electronic boards to inform and direct road users.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <span class="svc-card__icon"><i data-lucide="stamp"></i></span>
+        <h3>Permits &amp; road occupancy</h3>
+        <p>Road occupancy permits and approvals managed and lodged on your behalf.</p>
+        <span class="svc-card__more">View service <i data-lucide="arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ════════════════════════════════════════════════════════════════ -->
+<section class="stats-section section--tight">
+  <img class="stats-section__photo" src="assets/photos/iStock-1415387571.jpg" alt="">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <span class="stat-card__value" data-counter data-value="20" data-prefix="$" data-suffix="M">$20M</span>
+        <div class="stat-card__label">Public Liability cover</div>
+        <div class="stat-card__caption">Comprehensively insured for major projects</div>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__value" data-counter data-value="24" data-suffix="/7">24/7</span>
+        <div class="stat-card__label">Reactive response</div>
+        <div class="stat-card__caption">Crews available around the clock</div>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__value" data-counter data-value="200" data-suffix="+">200+</span>
+        <div class="stat-card__label">Qualified controllers</div>
+        <div class="stat-card__caption">Ticketed, screened and ready to deploy</div>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__value" data-counter data-value="15" data-suffix="+">15+</span>
+        <div class="stat-card__label">Years experience</div>
+        <div class="stat-card__caption">Safety-led traffic management expertise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ════════════════════════════════════════════════════════════════ -->
+<section class="section" id="about" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="about-grid" style="margin-top:0">
+      <div class="reveal">
+        <span class="kicker">Who we are</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">A safety and compliance <span class="hl">partner</span>, not just a traffic controller</h2>
+        <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal);margin-bottom:var(--space-2)">Safe Traffic Management is a Queensland traffic management provider built around safety, compliance and operational accountability. We combine qualified, ticketed crews with structured WHS systems, digital reporting and real-time compliance visibility, so government, utilities and major contractors can deliver complex, high-risk works with confidence.</p>
+        <div class="about-values">
+          <div class="about-value"><i data-lucide="check"></i><span><b>Safety first</b>Every decision made with risk control at the core.</span></div>
+          <div class="about-value"><i data-lucide="check"></i><span><b>Accountability</b>We own our work, our people and our outcomes.</span></div>
+          <div class="about-value"><i data-lucide="check"></i><span><b>Compliance excellence</b>Held to the highest regulatory standards.</span></div>
+          <div class="about-value"><i data-lucide="check"></i><span><b>Reliability</b>Consistent, professional delivery, on time.</span></div>
+        </div>
+      </div>
+      <div class="about-media reveal">
+        <img src="assets/photos/traffic-controllers-team-YRbcKPuVvSRiApanBtP4uT.webp" alt="Safe Traffic Management crew on site" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ USP ══════════════════════════════════════════════════════════════════ -->
+<section class="section usp-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker">Why choose us</span>
+        <h2>Why clients <span class="hl">trust</span><br>Safe Traffic Management</h2>
+        <p>Owned and operated by safety professionals, STM gives government, civil and utilities clients the accountability and visibility to keep projects safe, compliant and moving.</p>
+      </div>
+    </div>
+    <div class="usp-grid">
+      <div class="usp-card reveal">
+        <span class="usp-icon"><i data-lucide="shield-check"></i></span>
+        <h3>Safety-governed operations</h3>
+        <p>Every decision is made with safety and risk control at the core, overseen end to end by experienced safety professionals.</p>
+      </div>
+      <div class="usp-card reveal">
+        <span class="usp-icon"><i data-lucide="activity"></i></span>
+        <h3>Real-time compliance &amp; accountability</h3>
+        <p>GPS-verified inspections, digital reporting and corrective-action tracking give you live visibility and audit-ready records.</p>
+      </div>
+      <div class="usp-card reveal">
+        <span class="usp-icon"><i data-lucide="hard-hat"></i></span>
+        <h3>Qualified &amp; reliable personnel</h3>
+        <p>Ticketed, screened and inducted crews you can depend on to deliver consistently, professionally and on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SAFETY & COMPLIANCE ══════════════════════════════════════════════════ -->
+<section class="section" id="compliance" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker">Safety &amp; Compliance</span>
+        <h2>Real-time <span class="hl">compliance and<br>accountability</span>, every shift</h2>
+        <p>Structured WHS systems and traceable, audit-ready reporting underpin everything we do, from the first risk assessment to the end-of-shift report.</p>
+      </div>
+      <a href="#compliance" class="btn btn--outline">View all <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card svc-card--blue reveal">
+        <span class="svc-card__icon"><i data-lucide="clipboard-check"></i></span>
+        <h3>SWMS &amp; risk assessments</h3>
+        <p>Site-specific Safe Work Method Statements and risk assessments prepared for every engagement.</p>
+        <a href="#" class="textlink">Learn more <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="svc-card svc-card--blue reveal">
+        <span class="svc-card__icon"><i data-lucide="shield-check"></i></span>
+        <h3>Compliance standards</h3>
+        <p>Operating to MUTCD QLD, TMR Code of Practice, AS 1742, Austroads and the WHS Act (Qld).</p>
+        <a href="#" class="textlink">Learn more <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="svc-card svc-card--blue reveal">
+        <span class="svc-card__icon"><i data-lucide="flask-conical"></i></span>
+        <h3>Drug &amp; alcohol management</h3>
+        <p>Fitness-for-work, drug, alcohol and fatigue management built into our operating model.</p>
+        <a href="#" class="textlink">Learn more <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══════════════════════════════════════════════════════════ -->
+<section class="section tst-section" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker">What clients say</span>
+        <h2><span class="hl">Trusted</span> on site and on the record</h2>
+        <p>Feedback from the engineers, site managers and councils who rely on our crews and our reporting.</p>
+      </div>
+      <a href="#google-business-profile" class="google-badge" aria-label="Google Reviews — 5.0 stars, 76 reviews">
+        <img src="assets/photos/Google-Review-Logo.png" alt="Google Reviews" class="google-badge__logo">
+        <div class="google-badge__right">
+          <div class="google-badge__top">
+            <span class="google-badge__num">5.0</span>
+            <span class="google-badge__stars">★★★★★</span>
+          </div>
+          <span class="google-badge__count">76 Google reviews</span>
+        </div>
+      </a>
+    </div>
+    <div class="tst-grid">
+      <div class="tst-card reveal">
+        <span class="tst-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></span>
+        <p class="tst-quote">"STM's crews turned up ticketed, briefed and ready. The end-of-shift reports made our compliance reviews straightforward."</p>
+        <div class="tst-who">
+          <span class="tst-avatar">PE</span>
+          <span>
+            <div class="tst-name">Project Engineer</div>
+            <div class="tst-role">Civil contractor, Brisbane</div>
+          </span>
+        </div>
+      </div>
+      <div class="tst-card reveal">
+        <span class="tst-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></span>
+        <p class="tst-quote">"Reliable through a difficult night-works program. Their supervisors kept the site safe and the traffic moving."</p>
+        <div class="tst-who">
+          <span class="tst-avatar">SM</span>
+          <span>
+            <div class="tst-name">Site Manager</div>
+            <div class="tst-role">Infrastructure project, Gold Coast</div>
+          </span>
+        </div>
+      </div>
+      <div class="tst-card reveal">
+        <span class="tst-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></span>
+        <p class="tst-quote">"The real-time reporting and GPS-verified inspections gave us the visibility we needed for a council audit."</p>
+        <div class="tst-who">
+          <span class="tst-avatar">WC</span>
+          <span>
+            <div class="tst-name">Works Coordinator</div>
+            <div class="tst-role">Local council, Sunshine Coast</div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAREERS ══════════════════════════════════════════════════════════════ -->
+<section class="section" id="careers" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="about-grid" style="margin-top:0">
+      <div class="reveal">
+        <span class="kicker">Careers at STM</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">Build a career <span class="hl">on the tools</span>, backed by real support</h2>
+        <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal);margin-bottom:var(--space-2)">We recruit screened, ticketed traffic controllers and implementers who take safety seriously. If you want reliable work across South East Queensland and Northern NSW, structured induction and a team that backs its people, we want to hear from you.</p>
+        <div class="about-values">
+          <div class="about-value"><i data-lucide="check"></i><span><b>Ticketed roles</b>Traffic controller and implementer positions.</span></div>
+          <div class="about-value"><i data-lucide="check"></i><span><b>Ongoing work</b>Day, night and after-hours shifts available.</span></div>
+          <div class="about-value"><i data-lucide="check"></i><span><b>Real support</b>Structured induction and safety systems.</span></div>
+          <div class="about-value"><i data-lucide="check"></i><span><b>Career pathways</b>Develop towards supervisory and TMP roles.</span></div>
+        </div>
+        <a href="#contact" class="btn btn--primary">Explore careers <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="about-media reveal">
+        <img src="assets/photos/iStock-1038532394.jpg" alt="STM crew at work" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAPABILITY ════════════════════════════════════════════════════════════ -->
+<section class="section cap-section" id="capability">
+  <img class="cap__photo" src="assets/photos/iStock-1308371370.jpg" alt="">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker kicker--onDark">Capability</span>
+        <h2>Capability built for<br><span class="hl">government and industry</span></h2>
+        <p>We deliver two ways, for government, and for builders, utilities and contractors. See exactly how we operate, all in one place.</p>
+      </div>
+      <a href="#capability" class="btn btn--outline-white">View our capability <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card reveal">
+        <span class="cap-tag"><i data-lucide="landmark"></i>Government</span>
+        <h3>Transport &amp; Main Roads and councils</h3>
+        <p>Audit-ready delivery aligned to TMR and local government requirements.</p>
+        <ul class="cap-list">
+          <li><i data-lucide="check"></i>TMR Code of Practice</li>
+          <li><i data-lucide="check"></i>GPS-verified inspections</li>
+          <li><i data-lucide="check"></i>End-of-shift reporting</li>
+        </ul>
+      </div>
+      <div class="cap-card reveal">
+        <span class="cap-tag"><i data-lucide="building-2"></i>Non-government</span>
+        <h3>Builders, utilities and contractors</h3>
+        <p>Reliable crews and structured systems for civil, utilities and infrastructure works.</p>
+        <ul class="cap-list">
+          <li><i data-lucide="check"></i>$20M Public Liability</li>
+          <li><i data-lucide="check"></i>SWMS &amp; risk assessments</li>
+          <li><i data-lucide="check"></i>24/7 reactive response</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INDUSTRIES ════════════════════════════════════════════════════════════ -->
+<section class="section" id="industries" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker">Industries we support</span>
+        <h2>Trusted across Queensland's<br>most <span class="hl">regulated</span> work</h2>
+        <p>From major civil projects to live utilities and council works, we tailor our crews and systems to the sector.</p>
+      </div>
+      <a href="#industries" class="btn btn--outline">View all industries <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="ind-grid">
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="building-2"></i></span>
+        <h3>Civil construction</h3>
+        <p>Traffic control for roadworks, earthworks and major civil project delivery.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="zap"></i></span>
+        <h3>Utilities</h3>
+        <p>Safe access for water, power, gas and telecommunications works.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="landmark"></i></span>
+        <h3>Government projects</h3>
+        <p>Compliant, audit-ready delivery for TMR and local councils.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="#" class="ind-card reveal">
+        <span class="ind-icon"><i data-lucide="calendar-days"></i></span>
+        <h3>Events &amp; private projects</h3>
+        <p>Crowd, road and access management for events and private works.</p>
+        <span class="ind-more">Learn more <i data-lucide="arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="reveal">
+        <span class="kicker">FAQ</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">Questions, <span class="hl">answered</span></h2>
+        <p style="font-size:var(--text-md);color:rgba(255,255,255,0.80);line-height:var(--leading-normal);margin-bottom:var(--space-6)">The things clients ask most before engaging a traffic management partner. Need something specific to your site? Talk to our team.</p>
+        <a href="#contact" class="btn btn--primary"><i data-lucide="message-square"></i>Ask a question</a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item faq-item--open">
+          <button class="faq-q" aria-expanded="true">
+            <span>What areas do you service?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>We operate across South East Queensland, including Brisbane, the Gold Coast and the Sunshine Coast, as well as Northern New South Wales. Reach out about your site and we will confirm availability.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Are your traffic controllers qualified and ticketed?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>Yes. Every controller and implementer is screened, inducted and holds the relevant RIISS qualifications. We verify tickets and currency before crews reach your site.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Do you provide Traffic Management Plans?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>We implement, operate and remove Traffic Management Plans in line with MUTCD QLD, the TMR Code of Practice and AS 1742, and can coordinate plan preparation where required.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Can you respond to emergencies and after-hours works?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>Yes. We provide 24/7 reactive and emergency traffic management, including planned night and after-hours works with supervised, lit coverage.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How do you handle compliance and reporting?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>Inspections are GPS-verified and time-stamped, corrective actions are tracked to closure, and a report is issued at the end of each shift, keeping your project audit-ready by default.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What insurance do you carry?</span>
+            <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="faq-a"><p>We hold $20M Public Liability cover and maintain the WHS systems, SWMS and risk assessments expected on government, utilities and major-contractor projects.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOCATIONS ════════════════════════════════════════════════════════════ -->
+<section class="section" id="locations" style="background:var(--surface-page)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker">Locations</span>
+        <h2>Crews ready across <span class="hl">South East QLD &amp; Northern NSW</span></h2>
+        <p>Local teams, mobilised from four regional bases. Choose a location for contact details and coverage.</p>
+      </div>
+      <div class="loc-tabs">
+        <button class="loc-tab loc-tab--active" data-loc="0"><i data-lucide="map-pin"></i>Brisbane</button>
+        <button class="loc-tab" data-loc="1"><i data-lucide="map-pin"></i>Gold Coast</button>
+        <button class="loc-tab" data-loc="2"><i data-lucide="map-pin"></i>Sunshine Coast</button>
+        <button class="loc-tab" data-loc="3"><i data-lucide="map-pin"></i>Northern NSW</button>
+      </div>
+    </div>
+
+    <div class="loc-panel loc-panel--active" data-loc-panel="0">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <h3>Brisbane</h3>
+          <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)">Our central hub for South East Queensland, supporting civil, government and utilities works across the metro network.</p>
+          <ul class="loc-contacts">
+            <li><span class="loc-ci"><i data-lucide="phone"></i></span><a href="tel:1300786233">1300 786 233</a></li>
+            <li><span class="loc-ci"><i data-lucide="mail"></i></span><a href="mailto:brisbane@safetrafficmanagement.com.au">brisbane@safetrafficmanagement.com.au</a></li>
+            <li><span class="loc-ci"><i data-lucide="map-pin"></i></span>Brisbane, QLD 4000</li>
+          </ul>
+          <a href="#" class="textlink">View Brisbane page <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="loc-map">
+          <iframe title="Brisbane service area map" src="https://maps.google.com/maps?q=Brisbane%2C%20QLD&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="loc-panel" data-loc-panel="1">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <h3>Gold Coast</h3>
+          <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)">Crews servicing the M1 corridor, coastal works and events across the Gold Coast and Logan.</p>
+          <ul class="loc-contacts">
+            <li><span class="loc-ci"><i data-lucide="phone"></i></span><a href="tel:1300786233">1300 786 233</a></li>
+            <li><span class="loc-ci"><i data-lucide="mail"></i></span><a href="mailto:goldcoast@safetrafficmanagement.com.au">goldcoast@safetrafficmanagement.com.au</a></li>
+            <li><span class="loc-ci"><i data-lucide="map-pin"></i></span>Southport, QLD 4215</li>
+          </ul>
+          <a href="#" class="textlink">View Gold Coast page <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="loc-map">
+          <iframe title="Gold Coast service area map" src="https://maps.google.com/maps?q=Gold%20Coast%2C%20QLD&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="loc-panel" data-loc-panel="2">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <h3>Sunshine Coast</h3>
+          <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)">Coverage from Caboolture to Noosa for infrastructure, maintenance and council projects.</p>
+          <ul class="loc-contacts">
+            <li><span class="loc-ci"><i data-lucide="phone"></i></span><a href="tel:1300786233">1300 786 233</a></li>
+            <li><span class="loc-ci"><i data-lucide="mail"></i></span><a href="mailto:sunshinecoast@safetrafficmanagement.com.au">sunshinecoast@safetrafficmanagement.com.au</a></li>
+            <li><span class="loc-ci"><i data-lucide="map-pin"></i></span>Maroochydore, QLD 4558</li>
+          </ul>
+          <a href="#" class="textlink">View Sunshine Coast page <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="loc-map">
+          <iframe title="Sunshine Coast service area map" src="https://maps.google.com/maps?q=Sunshine%20Coast%2C%20QLD&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="loc-panel" data-loc-panel="3">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <h3>Northern NSW</h3>
+          <p style="font-size:var(--text-md);color:var(--text-muted);line-height:var(--leading-normal)">Cross-border support for the Tweed and Northern Rivers, working to NSW and QLD requirements.</p>
+          <ul class="loc-contacts">
+            <li><span class="loc-ci"><i data-lucide="phone"></i></span><a href="tel:1300786233">1300 786 233</a></li>
+            <li><span class="loc-ci"><i data-lucide="mail"></i></span><a href="mailto:nnsw@safetrafficmanagement.com.au">nnsw@safetrafficmanagement.com.au</a></li>
+            <li><span class="loc-ci"><i data-lucide="map-pin"></i></span>Tweed Heads, NSW 2485</li>
+          </ul>
+          <a href="#" class="textlink">View Northern NSW page <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="loc-map">
+          <iframe title="Northern NSW service area map" src="https://maps.google.com/maps?q=Tweed%20Heads%2C%20NSW&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ═══════════════════════════════════════════════════════════════ -->
+<section class="section close-section" id="contact">
+  <div class="container">
+    <div class="close-grid">
+      <div class="reveal">
+        <span class="kicker kicker--onDark">Request A Quote</span>
+        <h2 class="heading-lg" style="margin-top:var(--space-3)">Tell us about <span class="hl">your site</span></h2>
+        <p style="font-size:var(--text-md);color:var(--blue-100);line-height:var(--leading-normal);margin-bottom:var(--space-6)">Send your project details and a supervisor will respond within one business day with availability and a compliant approach.</p>
+        <ul class="close-points">
+          <li><i data-lucide="shield-check"></i>Owned and operated by experienced safety professionals</li>
+          <li><i data-lucide="shield-check"></i>Real-time compliance monitoring and visibility</li>
+          <li><i data-lucide="shield-check"></i>Reliable, ticketed crews backed by structured safety systems</li>
+          <li><i data-lucide="shield-check"></i>A supervisor responds within one business day</li>
+        </ul>
+        <a class="close-call" href="tel:1300786233">
+          <span class="close-call__ic"><i data-lucide="phone"></i></span>
+          <span>
+            <div class="close-call__num">1300 786 233</div>
+            <div class="close-call__sub">Call us 24/7 for emergency response</div>
+          </span>
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="contact-card">
+          <div id="formSuccess" class="form-success">
+            <i data-lucide="circle-check" style="display:block;margin:0 auto var(--space-4);color:var(--green-700);width:48px;height:48px"></i>
+            <h3>Request received</h3>
+            <p>A supervisor will be in touch within one business day.</p>
+            <button class="btn btn--outline" onclick="document.getElementById('formSuccess').classList.remove('form-success--visible');document.getElementById('contactForm').style.display='grid'">Send another</button>
+          </div>
+          <form id="contactForm" onsubmit="handleFormSubmit(event)" style="display:grid;gap:var(--space-4)">
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="fname">Contact name *</label>
+                <input class="form-input" id="fname" type="text" required placeholder="Jordan Lee">
+              </div>
+              <div class="form-field">
+                <label for="forg">Organisation</label>
+                <input class="form-input" id="forg" type="text" placeholder="Council / builder / utility">
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="femail">Email *</label>
+                <input class="form-input" id="femail" type="email" required placeholder="name@org.qld.gov.au">
+              </div>
+              <div class="form-field">
+                <label for="fphone">Phone</label>
+                <input class="form-input" id="fphone" type="tel" placeholder="07 0000 0000">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="fsite">Site / project *</label>
+              <input class="form-input" id="fsite" type="text" required placeholder="e.g. Bruce Hwy upgrade — Stage 2">
+            </div>
+            <div class="form-field">
+              <label for="fscope">Scope of works</label>
+              <textarea class="form-input" id="fscope" rows="3" placeholder="Lane closures, night works, duration, location…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--full"><i data-lucide="send"></i>Submit request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container" style="padding-top:var(--space-16);padding-bottom:var(--space-8)">
+    <div class="footer__top">
+      <div>
+        <span class="footer__logo-wrap"><img src="assets/logos/stm-logo-horizontal-tagline.png" alt="Safe Traffic Management"></span>
+        <p class="footer__about">Safety-governed traffic management across South East Queensland and Northern NSW. Owned and operated by safety professionals, with structured WHS systems and real-time accountability that keep your project safe and audit-ready.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Traffic control personnel</a></li>
+          <li><a href="#services">Temporary traffic management</a></li>
+          <li><a href="#services">Lane &amp; shoulder closures</a></li>
+          <li><a href="#services">Night works</a></li>
+          <li><a href="#services">Emergency response</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="#industries">Civil construction</a></li>
+          <li><a href="#industries">Utilities</a></li>
+          <li><a href="#industries">Government projects</a></li>
+          <li><a href="#industries">Events &amp; private projects</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="#locations">Brisbane</a></li>
+          <li><a href="#locations">Gold Coast</a></li>
+          <li><a href="#locations">Sunshine Coast</a></li>
+          <li><a href="#locations">Northern NSW</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#compliance">Safety &amp; compliance</a></li>
+          <li><a href="#capability">Capability</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__contactbar">
+      <ul class="footer__contact">
+        <li><i data-lucide="phone"></i><a href="tel:1300786233">1300 786 233</a></li>
+        <li><i data-lucide="mail"></i><a href="mailto:operations@safetrafficmanagement.com.au">operations@safetrafficmanagement.com.au</a></li>
+        <li><i data-lucide="map-pin"></i>South East Queensland &amp; Northern NSW</li>
+      </ul>
+      <div class="footer__social">
+        <a href="#" aria-label="Safe Traffic Management on LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="#" aria-label="Safe Traffic Management on Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" aria-label="Safe Traffic Management on Instagram"><i data-lucide="instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer__certs">
+      <span class="footer__certs-label">Certifications &amp; memberships</span>
+      <div class="footer__certs-main">
+        <div class="footer__cert-row">
+          <span class="footer__cert"><img src="assets/certs/qld-tmr.jpg" alt="Queensland Government — Transport and Main Roads"></span>
+          <span class="footer__cert"><img src="assets/certs/nationally-recognised-training.png" alt="Nationally Recognised Training"></span>
+          <span class="footer__cert"><img src="assets/certs/aqf.jpeg" alt="Australian Qualifications Framework"></span>
+          <span class="footer__cert"><img src="assets/certs/standards-australia.png" alt="Standards Australia"></span>
+        </div>
+        <span class="footer__certs-rule" aria-hidden="true"></span>
+        <div class="footer__certs-right">
+          <a href="#google-business-profile" class="google-badge" aria-label="Google Reviews — 5.0 stars, 76 reviews">
+            <img src="assets/photos/Google-Review-Logo.png" alt="Google Reviews" class="google-badge__logo">
+            <div class="google-badge__right">
+              <div class="google-badge__top">
+                <span class="google-badge__num">5.0</span>
+                <span class="google-badge__stars">★★★★★</span>
+              </div>
+              <span class="google-badge__count">76 Google reviews</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__legal">
+      <span>© 2026 Safe Traffic Management Pty Ltd</span>
+      <span class="footer__legal-links">
+        <a href="#">Privacy</a>
+        <a href="#">WHS policy</a>
+        <a href="#">Terms</a>
+        <a class="footer__fbf" href="https://www.fivebyfive.com.au" target="_blank" rel="noreferrer">
+          Design by Five by Five
+          <img src="assets/fivebyfive-icon-white.png" alt="Five by Five">
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ═══════════════════════════════════════════════════════════════ -->
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script>
+lucide.createIcons();
+
+/* ── Mobile menu ── */
+const burger = document.getElementById('burgerBtn');
+const sheet = document.getElementById('mobileSheet');
+const burgerIcon = document.getElementById('burgerIcon');
+let sheetOpen = false;
+
+burger.addEventListener('click', () => {
+  sheetOpen = !sheetOpen;
+  sheet.classList.toggle('sheet--open', sheetOpen);
+  burger.setAttribute('aria-expanded', sheetOpen);
+  burgerIcon.setAttribute('data-lucide', sheetOpen ? 'x' : 'menu');
+  lucide.createIcons({ nodes: [burgerIcon] });
+});
+
+sheet.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    sheetOpen = false;
+    sheet.classList.remove('sheet--open');
+    burger.setAttribute('aria-expanded', false);
+    burgerIcon.setAttribute('data-lucide', 'menu');
+    lucide.createIcons({ nodes: [burgerIcon] });
+  });
+});
+
+/* ── Desktop dropdowns ── */
+document.querySelectorAll('.nav-item[data-dropdown]').forEach(item => {
+  const link = item.querySelector('.nav-link');
+  const dd = item.querySelector('.dropdown');
+  item.addEventListener('mouseenter', () => {
+    dd.classList.add('dropdown--open');
+    link.classList.add('nav-link--open');
+  });
+  item.addEventListener('mouseleave', () => {
+    dd.classList.remove('dropdown--open');
+    link.classList.remove('nav-link--open');
+  });
+  dd.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    dd.classList.remove('dropdown--open');
+    link.classList.remove('nav-link--open');
+  }));
+});
+
+/* ── Location tabs ── */
+document.querySelectorAll('.loc-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const idx = btn.getAttribute('data-loc');
+    document.querySelectorAll('.loc-tab').forEach(b => b.classList.toggle('loc-tab--active', b === btn));
+    document.querySelectorAll('.loc-panel').forEach(p => {
+      p.classList.toggle('loc-panel--active', p.getAttribute('data-loc-panel') === idx);
+    });
+  });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('faq-item--open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('faq-item--open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', false);
+    });
+    if (!isOpen) {
+      item.classList.add('faq-item--open');
+      btn.setAttribute('aria-expanded', true);
+    }
+  });
+});
+
+/* ── Scroll reveal ── */
+const revealEls = document.querySelectorAll('.reveal');
+if (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  revealEls.forEach((el, i) => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.92) { el.classList.add('revealed'); }
+    else { io.observe(el); }
+  });
+} else {
+  revealEls.forEach(el => el.classList.add('revealed'));
+}
+
+/* ── Counter animation ── */
+const counters = document.querySelectorAll('[data-counter]');
+if (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const value = parseFloat(el.getAttribute('data-value'));
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1600;
+      const t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const n = Math.round(value * eased);
+        el.textContent = prefix + n.toLocaleString('en-AU') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + value.toLocaleString('en-AU') + suffix;
+      };
+      requestAnimationFrame(tick);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(el => cio.observe(el));
+}
+
+/* ── Header: transparent → solid on scroll ── */
+const siteHeader = document.getElementById('siteHeader');
+function updateHeader() {
+  siteHeader.classList.toggle('header--scrolled', window.scrollY > 60);
+}
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
+
+/* ── Form submit ── */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  e.target.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('form-success--visible');
+  lucide.createIcons();
+}
+</script>
+</body>
+</html>
